@@ -61,7 +61,7 @@ export default async function Footer() {
           </div>
 
           <div className="foot-col">
-            <h6>Index</h6>
+            <h6>Navigate</h6>
             <ul>
               <li>
                 <Link href="/">Home</Link>

@@ -14,7 +14,7 @@ export const CONTACT = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/", label: "Index" },
+  { href: "/", label: "Home" },
   { href: "/publications", label: "Publications" },
   { href: "/about", label: "About" },
 ] as const;
