@@ -1,13 +1,14 @@
 ---
 name: env-db-state
-description: Local .env has a real DATABASE_URL but a placeholder DIRECT_URL — affects Prisma migrations
+description: Neon setup uses a single pooled DATABASE_URL for both runtime and migrations; DIRECT_URL is optional
 metadata:
   type: project
 ---
 
-In `.env` (as of 2026-06-01), `DATABASE_URL` is a real Neon **pooled** connection, but `DIRECT_URL` is still the template placeholder (`HOST.REGION.aws.neon.tech`).
+`.env` has a real Neon **pooled** `DATABASE_URL` (host contains `-pooler`). It is used for **both** runtime queries (via the Neon driver adapter in `src/lib/db.ts`) **and** migrations/seed.
 
-**Why it matters:** `prisma.config.ts` points migrations at `DIRECT_URL ?? DATABASE_URL`, so `prisma migrate dev` / `migrate deploy` fail with P1001 until a real direct URL is set.
+**DIRECT_URL is optional and unset** (as of 2026-06-01). Modern Neon no longer exposes a separate direct/unpooled connection string, so the project runs `prisma migrate deploy` and `prisma db seed` over the pooled URL. `prisma.config.ts` and `prisma/seed.ts` use `DIRECT_URL ?? DATABASE_URL`, so leaving `DIRECT_URL` unset just falls back to the pooled URL.
 
-**How to apply:** Either set `DIRECT_URL` to the Neon **direct** (non-pooler) string, or run migrations over the pooled URL as a workaround:
-`DIRECT_URL="$(grep -E '^DATABASE_URL=' .env | cut -d= -f2- | tr -d '"')" npm run db:migrate` (then `npm run db:seed`). The init migration was applied this way and the DB is seeded.
+**Verified:** `npx prisma migrate status` connects over the pooler host and reports "Database schema is up to date!" The init migration is applied and the DB is seeded.
+
+**Pitfall (resolved):** earlier `.env` held a *non-empty placeholder* `DIRECT_URL` (`HOST.REGION.aws.neon.tech`), which defeated the `?? DATABASE_URL` fallback and caused P1001. That line was removed — don't re-add a placeholder; either leave `DIRECT_URL` unset or give it a real unpooled endpoint.

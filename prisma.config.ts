@@ -12,8 +12,9 @@ export default defineConfig({
     seed: "tsx prisma/seed.ts",
   },
   datasource: {
-    // Migrations run over the DIRECT (unpooled) connection; fall back to the
-    // pooled URL for local setups that only define one.
+    // Migrations run over the pooled DATABASE_URL by default (modern Neon has no
+    // separate direct URL). DIRECT_URL is an optional override for setups that
+    // still expose an unpooled endpoint and want migrations to bypass the pooler.
     url: process.env["DIRECT_URL"] ?? process.env["DATABASE_URL"],
   },
 });

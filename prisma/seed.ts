@@ -15,9 +15,10 @@ import { PrismaClient } from "../src/generated/prisma/client";
 dotenv.config({ path: ".env.local" });
 dotenv.config();
 
+// Pooled DATABASE_URL by default; DIRECT_URL is an optional unpooled override.
 const connectionString = process.env.DIRECT_URL ?? process.env.DATABASE_URL;
 if (!connectionString) {
-  throw new Error("DATABASE_URL (or DIRECT_URL) must be set to seed the database.");
+  throw new Error("DATABASE_URL must be set to seed the database.");
 }
 
 const adapter = new PrismaNeon({ connectionString });
