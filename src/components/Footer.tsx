@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CONTACT, WYVERN_URL } from "@/lib/site";
 import { getSiteSettings } from "@/lib/queries/content";
 import PaletteSwitcher from "@/components/PaletteSwitcher";
+import TypographySwitcher from "@/components/TypographySwitcher";
 
 function FacebookIcon() {
   return (
@@ -116,7 +117,10 @@ export default async function Footer() {
 
         <div className="foot-bot">
           <span>© 2026 Kevin Conru</span>
-          <PaletteSwitcher />
+          <div className="foot-controls">
+            <PaletteSwitcher />
+            <TypographySwitcher />
+          </div>
           <span>Brussels · By appointment</span>
         </div>
       </div>

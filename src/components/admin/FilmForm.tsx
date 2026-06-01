@@ -39,7 +39,7 @@ export default function FilmForm({
         <FieldError errors={fe?.title} />
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label className={labelCls}>Year</label>
           <input name="year" type="number" defaultValue={defaults.year ?? ""} className={inputCls} />

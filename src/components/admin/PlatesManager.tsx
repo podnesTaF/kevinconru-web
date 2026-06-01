@@ -76,8 +76,8 @@ export default function PlatesManager({
             <li key={id} className="px-4 py-3">
               <div className="flex items-center gap-3">
                 <div className="flex flex-col">
-                  <button type="button" onClick={() => move(i, -1)} disabled={i === 0} className="text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▲</button>
-                  <button type="button" onClick={() => move(i, 1)} disabled={i === order.length - 1} className="text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▼</button>
+                  <button type="button" onClick={() => move(i, -1)} disabled={i === 0} className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▲</button>
+                  <button type="button" onClick={() => move(i, 1)} disabled={i === order.length - 1} className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▼</button>
                 </div>
                 <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded border border-zinc-200 bg-zinc-100">
                   {p.image && <Image src={p.image.url} alt="" fill className="object-contain" sizes="48px" />}

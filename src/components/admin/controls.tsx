@@ -120,7 +120,7 @@ export function ReorderList({
               onClick={() => move(i, -1)}
               disabled={i === 0 || pending}
               aria-label="Move up"
-              className="text-zinc-400 hover:text-zinc-700 disabled:opacity-30"
+              className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30"
             >
               ▲
             </button>
@@ -129,7 +129,7 @@ export function ReorderList({
               onClick={() => move(i, 1)}
               disabled={i === order.length - 1 || pending}
               aria-label="Move down"
-              className="text-zinc-400 hover:text-zinc-700 disabled:opacity-30"
+              className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30"
             >
               ▼
             </button>

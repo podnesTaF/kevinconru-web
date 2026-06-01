@@ -56,8 +56,8 @@ export default function PublicationForm({
     <form action={formAction} className="max-w-2xl space-y-5">
       {mode === "edit" && defaults.id && <input type="hidden" name="id" value={defaults.id} />}
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="sm:col-span-2">
           <label className={labelCls}>Title</label>
           <input
             name="title"
@@ -85,7 +85,7 @@ export default function PublicationForm({
           <FieldError errors={fe?.slug} />
         </div>
 
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <label className={labelCls}>Subtitle</label>
           <input name="subtitle" defaultValue={defaults.subtitle ?? ""} className={inputCls} />
         </div>
@@ -101,7 +101,7 @@ export default function PublicationForm({
           <FieldError errors={fe?.pages} />
         </div>
 
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <label className={labelCls}>Publisher</label>
           <input name="publisher" defaultValue={defaults.publisher ?? ""} className={inputCls} />
         </div>
@@ -133,7 +133,7 @@ export default function PublicationForm({
         <FieldError errors={fe?.summary} />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className={labelCls}>Cover background (CSS)</label>
           <input

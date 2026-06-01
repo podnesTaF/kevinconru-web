@@ -62,11 +62,34 @@ html {
   --plate: #18171a; /* dramatic dark ground */
   --plate-grad: radial-gradient(120% 90% at 50% 40%, #3c3a38 0%, #18171a 70%);
 
-  /* fonts — editorial pair (locked). The --font-* vars come from next/font. */
-  --f-display: var(--font-instrument-serif), 'Newsreader', Georgia, serif;
+  /* fonts. --f-body / --f-mono are constant; --f-display + display metrics are
+     switched by the type pairing (TypographySwitcher → html[data-typepair]).
+     Default below = "modern". The --font-* vars come from next/font. */
   --f-body: var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --f-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --f-display: var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --display-tracking: -0.025em;
+  --display-weight: 400;
+}
+
+/* ───── Type pairing — Editorial (Instrument Serif display) ───── */
+html[data-typepair='editorial'] {
+  --f-display: var(--font-instrument-serif), 'Newsreader', Georgia, serif;
   --display-tracking: -0.012em;
+  --display-weight: 400;
+}
+
+/* ───── Type pairing — Modern (Geist sans throughout) ───── */
+html[data-typepair='modern'] {
+  --f-display: var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --display-tracking: -0.025em;
+  --display-weight: 400;
+}
+
+/* ───── Type pairing — Literary (Newsreader display, italic accents) ───── */
+html[data-typepair='literary'] {
+  --f-display: var(--font-newsreader), Georgia, serif;
+  --display-tracking: -0.018em;
   --display-weight: 400;
 }
 
@@ -452,6 +475,13 @@ html[data-palette='ink'] .nav-brand .mark {
     gap: 16px;
   }
 }
+.foot-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+}
 
 /* ───── Link with arrow ───── */
 .link-arrow {
@@ -512,6 +542,40 @@ html[data-palette='ink'] .nav-brand .mark {
     0 0 0 3px var(--terra);
 }
 
+/* ───── Typography switcher (footer) ───── */
+.type-switch {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.type-switch .lab {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.type-opt {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 3px 8px;
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+.type-opt:hover:not(.is-active) {
+  color: var(--fg);
+}
+.type-opt.is-active {
+  background: var(--fg);
+  color: var(--bg);
+}
+
 /* ───── Page transitions (transform-only reveal — never hides content) ───── */
 .page {
   animation: pageIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
@@ -553,10 +617,10 @@ html[data-palette='ink'] .nav-brand .mark {
   }
 }
 
-/* ───── utility ───── */
-.hidden {
-  display: none !important;
-}
+/* Note: the prototype's `.hidden { display:none !important }` utility was
+   intentionally dropped — it shadowed Tailwind's own `.hidden` and broke
+   responsive `hidden md:flex` toggles (e.g. the admin sidebar). Use Tailwind's
+   `hidden` utility or conditional rendering instead. */
 
 /* ═════════════════════════════════════════════════════════════════════════
    Page sections (ported from prototype styles.css) — hero, featured, about

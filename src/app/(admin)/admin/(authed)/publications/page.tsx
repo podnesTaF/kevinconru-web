@@ -17,11 +17,11 @@ export default async function PublicationsAdminPage() {
   const items = pubs.map((p) => ({
     id: p.id,
     content: (
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <div className="relative h-14 w-11 shrink-0 overflow-hidden rounded border border-zinc-200" style={{ background: p.coverBg ?? "#e5dfcf" }}>
           {p.coverImage && <Image src={p.coverImage.url} alt="" fill className="object-contain p-1" sizes="44px" />}
         </div>
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 basis-40">
           <Link href={`/admin/publications/${p.id}`} className="block truncate text-sm font-medium hover:underline">
             {p.title}
           </Link>
@@ -29,12 +29,14 @@ export default async function PublicationsAdminPage() {
             {p.year} · {REGION_LABEL[p.region]} · {KIND_LABEL[p.kind]}
           </div>
         </div>
-        <Toggle id={p.id} value={p.published} action={setPublished} labels={["Published", "Draft"]} />
-        <Toggle id={p.id} value={p.featured} action={setFeatured} labels={["Featured", "Not featured"]} />
-        <Link href={`/admin/publications/${p.id}`} className="text-xs font-medium text-zinc-700 hover:underline">
-          Edit
-        </Link>
-        <DeleteButton action={deletePublication.bind(null, p.id)} confirm={`Delete “${p.title}”?`} />
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <Toggle id={p.id} value={p.published} action={setPublished} labels={["Published", "Draft"]} />
+          <Toggle id={p.id} value={p.featured} action={setFeatured} labels={["Featured", "Not featured"]} />
+          <Link href={`/admin/publications/${p.id}`} className="text-xs font-medium text-zinc-700 hover:underline">
+            Edit
+          </Link>
+          <DeleteButton action={deletePublication.bind(null, p.id)} confirm={`Delete “${p.title}”?`} />
+        </div>
       </div>
     ),
   }));

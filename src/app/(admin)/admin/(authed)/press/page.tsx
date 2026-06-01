@@ -10,8 +10,8 @@ export default async function PressAdminPage() {
   const items = press.map((p) => ({
     id: p.id,
     content: (
-      <div className="flex items-center gap-4">
-        <div className="min-w-0 flex-1">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <div className="min-w-0 flex-1 basis-40">
           <Link href={`/admin/press/${p.id}`} className="block truncate text-sm font-medium hover:underline">
             {p.title}
           </Link>
@@ -20,11 +20,13 @@ export default async function PressAdminPage() {
             {p.file ? " · file" : p.url ? " · link" : ""}
           </div>
         </div>
-        <Toggle id={p.id} value={p.published} action={setPressPublished} labels={["Published", "Draft"]} />
-        <Link href={`/admin/press/${p.id}`} className="text-xs font-medium text-zinc-700 hover:underline">
-          Edit
-        </Link>
-        <DeleteButton action={deletePress.bind(null, p.id)} confirm={`Delete “${p.title}”?`} />
+        <div className="flex items-center gap-x-3">
+          <Toggle id={p.id} value={p.published} action={setPressPublished} labels={["Published", "Draft"]} />
+          <Link href={`/admin/press/${p.id}`} className="text-xs font-medium text-zinc-700 hover:underline">
+            Edit
+          </Link>
+          <DeleteButton action={deletePress.bind(null, p.id)} confirm={`Delete “${p.title}”?`} />
+        </div>
       </div>
     ),
   }));

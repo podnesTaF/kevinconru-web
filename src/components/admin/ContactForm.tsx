@@ -19,7 +19,7 @@ export default function ContactForm({ defaults }: { defaults: Defaults }) {
 
   return (
     <form action={formAction} className="max-w-xl space-y-5">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className={labelCls}>Telephone</label>
           <input name="tel" defaultValue={defaults.tel ?? ""} className={inputCls} />
@@ -40,7 +40,7 @@ export default function ContactForm({ defaults }: { defaults: Defaults }) {
           <input name="instagram" defaultValue={defaults.instagram ?? ""} className={inputCls} />
           <FieldError errors={fe?.instagram} />
         </div>
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <label className={labelCls}>City</label>
           <input name="city" defaultValue={defaults.city ?? ""} className={inputCls} />
         </div>

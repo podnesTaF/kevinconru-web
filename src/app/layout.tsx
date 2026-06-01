@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Geist, Instrument_Serif, JetBrains_Mono, Newsreader } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-// Editorial type pairing (locked). Each font is exposed as a CSS variable that
-// the token system in globals.css (`--f-display` / `--f-body` / `--f-mono`)
-// resolves against.
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
+// Fonts for all three switchable type pairings (see globals.css
+// `html[data-typepair]`): editorial = Instrument Serif, modern = Geist,
+// literary = Newsreader. Geist is also the body font; JetBrains Mono is for
+// metadata/eyebrows. Each is exposed as a CSS variable.
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
@@ -24,6 +17,26 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
+});
+
+// Non-default display fonts — not preloaded; they fetch on first switch to
+// the editorial / literary pairing (Geist + JetBrains Mono cover the default).
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  preload: false,
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -43,9 +56,9 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-// Restore the saved palette before first paint to avoid a flash of the default
-// (bone) theme. Kept tiny and inlined; mirrors PaletteSwitcher's storage key.
-const paletteRestoreScript = `(function(){try{var p=localStorage.getItem("palette");if(p==="bone"||p==="sage"||p==="ink"){document.documentElement.dataset.palette=p;}}catch(e){}})();`;
+// Restore saved palette + type pairing before first paint (no flash of the
+// defaults). Mirrors the PaletteSwitcher / TypographySwitcher storage keys.
+const themeRestoreScript = `(function(){try{var d=document.documentElement;var p=localStorage.getItem("palette");if(p==="bone"||p==="sage"||p==="ink")d.dataset.palette=p;var t=localStorage.getItem("typepair");if(t==="editorial"||t==="modern"||t==="literary")d.dataset.typepair=t;}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -56,11 +69,12 @@ export default function RootLayout({
     <html
       lang="en"
       data-palette="bone"
-      className={`${instrumentSerif.variable} ${geist.variable} ${jetBrainsMono.variable}`}
+      data-typepair="modern"
+      className={`${geist.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} ${newsreader.variable}`}
     >
       <body>
         <script
-          dangerouslySetInnerHTML={{ __html: paletteRestoreScript }}
+          dangerouslySetInnerHTML={{ __html: themeRestoreScript }}
         />
         {children}
       </body>

@@ -34,13 +34,13 @@ function AffForm({
   return (
     <form action={formAction} className="space-y-3 rounded-md border border-zinc-200 bg-zinc-50 p-4">
       {defaults?.id && <input type="hidden" name="id" value={defaults.id} />}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div>
           <label className={labelCls}>Role</label>
           <input name="role" defaultValue={defaults?.role ?? ""} placeholder="Member / Advisor / MA" className={inputCls} />
           <FieldError errors={fe?.role} />
         </div>
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <label className={labelCls}>Name</label>
           <input name="name" defaultValue={defaults?.name ?? ""} className={inputCls} />
           <FieldError errors={fe?.name} />
@@ -104,8 +104,8 @@ export default function AffiliationsManager({ items }: { items: Affiliation[] })
             <li key={id} className="px-4 py-3">
               <div className="flex items-center gap-3">
                 <div className="flex flex-col">
-                  <button type="button" onClick={() => move(i, -1)} disabled={i === 0} className="text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▲</button>
-                  <button type="button" onClick={() => move(i, 1)} disabled={i === order.length - 1} className="text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▼</button>
+                  <button type="button" onClick={() => move(i, -1)} disabled={i === 0} className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▲</button>
+                  <button type="button" onClick={() => move(i, 1)} disabled={i === order.length - 1} className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▼</button>
                 </div>
                 <div className="min-w-0 flex-1">
                   <span className="text-sm font-medium">{a.role}</span> <span className="text-sm text-zinc-600">{a.name}</span>

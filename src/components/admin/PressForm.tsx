@@ -36,8 +36,8 @@ export default function PressForm({
     <form action={formAction} className="max-w-2xl space-y-5">
       {mode === "edit" && defaults.id && <input type="hidden" name="id" value={defaults.id} />}
 
-      <div className="grid grid-cols-3 gap-4">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="sm:col-span-2">
           <label className={labelCls}>Outlet</label>
           <input name="outlet" defaultValue={defaults.outlet ?? ""} className={inputCls} />
           <FieldError errors={fe?.outlet} />
