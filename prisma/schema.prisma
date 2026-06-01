@@ -1,7 +1,9 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
+// Kevin Conru — data model. Everything the public site renders is here; the
+// admin CMS writes through the same tables. See planning/backend.md §1.2.
+//
+// Prisma 7 runs on a driver adapter at runtime (see src/lib/db.ts); the
+// datasource URL here is only used by the CLI for migrate/introspect, supplied
+// via prisma.config.ts (DIRECT_URL).
 
 generator client {
   provider = "prisma-client"
@@ -10,4 +12,185 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+// ─────────────────────────── Enums ───────────────────────────
+enum Region {
+  Africa
+  Oceania
+  Polynesia
+  Melanesia
+  AfricaAndOceania
+}
+
+enum PublicationKind {
+  Archive
+  Monograph
+  ExhibitionCatalogue
+}
+
+enum Role {
+  ADMIN
+}
+
+// ─────────────────────────── Content ───────────────────────────
+model Media {
+  id        String   @id @default(cuid())
+  key       String   @unique // GCS object path, e.g. "publications/abc.jpg"
+  url       String // public URL ({GCS_PUBLIC_URL_BASE}/{bucket}/{key})
+  mimeType  String
+  bytes     Int
+  width     Int?
+  height    Int?
+  alt       String?
+  createdAt DateTime @default(now())
+
+  coverFor    Publication[] @relation("PublicationCover")
+  plateImages Plate[]
+  pressFiles  PressItem[]
+}
+
+model Publication {
+  id           String          @id @default(cuid())
+  slug         String          @unique
+  title        String
+  subtitle     String?
+  year         Int
+  pages        Int?
+  publisher    String?
+  region       Region
+  kind         PublicationKind
+  summary      String // rich-text HTML
+  coverBg      String? // CSS gradient (fallback typographic cover)
+  coverFg      String?
+  coverImage   Media?          @relation("PublicationCover", fields: [coverImageId], references: [id])
+  coverImageId String?
+  featured     Boolean         @default(false)
+  published    Boolean         @default(true)
+  sortOrder    Int             @default(0)
+  plates       Plate[]
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([published, sortOrder])
+}
+
+model Plate {
+  id            String      @id @default(cuid())
+  publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  publicationId String
+  title         String
+  region        String?
+  dateText      String?
+  materials     String?
+  dimensions    String?
+  provenance    String?
+  caption       String? // rich text or plain
+  image         Media       @relation(fields: [imageId], references: [id])
+  imageId       String
+  sortOrder     Int         @default(0)
+
+  @@index([publicationId, sortOrder])
+}
+
+model Film {
+  id           String  @id @default(cuid())
+  title        String
+  year         Int
+  youtubeId    String? // null ⇒ "coming soon" poster
+  startSeconds Int?
+  intro        String // rich text
+  published    Boolean @default(true)
+  sortOrder    Int     @default(0)
+}
+
+model PressItem {
+  id        String  @id @default(cuid())
+  outlet    String
+  year      Int
+  title     String
+  url       String?
+  file      Media?  @relation(fields: [fileId], references: [id])
+  fileId    String?
+  published Boolean @default(true)
+  sortOrder Int     @default(0)
+}
+
+model TimelineEntry {
+  id          String @id @default(cuid())
+  year        String
+  event       String
+  description String // rich text
+  sortOrder   Int    @default(0)
+}
+
+model Affiliation {
+  id        String  @id @default(cuid())
+  role      String // "Member" | "Advisor" | "MA" …
+  name      String
+  url       String?
+  sortOrder Int     @default(0)
+}
+
+model SiteSettings {
+  id        String   @id @default("singleton") // enforce one row
+  bio       String // rich-text About body
+  roleLine  String // "Dealer · Curator · Publisher · Double bassist"
+  heroStats Json // [{num,label}]
+  marquee   Json // string[]
+  tel       String
+  telHref   String
+  email     String
+  facebook  String?
+  instagram String?
+  city      String?
+  updatedAt DateTime @updatedAt
+}
+
+// ─────────────────────────── NextAuth (Prisma adapter) ───────────────────────────
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?
+  role          Role      @default(ADMIN)
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
 }

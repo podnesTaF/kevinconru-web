@@ -1,0 +1,84 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
+import { NAV_LINKS } from "@/lib/site";
+
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  // Publications stays active on its detail routes too.
+  return pathname === href || pathname.startsWith(href + "/");
+}
+
+export default function Nav() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      <nav className={cn("nav", scrolled && "is-scrolled")}>
+        <Link className="nav-brand" href="/">
+          <span className="mark" aria-hidden="true" />
+          <span>CONRU</span>
+        </Link>
+
+        <div className="nav-links">
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={cn("nav-link", isActive(pathname, l.href) && "is-active")}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        <Link className="nav-cta" href="/about#contact">
+          Get in touch
+        </Link>
+
+        <button
+          className="nav-mobile-btn"
+          onClick={() => setMobileOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={mobileOpen}
+        >
+          <span />
+        </button>
+      </nav>
+
+      {mobileOpen && (
+        <div className="nav-mobile-sheet">
+          <button
+            className="nav-mobile-close"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={cn("nav-link", isActive(pathname, l.href) && "is-active")}
+              onClick={() => setMobileOpen(false)}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}

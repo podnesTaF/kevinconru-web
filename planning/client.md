@@ -34,10 +34,12 @@ Do **not** port the prototype's hash router / UMD / global-`window` structure �
 
 Resolve the bootstrap conflict (overview §3) before any component work.
 
-**Recommended: Tailwind v4, CSS-first.**
-1. Delete `tailwind.config.js` + `postcss.config.js`; keep `postcss.config.mjs` with
-   `@tailwindcss/postcss`. Remove `tailwindcss@3` + `autoprefixer` from deps.
-2. Rewrite `globals.css` to port the prototype's token system into `@theme` + base layers:
+**Recommended: Tailwind v3, config-based.**
+1. Keep `tailwind.config.js` + `postcss.config.js` (`tailwindcss` + `autoprefixer`); delete
+   `postcss.config.mjs`. Remove `@tailwindcss/postcss@4` from deps.
+2. Rewrite `globals.css`: replace the v4 `@import "tailwindcss"` (+ `@theme`) with the v3
+   `@tailwind base; @tailwind components; @tailwind utilities;` directives, then port the prototype's
+   token system into `tailwind.config.js` (`theme.extend`) + `@layer base`:
    - **Palettes via `[data-palette]`** on `<html>`: port the three token blocks from `styles.css`
      verbatim — `--bg, --bg-alt, --fg, --fg-soft, --muted, --rule, --rule-soft, --sage, --sage-deep,
      --terra, --terra-deep, --plate, --plate-grad`. `bone` is `:root` default.

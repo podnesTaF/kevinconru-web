@@ -1,0 +1,181 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { db } from "@/lib/db";
+import { sanitizeHtml } from "@/lib/sanitize";
+import { publicationSchema, plateSchema } from "@/lib/validation/schemas";
+import {
+  type ActionState,
+  requireAdmin,
+  fieldErrorsFrom,
+  str,
+  optStr,
+  optInt,
+  reqInt,
+  bool,
+} from "@/lib/actions/_shared";
+
+function revalidatePublic(slug?: string) {
+  revalidatePath("/");
+  revalidatePath("/publications");
+  if (slug) revalidatePath(`/publications/${slug}`);
+}
+
+function readPublication(formData: FormData) {
+  return {
+    title: str(formData.get("title")),
+    slug: str(formData.get("slug")),
+    subtitle: optStr(formData.get("subtitle")),
+    year: reqInt(formData.get("year")),
+    pages: optInt(formData.get("pages")),
+    publisher: optStr(formData.get("publisher")),
+    region: str(formData.get("region")),
+    kind: str(formData.get("kind")),
+    coverBg: optStr(formData.get("coverBg")),
+    coverFg: optStr(formData.get("coverFg")),
+    coverImageId: optStr(formData.get("coverImageId")),
+    featured: bool(formData.get("featured")),
+    published: bool(formData.get("published")),
+    summary: sanitizeHtml(str(formData.get("summary"))),
+  };
+}
+
+export async function createPublication(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  await requireAdmin();
+  const parsed = publicationSchema.safeParse(readPublication(formData));
+  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
+
+  const last = await db.publication.findFirst({ orderBy: { sortOrder: "desc" }, select: { sortOrder: true } });
+  try {
+    await db.publication.create({
+      data: { ...parsed.data, sortOrder: (last?.sortOrder ?? -1) + 1 },
+    });
+  } catch (e) {
+    if (isUniqueSlug(e)) return { ok: false, fieldErrors: { slug: ["Slug already in use"] } };
+    throw e;
+  }
+  revalidatePublic(parsed.data.slug);
+  redirect("/admin/publications");
+}
+
+export async function updatePublication(
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  await requireAdmin();
+  const id = str(formData.get("id"));
+  if (!id) return { ok: false, error: "Missing id" };
+
+  const parsed = publicationSchema.safeParse(readPublication(formData));
+  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
+
+  const before = await db.publication.findUnique({ where: { id }, select: { slug: true } });
+  try {
+    await db.publication.update({ where: { id }, data: parsed.data });
+  } catch (e) {
+    if (isUniqueSlug(e)) return { ok: false, fieldErrors: { slug: ["Slug already in use"] } };
+    throw e;
+  }
+  revalidatePublic(parsed.data.slug);
+  if (before && before.slug !== parsed.data.slug) revalidatePath(`/publications/${before.slug}`);
+  return { ok: true };
+}
+
+export async function deletePublication(id: string) {
+  await requireAdmin();
+  const pub = await db.publication.delete({ where: { id }, select: { slug: true } });
+  revalidatePublic(pub.slug);
+  redirect("/admin/publications");
+}
+
+export async function setPublished(id: string, value: boolean) {
+  await requireAdmin();
+  const pub = await db.publication.update({ where: { id }, data: { published: value }, select: { slug: true } });
+  revalidatePublic(pub.slug);
+}
+
+export async function setFeatured(id: string, value: boolean) {
+  await requireAdmin();
+  await db.publication.update({ where: { id }, data: { featured: value } });
+  revalidatePublic();
+}
+
+export async function reorderPublications(ids: string[]) {
+  await requireAdmin();
+  await db.$transaction(ids.map((id, i) => db.publication.update({ where: { id }, data: { sortOrder: i } })));
+  revalidatePublic();
+}
+
+// ── Plates ────────────────────────────────────────────────────────────────
+function readPlate(formData: FormData) {
+  const caption = optStr(formData.get("caption"));
+  return {
+    title: str(formData.get("title")),
+    region: optStr(formData.get("region")),
+    dateText: optStr(formData.get("dateText")),
+    materials: optStr(formData.get("materials")),
+    dimensions: optStr(formData.get("dimensions")),
+    provenance: optStr(formData.get("provenance")),
+    caption: caption === null ? null : sanitizeHtml(caption),
+    imageId: str(formData.get("imageId")),
+  };
+}
+
+export async function addPlate(_prev: ActionState, formData: FormData): Promise<ActionState> {
+  await requireAdmin();
+  const publicationId = str(formData.get("publicationId"));
+  if (!publicationId) return { ok: false, error: "Missing publication" };
+
+  const parsed = plateSchema.safeParse(readPlate(formData));
+  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
+
+  const last = await db.plate.findFirst({
+    where: { publicationId },
+    orderBy: { sortOrder: "desc" },
+    select: { sortOrder: true },
+  });
+  await db.plate.create({ data: { ...parsed.data, publicationId, sortOrder: (last?.sortOrder ?? -1) + 1 } });
+  await touchPublication(publicationId);
+  return { ok: true };
+}
+
+export async function updatePlate(_prev: ActionState, formData: FormData): Promise<ActionState> {
+  await requireAdmin();
+  const id = str(formData.get("id"));
+  if (!id) return { ok: false, error: "Missing id" };
+  const parsed = plateSchema.safeParse(readPlate(formData));
+  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
+  const plate = await db.plate.update({ where: { id }, data: parsed.data, select: { publicationId: true } });
+  await touchPublication(plate.publicationId);
+  return { ok: true };
+}
+
+export async function deletePlate(id: string) {
+  await requireAdmin();
+  const plate = await db.plate.delete({ where: { id }, select: { publicationId: true } });
+  await touchPublication(plate.publicationId);
+}
+
+export async function reorderPlates(publicationId: string, ids: string[]) {
+  await requireAdmin();
+  await db.$transaction(ids.map((id, i) => db.plate.update({ where: { id }, data: { sortOrder: i } })));
+  await touchPublication(publicationId);
+}
+
+async function touchPublication(publicationId: string) {
+  const pub = await db.publication.findUnique({ where: { id: publicationId }, select: { slug: true } });
+  revalidatePublic(pub?.slug);
+}
+
+function isUniqueSlug(e: unknown): boolean {
+  return (
+    typeof e === "object" &&
+    e !== null &&
+    "code" in e &&
+    (e as { code?: string }).code === "P2002"
+  );
+}
