@@ -14,9 +14,12 @@ export const storage = new Storage({
 
 export const bucket = storage.bucket(process.env.GCS_BUCKET_NAME!);
 
-/** Public URL for a stored object: {base}/{bucket}/{key}. */
-export const publicUrl = (key: string) =>
-  `${process.env.GCS_PUBLIC_URL_BASE}/${process.env.GCS_BUCKET_NAME}/${key}`;
+/**
+ * Public URL for a stored object — a same-origin `/media/<key>` path. A rewrite
+ * in next.config proxies `/media/*` to the GCS bucket, so links/images stay on
+ * the site's own domain instead of exposing storage.googleapis.com.
+ */
+export const publicUrl = (key: string) => `/media/${key}`;
 
 export type SignedUpload = {
   uploadUrl: string;

@@ -29,6 +29,7 @@ export default async function EditPublicationPage({ params }: { params: Promise<
     featured: pub.featured,
     published: pub.published,
     coverImage: pub.coverImage ? toMediaView(pub.coverImage) : null,
+    pdf: pub.pdf ? toMediaView(pub.pdf) : null,
   };
 
   const plates = pub.plates.map((pl) => ({

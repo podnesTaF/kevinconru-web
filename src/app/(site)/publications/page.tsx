@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getPublications } from "@/lib/queries/publications";
-import { isRegionFilter } from "@/lib/format";
-import PublicationCard from "@/components/PublicationCard";
-import RegionFilter from "@/components/RegionFilter";
+import PublicationsBrowser from "@/components/PublicationsBrowser";
 
 export const metadata: Metadata = {
   title: "Publications",
@@ -10,14 +8,12 @@ export const metadata: Metadata = {
     "Catalogues, monographs and archives published over four decades on the arts of Oceania and Sub-Saharan Africa.",
 };
 
-export default async function PublicationsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ region?: string }>;
-}) {
-  const { region } = await searchParams;
-  const filter = isRegionFilter(region) ? region : "All";
-  const pubs = await getPublications(filter);
+// Static route: the full published list is prerendered (so it's fully prefetched
+// and navigates instantly). Region filtering happens client-side in
+// PublicationsBrowser, so reading searchParams here — which would force dynamic
+// rendering — is intentionally avoided.
+export default async function PublicationsPage() {
+  const pubs = await getPublications();
 
   return (
     <main className="page">
@@ -30,13 +26,7 @@ export default async function PublicationsPage({
           </p>
         </header>
 
-        <RegionFilter active={filter} count={pubs.length} />
-
-        <div className="pubs-grid">
-          {pubs.map((pub, i) => (
-            <PublicationCard key={pub.id} pub={pub} index={i} />
-          ))}
-        </div>
+        <PublicationsBrowser pubs={pubs} />
       </div>
     </main>
   );

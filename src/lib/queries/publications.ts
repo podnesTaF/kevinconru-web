@@ -33,6 +33,7 @@ export const getPublicationBySlug = cache(async (slug: string) => {
     where: { slug, published: true },
     include: {
       coverImage: true,
+      pdf: true,
       plates: {
         orderBy: { sortOrder: "asc" },
         include: { image: true },

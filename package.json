@@ -10,7 +10,8 @@
     "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",
-    "db:seed": "prisma db seed"
+    "db:seed": "prisma db seed",
+    "import:wetransfer": "tsx scripts/import-wetransfer.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",

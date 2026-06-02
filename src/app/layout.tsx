@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Instrument_Serif, JetBrains_Mono, Newsreader } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -73,9 +74,12 @@ export default function RootLayout({
       className={`${geist.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} ${newsreader.variable}`}
     >
       <body>
-        <script
-          dangerouslySetInnerHTML={{ __html: themeRestoreScript }}
-        />
+        {/* Injected into the initial HTML and run before hydration (no flash of
+            the default palette/type pairing). Uses next/script rather than a raw
+            <script> so React 19 doesn't warn about non-executing script tags. */}
+        <Script id="theme-restore" strategy="beforeInteractive">
+          {themeRestoreScript}
+        </Script>
         {children}
       </body>
     </html>

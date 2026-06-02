@@ -36,15 +36,16 @@ export async function deleteMedia(id: string) {
   await requireAdmin();
   const media = await db.media.findUnique({
     where: { id },
-    include: { _count: { select: { coverFor: true, plateImages: true, pressFiles: true } } },
+    include: { _count: { select: { coverFor: true, pdfFor: true, plateImages: true, pressFiles: true } } },
   });
   if (!media) return { ok: false as const, error: "Not found" };
 
-  const { coverFor, plateImages, pressFiles } = media._count;
-  const refs = coverFor + plateImages + pressFiles;
+  const { coverFor, pdfFor, plateImages, pressFiles } = media._count;
+  const refs = coverFor + pdfFor + plateImages + pressFiles;
   if (refs > 0) {
     const where = [
       coverFor && `${coverFor} cover${coverFor > 1 ? "s" : ""}`,
+      pdfFor && `${pdfFor} publication PDF${pdfFor > 1 ? "s" : ""}`,
       plateImages && `${plateImages} plate${plateImages > 1 ? "s" : ""}`,
       pressFiles && `${pressFiles} press item${pressFiles > 1 ? "s" : ""}`,
     ]

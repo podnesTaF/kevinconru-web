@@ -10,7 +10,7 @@ export const adminListPublications = () =>
 export const adminGetPublication = (id: string) =>
   db.publication.findUnique({
     where: { id },
-    include: { coverImage: true, plates: { orderBy: { sortOrder: "asc" }, include: { image: true } } },
+    include: { coverImage: true, pdf: true, plates: { orderBy: { sortOrder: "asc" }, include: { image: true } } },
   });
 
 export const adminListFilms = () => db.film.findMany({ orderBy: { sortOrder: "asc" } });

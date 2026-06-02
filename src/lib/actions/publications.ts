@@ -35,6 +35,7 @@ function readPublication(formData: FormData) {
     coverBg: optStr(formData.get("coverBg")),
     coverFg: optStr(formData.get("coverFg")),
     coverImageId: optStr(formData.get("coverImageId")),
+    pdfId: optStr(formData.get("pdfId")),
     featured: bool(formData.get("featured")),
     published: bool(formData.get("published")),
     summary: sanitizeHtml(str(formData.get("summary"))),

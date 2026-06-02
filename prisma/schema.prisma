@@ -46,6 +46,7 @@ model Media {
   createdAt DateTime @default(now())
 
   coverFor    Publication[] @relation("PublicationCover")
+  pdfFor      Publication[] @relation("PublicationPdf")
   plateImages Plate[]
   pressFiles  PressItem[]
 }
@@ -65,6 +66,8 @@ model Publication {
   coverFg      String?
   coverImage   Media?          @relation("PublicationCover", fields: [coverImageId], references: [id])
   coverImageId String?
+  pdf          Media?          @relation("PublicationPdf", fields: [pdfId], references: [id])
+  pdfId        String?
   featured     Boolean         @default(false)
   published    Boolean         @default(true)
   sortOrder    Int             @default(0)

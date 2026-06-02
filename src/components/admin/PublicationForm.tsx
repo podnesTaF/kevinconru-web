@@ -27,6 +27,7 @@ type Defaults = {
   featured?: boolean;
   published?: boolean;
   coverImage?: MediaView | null;
+  pdf?: MediaView | null;
 };
 
 const slugify = (s: string) =>
@@ -150,6 +151,14 @@ export default function PublicationForm({
       </div>
 
       <MediaPicker name="coverImageId" label="Cover image (optional)" defaultMedia={defaults.coverImage ?? null} library={library} />
+
+      <MediaPicker
+        name="pdfId"
+        label="Book PDF (optional)"
+        defaultMedia={defaults.pdf ?? null}
+        library={library}
+        accept="application/pdf"
+      />
 
       <div className="flex gap-6">
         <label className="flex items-center gap-2 text-sm">

@@ -71,6 +71,12 @@ export default async function Footer() {
                 <Link href="/publications">Publications</Link>
               </li>
               <li>
+                <Link href="/films">Films</Link>
+              </li>
+              <li>
+                <Link href="/press">Press</Link>
+              </li>
+              <li>
                 <Link href="/about">About</Link>
               </li>
             </ul>

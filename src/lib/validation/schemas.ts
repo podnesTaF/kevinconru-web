@@ -24,6 +24,7 @@ export const publicationSchema = z.object({
   coverBg: z.string().nullable(),
   coverFg: z.string().nullable(),
   coverImageId: z.string().nullable(),
+  pdfId: z.string().nullable(),
   featured: z.boolean(),
   published: z.boolean(),
 });

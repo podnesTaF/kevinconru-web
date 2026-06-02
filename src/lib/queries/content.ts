@@ -10,7 +10,11 @@ export const getFilms = cache(async () =>
 );
 
 export const getPressItems = cache(async () =>
-  db.pressItem.findMany({ where: { published: true }, orderBy: { sortOrder: "asc" } }),
+  db.pressItem.findMany({
+    where: { published: true },
+    orderBy: { sortOrder: "asc" },
+    include: { file: true },
+  }),
 );
 
 export const getTimeline = cache(async () =>

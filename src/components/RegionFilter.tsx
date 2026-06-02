@@ -1,26 +1,20 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/cn";
 import { REGION_FILTERS, type RegionFilterValue } from "@/lib/format";
 
-// Region pills for the Publications index. Drives a shareable `?region=` URL;
-// the server re-queries on navigation (filtering stays authoritative server-side).
+// Region pills for the Publications index. Presentational — the parent owns the
+// active filter and handles selection (client-side filtering, see
+// PublicationsBrowser), so the page stays static and instant to navigate to.
 export default function RegionFilter({
   active,
   count,
+  onSelect,
 }: {
   active: RegionFilterValue;
   count: number;
+  onSelect: (r: RegionFilterValue) => void;
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const select = (r: RegionFilterValue) => {
-    const href = r === "All" ? pathname : `${pathname}?region=${r}`;
-    router.push(href, { scroll: false });
-  };
-
   return (
     <div className="pubs-toolbar">
       <span>
@@ -33,7 +27,7 @@ export default function RegionFilter({
             type="button"
             aria-pressed={active === r}
             className={cn("pubs-filter", active === r && "is-active")}
-            onClick={() => select(r)}
+            onClick={() => onSelect(r)}
           >
             {r}
           </button>

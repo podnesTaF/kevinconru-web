@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getSiteSettings } from "@/lib/queries/content";
-import { getFilms, getTimeline, getAffiliations } from "@/lib/queries/content";
+import { getTimeline, getAffiliations } from "@/lib/queries/content";
 import { CONTACT } from "@/lib/site";
 import RichText from "@/components/RichText";
-import FilmEmbed from "@/components/FilmEmbed";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,9 +17,8 @@ const FALLBACK_BIO =
 const stripHtml = (html: string) => html.replace(/<[^>]+>/g, "").trim();
 
 export default async function AboutPage() {
-  const [settings, films, timeline, affiliations] = await Promise.all([
+  const [settings, timeline, affiliations] = await Promise.all([
     getSiteSettings(),
-    getFilms(),
     getTimeline(),
     getAffiliations(),
   ]);
@@ -61,35 +59,6 @@ export default async function AboutPage() {
             <RichText html={bio} />
           </div>
         </section>
-
-        {/* Films */}
-        {films.length > 0 && (
-          <section style={{ marginTop: 90, paddingTop: 60, borderTop: "1px solid var(--rule-soft)" }}>
-            <div className="section-head" style={{ marginBottom: 40 }}>
-              <div>
-                <span className="eyebrow">Film</span>
-                <h2 className="display" style={{ fontSize: "clamp(32px,4.5vw,52px)", marginTop: 12 }}>
-                  Moving image
-                </h2>
-              </div>
-            </div>
-            <div className="films-grid">
-              {films.map((f) => (
-                <FilmEmbed
-                  key={f.id}
-                  film={{
-                    id: f.id,
-                    title: f.title,
-                    year: f.year,
-                    youtubeId: f.youtubeId,
-                    startSeconds: f.startSeconds,
-                    intro: f.intro,
-                  }}
-                />
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* Chronology */}
         {timeline.length > 0 && (

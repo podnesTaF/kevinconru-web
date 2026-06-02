@@ -139,7 +139,12 @@ export default async function PublicationDetailPage({
                 </span>
               </div>
             </div>
-            <div style={{ marginTop: 32 }}>
+            <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "20px 32px" }}>
+              {pub.pdf && (
+                <a className="link-arrow" href={pub.pdf.url} target="_blank" rel="noopener noreferrer">
+                  Read the book (PDF) <ArrowRight />
+                </a>
+              )}
               <a className="link-arrow" href={enquireHref}>
                 Enquire about this title <ArrowRight />
               </a>

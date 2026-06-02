@@ -37,7 +37,13 @@ export default function MediaPicker({
       <div className="flex items-center gap-3">
         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded border border-rule bg-bg-alt">
           {selected ? (
-            <Image src={selected.url} alt={selected.alt ?? ""} fill className="object-contain" sizes="64px" />
+            selected.mimeType.startsWith("image/") ? (
+              <Image src={selected.url} alt={selected.alt ?? ""} fill className="object-contain" sizes="64px" />
+            ) : (
+              <span className="flex h-full items-center justify-center px-1 text-center text-[9px] uppercase text-muted">
+                {selected.mimeType.split("/").pop()}
+              </span>
+            )
           ) : (
             <span className="flex h-full items-center justify-center text-[10px] text-muted">None</span>
           )}
@@ -88,7 +94,13 @@ export default function MediaPicker({
                   onClick={() => choose(m)}
                   className="relative aspect-square overflow-hidden rounded border border-rule bg-bg-alt hover:ring-2 hover:ring-terra"
                 >
-                  <Image src={m.url} alt={m.alt ?? ""} fill className="object-contain" sizes="120px" />
+                  {m.mimeType.startsWith("image/") ? (
+                    <Image src={m.url} alt={m.alt ?? ""} fill className="object-contain" sizes="120px" />
+                  ) : (
+                    <span className="flex h-full items-center justify-center px-1 text-center text-[10px] uppercase text-muted">
+                      {m.mimeType.split("/").pop()}
+                    </span>
+                  )}
                 </button>
               ))}
               {items.length === 0 && (
