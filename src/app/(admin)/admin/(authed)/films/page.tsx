@@ -15,13 +15,13 @@ export default async function FilmsAdminPage() {
           <Link href={`/admin/films/${f.id}`} className="block truncate text-sm font-medium hover:underline">
             {f.title}
           </Link>
-          <div className="truncate text-xs text-zinc-500">
+          <div className="truncate text-xs text-muted">
             {f.year} · {f.youtubeId ? `YouTube ${f.youtubeId}` : "Coming soon"}
           </div>
         </div>
         <div className="flex items-center gap-x-3">
           <Toggle id={f.id} value={f.published} action={setFilmPublished} labels={["Published", "Draft"]} />
-          <Link href={`/admin/films/${f.id}`} className="text-xs font-medium text-zinc-700 hover:underline">
+          <Link href={`/admin/films/${f.id}`} className="text-xs font-medium text-fg-soft hover:underline">
             Edit
           </Link>
           <DeleteButton action={deleteFilm.bind(null, f.id)} confirm={`Delete “${f.title}”?`} />
@@ -36,12 +36,12 @@ export default async function FilmsAdminPage() {
         title="Films"
         description="Drag to reorder."
         action={
-          <Link href="/admin/films/new" className="rounded-md bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800">
+          <Link href="/admin/films/new" className="rounded-md bg-fg px-3 py-2 text-sm font-medium text-bg hover:bg-terra">
             + New film
           </Link>
         }
       />
-      {items.length ? <ReorderList items={items} action={reorderFilms} /> : <p className="text-sm text-zinc-500">No films yet.</p>}
+      {items.length ? <ReorderList items={items} action={reorderFilms} /> : <p className="text-sm text-muted">No films yet.</p>}
     </div>
   );
 }

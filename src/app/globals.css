@@ -276,12 +276,14 @@ html[data-palette='ink'] body::before {
   color: var(--fg);
 }
 .nav-brand .mark {
-  width: 28px;
+  display: block;
+  flex-shrink: 0;
   height: 28px;
-  border-radius: 50%;
-  background-image: url('/seed/logo.jpg');
-  background-size: 220% auto;
-  background-position: 16% 50%;
+  aspect-ratio: 309 / 509;
+  background-image: url('/seed/logo-short.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   filter: saturate(0.6) contrast(1.05);
 }
 html[data-palette='ink'] .nav-brand .mark {

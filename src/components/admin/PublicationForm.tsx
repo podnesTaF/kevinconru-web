@@ -166,7 +166,7 @@ export default function PublicationForm({
 
       <div className="flex items-center gap-3">
         <SubmitButton>{mode === "create" ? "Create publication" : "Save changes"}</SubmitButton>
-        <Link href="/admin/publications" className="text-sm text-zinc-500 hover:underline">
+        <Link href="/admin/publications" className="text-sm text-muted hover:underline">
           Cancel
         </Link>
       </div>

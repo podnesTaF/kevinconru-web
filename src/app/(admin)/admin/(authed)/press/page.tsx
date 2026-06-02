@@ -15,14 +15,14 @@ export default async function PressAdminPage() {
           <Link href={`/admin/press/${p.id}`} className="block truncate text-sm font-medium hover:underline">
             {p.title}
           </Link>
-          <div className="truncate text-xs text-zinc-500">
+          <div className="truncate text-xs text-muted">
             {p.outlet} · {p.year}
             {p.file ? " · file" : p.url ? " · link" : ""}
           </div>
         </div>
         <div className="flex items-center gap-x-3">
           <Toggle id={p.id} value={p.published} action={setPressPublished} labels={["Published", "Draft"]} />
-          <Link href={`/admin/press/${p.id}`} className="text-xs font-medium text-zinc-700 hover:underline">
+          <Link href={`/admin/press/${p.id}`} className="text-xs font-medium text-fg-soft hover:underline">
             Edit
           </Link>
           <DeleteButton action={deletePress.bind(null, p.id)} confirm={`Delete “${p.title}”?`} />
@@ -37,12 +37,12 @@ export default async function PressAdminPage() {
         title="Press"
         description="Drag to reorder."
         action={
-          <Link href="/admin/press/new" className="rounded-md bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800">
+          <Link href="/admin/press/new" className="rounded-md bg-fg px-3 py-2 text-sm font-medium text-bg hover:bg-terra">
             + New press item
           </Link>
         }
       />
-      {items.length ? <ReorderList items={items} action={reorderPress} /> : <p className="text-sm text-zinc-500">No press items yet.</p>}
+      {items.length ? <ReorderList items={items} action={reorderPress} /> : <p className="text-sm text-muted">No press items yet.</p>}
     </div>
   );
 }

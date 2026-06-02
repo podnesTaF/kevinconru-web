@@ -68,7 +68,7 @@ export default function FilmForm({
       <FormMessage state={state} />
       <div className="flex items-center gap-3">
         <SubmitButton>{mode === "create" ? "Create film" : "Save changes"}</SubmitButton>
-        <Link href="/admin/films" className="text-sm text-zinc-500 hover:underline">
+        <Link href="/admin/films" className="text-sm text-muted hover:underline">
           Cancel
         </Link>
       </div>

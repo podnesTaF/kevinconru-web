@@ -32,7 +32,7 @@ function AffForm({
   }, [state, onDone]);
 
   return (
-    <form action={formAction} className="space-y-3 rounded-md border border-zinc-200 bg-zinc-50 p-4">
+    <form action={formAction} className="space-y-3 rounded-md border border-rule bg-bg p-4">
       {defaults?.id && <input type="hidden" name="id" value={defaults.id} />}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div>
@@ -54,7 +54,7 @@ function AffForm({
       <FormMessage state={state} />
       <div className="flex items-center gap-3">
         <SubmitButton>{submitLabel}</SubmitButton>
-        <button type="button" onClick={onDone} className="text-sm text-zinc-500 hover:underline">
+        <button type="button" onClick={onDone} className="text-sm text-muted hover:underline">
           Close
         </button>
       </div>
@@ -96,7 +96,7 @@ export default function AffiliationsManager({ items }: { items: Affiliation[] })
 
   return (
     <div className="max-w-2xl space-y-3">
-      <ul className="divide-y divide-zinc-200 rounded-md border border-zinc-200 bg-white">
+      <ul className="divide-y divide-rule rounded-md border border-rule bg-bg-alt">
         {order.map((id, i) => {
           const a = byId.get(id);
           if (!a) return null;
@@ -104,16 +104,16 @@ export default function AffiliationsManager({ items }: { items: Affiliation[] })
             <li key={id} className="px-4 py-3">
               <div className="flex items-center gap-3">
                 <div className="flex flex-col">
-                  <button type="button" onClick={() => move(i, -1)} disabled={i === 0} className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▲</button>
-                  <button type="button" onClick={() => move(i, 1)} disabled={i === order.length - 1} className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30">▼</button>
+                  <button type="button" onClick={() => move(i, -1)} disabled={i === 0} className="px-2 py-1 text-base leading-none text-muted hover:text-fg-soft disabled:opacity-30">▲</button>
+                  <button type="button" onClick={() => move(i, 1)} disabled={i === order.length - 1} className="px-2 py-1 text-base leading-none text-muted hover:text-fg-soft disabled:opacity-30">▼</button>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="text-sm font-medium">{a.role}</span> <span className="text-sm text-zinc-600">{a.name}</span>
+                  <span className="text-sm font-medium">{a.role}</span> <span className="text-sm text-fg-soft">{a.name}</span>
                 </div>
-                <button type="button" onClick={() => setEditing(editing === id ? null : id)} className="text-xs font-medium text-zinc-700 hover:underline">
+                <button type="button" onClick={() => setEditing(editing === id ? null : id)} className="text-xs font-medium text-fg-soft hover:underline">
                   {editing === id ? "Close" : "Edit"}
                 </button>
-                <button type="button" onClick={() => remove(id)} className="text-xs font-medium text-red-600 hover:text-red-700">
+                <button type="button" onClick={() => remove(id)} className="text-xs font-medium text-terra-deep hover:text-terra">
                   Delete
                 </button>
               </div>
@@ -125,13 +125,13 @@ export default function AffiliationsManager({ items }: { items: Affiliation[] })
             </li>
           );
         })}
-        {order.length === 0 && <li className="px-4 py-6 text-center text-sm text-zinc-400">No affiliations yet.</li>}
+        {order.length === 0 && <li className="px-4 py-6 text-center text-sm text-muted">No affiliations yet.</li>}
       </ul>
 
       {adding ? (
         <AffForm action={createAffiliation} onDone={done} submitLabel="Add affiliation" />
       ) : (
-        <button type="button" onClick={() => setAdding(true)} className="rounded-md border border-zinc-300 px-3 py-1.5 text-sm hover:bg-zinc-100">
+        <button type="button" onClick={() => setAdding(true)} className="rounded-md border border-rule px-3 py-1.5 text-sm hover:bg-bg-alt">
           + Add affiliation
         </button>
       )}

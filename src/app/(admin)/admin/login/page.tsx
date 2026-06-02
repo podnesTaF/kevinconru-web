@@ -11,7 +11,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <h1 className="mb-1 text-2xl font-semibold tracking-tight">Kevin Conru — Admin</h1>
-        <p className="mb-8 text-sm text-zinc-500">Sign in to manage site content.</p>
+        <p className="mb-8 text-sm text-muted">Sign in to manage site content.</p>
 
         <form action={formAction} className="space-y-4">
           <div>
@@ -24,7 +24,7 @@ export default function LoginPage() {
               type="email"
               autoComplete="username"
               required
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm outline-none focus:border-zinc-500"
+              className="w-full rounded-md border border-rule bg-bg-alt px-3 py-2 text-sm outline-none focus:border-terra"
             />
           </div>
           <div>
@@ -37,18 +37,20 @@ export default function LoginPage() {
               type="password"
               autoComplete="current-password"
               required
-              className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm outline-none focus:border-zinc-500"
+              className="w-full rounded-md border border-rule bg-bg-alt px-3 py-2 text-sm outline-none focus:border-terra"
             />
           </div>
 
           {state.error && (
-            <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{state.error}</p>
+            <p className="rounded-md border border-rule bg-bg-alt px-3 py-2 text-sm text-terra-deep">
+              {state.error}
+            </p>
           )}
 
           <button
             type="submit"
             disabled={pending}
-            className="w-full rounded-md bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-60"
+            className="w-full rounded-md bg-fg px-3 py-2 text-sm font-medium text-bg hover:bg-terra disabled:opacity-60"
           >
             {pending ? "Signing in…" : "Sign in"}
           </button>

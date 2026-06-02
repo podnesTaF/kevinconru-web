@@ -54,13 +54,13 @@ export default function AboutForm({
                 placeholder="Publications"
                 className={inputCls}
               />
-              <button type="button" onClick={() => setStats((p) => p.filter((_, j) => j !== i))} className="px-2 text-sm text-red-600">
+              <button type="button" onClick={() => setStats((p) => p.filter((_, j) => j !== i))} className="px-2 text-sm text-terra-deep">
                 ✕
               </button>
             </div>
           ))}
         </div>
-        <button type="button" onClick={() => setStats((p) => [...p, { num: "", label: "" }])} className="mt-2 text-sm text-zinc-700 hover:underline">
+        <button type="button" onClick={() => setStats((p) => [...p, { num: "", label: "" }])} className="mt-2 text-sm text-fg-soft hover:underline">
           + Add stat
         </button>
       </div>
@@ -75,13 +75,13 @@ export default function AboutForm({
                 onChange={(e) => setMarquee((p) => p.map((x, j) => (j === i ? e.target.value : x)))}
                 className={inputCls}
               />
-              <button type="button" onClick={() => setMarquee((p) => p.filter((_, j) => j !== i))} className="px-2 text-sm text-red-600">
+              <button type="button" onClick={() => setMarquee((p) => p.filter((_, j) => j !== i))} className="px-2 text-sm text-terra-deep">
                 ✕
               </button>
             </div>
           ))}
         </div>
-        <button type="button" onClick={() => setMarquee((p) => [...p, ""])} className="mt-2 text-sm text-zinc-700 hover:underline">
+        <button type="button" onClick={() => setMarquee((p) => [...p, ""])} className="mt-2 text-sm text-fg-soft hover:underline">
           + Add item
         </button>
       </div>

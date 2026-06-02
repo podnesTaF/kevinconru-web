@@ -23,7 +23,7 @@ function Btn({
       onClick={onClick}
       className={cn(
         "rounded px-2 py-1 text-xs font-medium",
-        active ? "bg-zinc-900 text-white" : "text-zinc-700 hover:bg-zinc-200",
+        active ? "bg-fg text-bg" : "text-fg-soft hover:bg-bg-alt",
       )}
     >
       {children}
@@ -44,7 +44,7 @@ function Toolbar({ editor }: { editor: Editor }) {
   };
 
   return (
-    <div className="flex flex-wrap gap-1 rounded-t-md border border-b-0 border-zinc-300 bg-zinc-100 px-2 py-1.5">
+    <div className="flex flex-wrap gap-1 rounded-t-md border border-b-0 border-rule bg-bg-alt px-2 py-1.5">
       <Btn onClick={() => editor.chain().focus().toggleBold().run()} active={editor.isActive("bold")}>
         B
       </Btn>
@@ -104,7 +104,7 @@ export default function RichTextEditor({
   return (
     <div>
       {label && <label className={labelCls}>{label}</label>}
-      <div className="rounded-md border border-zinc-300 bg-white">
+      <div className="rounded-md border border-rule bg-bg-alt">
         {editor && <Toolbar editor={editor} />}
         <EditorContent editor={editor} />
       </div>

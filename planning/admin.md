@@ -5,6 +5,10 @@ Press, the About bio, Chronology, Affiliations, Contact/Settings, and a Media li
 the same stack — Server Components for reads, **Server Actions** for writes (backend.md §5),
 **react-hook-form + zod** for forms, **TipTap** for rich text, **signed-URL** uploads to GCS.
 
+**The admin wears the same editorial skin as the public site** — same design tokens, fonts, palette,
+and shared components (see §2). It should feel like the back-of-house of the same publication, not a
+generic dashboard.
+
 > Read first: `01-getting-started/07-mutating-data.md`, `02-guides/forms.md`,
 > `02-guides/authentication.md`, `02-guides/data-security.md`.
 
@@ -18,11 +22,56 @@ the same stack — Server Components for reads, **Server Actions** for writes (b
   `ADMIN`, `redirect("/admin/login")`. Renders admin chrome (sidebar nav + sign-out + "view site").
   This layout check is the **authoritative** guard; `proxy.ts` adds a redirect at the edge.
 - Every Server Action re-checks `auth()` independently (actions are reachable as raw POSTs).
-- Admin chrome is plain, utilitarian Tailwind (not the editorial theme) — clarity over polish.
+- **Admin chrome uses the editorial design system** (§2) — bone paper ground, ink text, terracotta
+  accent, Instrument Serif headings — tuned for density and editing ergonomics rather than the
+  marketing-page drama.
 
 ---
 
-## 2. Information architecture
+## 2. Visual design — reuse the editorial system
+
+The admin is **not** a separate visual language. It inherits the same tokens, fonts, and primitives
+the public site builds in client.md §2, applied at a calmer, denser "workbench" scale.
+
+**Shared foundation (reused as-is):**
+- The same CSS-variable token system from `globals.css` / `tailwind.config.js` — `--bg, --bg-alt,
+  --fg, --fg-soft, --muted, --rule, --rule-soft, --terra, --sage, --plate`. No new color palette.
+- The same fonts: **Instrument Serif** for page/section titles, **Geist** for body + form controls,
+  **JetBrains Mono** for labels, eyebrows, table headers, counts, timestamps.
+- The same hairline-rule + bone-paper aesthetic: thin `--rule` borders, generous whitespace, square
+  corners (`borderRadius: 0/sm`), `--terra` as the single action accent.
+- **Palette**: the admin should default to and **lock to `bone`** for editing clarity (high contrast,
+  no surprises). The public `PaletteSwitcher` is not shown in admin chrome. (Optional: allow `ink`
+  as a personal "dark mode" for the admin only — nice-to-have, not required.)
+
+**Admin chrome:**
+- Left **sidebar** (or top bar on narrow screens): `CONRU` wordmark (mono/serif lockup) +
+  "Editor" eyebrow; nav links styled like the site nav (active = `--terra` underline); footer with
+  signed-in email, sign-out, and "View live site ↗".
+- Page header pattern per screen: mono eyebrow ("№ — Publications") + Instrument Serif `display`
+  title + primary action button — mirroring the site's `section-head`.
+
+**Editorial form primitives** (build once in `src/components/admin/ui/`, reuse everywhere):
+- `Field` (mono `--muted` uppercase label + Geist input, `--rule` underline/border, `--terra` focus
+  ring), `Textarea`, `Select` (enum dropdowns), `Toggle` (publish/featured), `NumberField`,
+  `RepeatableList` (stats/marquee/chronology rows), `ReorderList` (drag handle on `--rule` rows).
+- `Button` variants: primary (filled `--fg`/`--terra`), ghost (mono, `--rule` border pill — like
+  `.nav-cta`), destructive (terra-deep). `Card`/`Panel` with hairline borders for editor sections.
+- **`RichTextEditor`** (TipTap) styled to match the public **`RichText`** output, so what the editor
+  shows equals what renders. Reuse the site's `prose`/serif styling inside the editor surface.
+- Tables/lists use mono column headers + serif titles + the site's thumbnail treatment (object
+  photos on `--plate` ground, portraits grayscale) so admin previews read like the live cards.
+
+**Reused public components** (render the real thing, not a stand-in): `PubCover` (live cover
+preview in the Publications editor), `Lightbox` (plate preview), `FilmEmbed` poster (YouTube id
+preview), `RichText` (preview pane). This guarantees WYSIWYG parity with the site.
+
+> Net effect: forms, tables, and toggles are restyled with the editorial tokens; the *information
+> density* is higher than the marketing pages, but the *visual language is identical*.
+
+---
+
+## 3. Information architecture
 
 ```
 /admin                      Dashboard — counts + quick links + recent edits
@@ -41,7 +90,7 @@ the same stack — Server Components for reads, **Server Actions** for writes (b
 
 ---
 
-## 3. Forms — pattern
+## 4. Forms — pattern
 
 One consistent pattern for every entity:
 
@@ -62,7 +111,7 @@ press, chronology, affiliations.
 
 ---
 
-## 4. Media library + uploader (signed URL)
+## 5. Media library + uploader (signed URL)
 
 Central to the CMS — every image/PDF picker reuses it.
 
@@ -79,7 +128,7 @@ Central to the CMS — every image/PDF picker reuses it.
 
 ---
 
-## 5. Entity editors
+## 6. Entity editors
 
 ### Publications (`/admin/publications`)
 - **List**: cover thumb, title, year, region, kind, published/featured toggles, drag-reorder, edit, delete.
@@ -107,7 +156,7 @@ Central to the CMS — every image/PDF picker reuses it.
 
 ---
 
-## 6. UX & safety details
+## 7. UX & safety details
 
 - Confirm dialogs on destructive actions; "unsaved changes" guard on editors.
 - Slug uniqueness + friendly errors surfaced via `fieldErrors`.
@@ -118,9 +167,11 @@ Central to the CMS — every image/PDF picker reuses it.
 
 ---
 
-## 7. Admin build checklist
+## 8. Admin build checklist
 
-- [ ] `auth.ts` wired; `(admin)/admin/layout.tsx` guard; `login` page; `proxy.ts` redirect.
+- [ ] `auth.ts` wired; `(admin)/admin/layout.tsx` guard (editorial chrome); `login` page; `proxy.ts` redirect.
+- [ ] Editorial admin UI primitives in `components/admin/ui/` (Field/Select/Toggle/Button/ReorderList/
+      RichTextEditor) using the shared design tokens + fonts; locked to `bone`.
 - [ ] zod schemas per entity in `lib/validation`.
 - [ ] Server Actions per entity (auth + validate + revalidate) — backend.md §5.
 - [ ] `MediaUploader` + `MediaPicker` + `/admin/media` (signed-URL flow end-to-end).

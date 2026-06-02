@@ -14,10 +14,10 @@ export default async function AboutAdminPage() {
         description="Biography, role line, hero stats and the home marquee."
         action={
           <div className="flex gap-2 text-sm">
-            <Link href="/admin/about/chronology" className="rounded-md border border-zinc-300 px-3 py-2 hover:bg-zinc-100">
+            <Link href="/admin/about/chronology" className="rounded-md border border-rule px-3 py-2 hover:bg-bg-alt">
               Chronology
             </Link>
-            <Link href="/admin/about/affiliations" className="rounded-md border border-zinc-300 px-3 py-2 hover:bg-zinc-100">
+            <Link href="/admin/about/affiliations" className="rounded-md border border-rule px-3 py-2 hover:bg-bg-alt">
               Affiliations
             </Link>
           </div>

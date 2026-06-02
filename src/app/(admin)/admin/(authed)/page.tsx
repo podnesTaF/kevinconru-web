@@ -20,15 +20,15 @@ export default async function AdminDashboard() {
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {CARDS.map((c) => (
-          <div key={c.key} className="rounded-lg border border-zinc-200 bg-white p-5">
+          <div key={c.key} className="rounded-lg border border-rule bg-bg-alt p-5">
             <div className="text-3xl font-semibold tabular-nums">{counts[c.key]}</div>
-            <div className="mt-1 text-sm text-zinc-500">{c.label}</div>
+            <div className="mt-1 text-sm text-muted">{c.label}</div>
             <div className="mt-4 flex gap-3 text-sm">
-              <Link href={c.href} className="font-medium text-zinc-900 hover:underline">
+              <Link href={c.href} className="font-medium text-fg hover:underline">
                 Manage
               </Link>
               {c.live && (
-                <Link href={c.live} target="_blank" className="text-zinc-500 hover:underline">
+                <Link href={c.live} target="_blank" className="text-muted hover:underline">
                   View live ↗
                 </Link>
               )}
@@ -37,22 +37,22 @@ export default async function AdminDashboard() {
         ))}
       </div>
 
-      <div className="mt-8 rounded-lg border border-zinc-200 bg-white p-5">
+      <div className="mt-8 rounded-lg border border-rule bg-bg-alt p-5">
         <h2 className="text-sm font-semibold">Quick edit</h2>
         <div className="mt-3 flex flex-wrap gap-2 text-sm">
-          <Link href="/admin/publications/new" className="rounded-md bg-zinc-900 px-3 py-1.5 text-white hover:bg-zinc-800">
+          <Link href="/admin/publications/new" className="rounded-md bg-fg px-3 py-1.5 text-bg hover:bg-terra">
             + New publication
           </Link>
-          <Link href="/admin/films/new" className="rounded-md border border-zinc-300 px-3 py-1.5 hover:bg-zinc-100">
+          <Link href="/admin/films/new" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
             + New film
           </Link>
-          <Link href="/admin/press/new" className="rounded-md border border-zinc-300 px-3 py-1.5 hover:bg-zinc-100">
+          <Link href="/admin/press/new" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
             + New press item
           </Link>
-          <Link href="/admin/about" className="rounded-md border border-zinc-300 px-3 py-1.5 hover:bg-zinc-100">
+          <Link href="/admin/about" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
             Edit bio
           </Link>
-          <Link href="/admin/settings" className="rounded-md border border-zinc-300 px-3 py-1.5 hover:bg-zinc-100">
+          <Link href="/admin/settings" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
             Edit contact
           </Link>
         </div>

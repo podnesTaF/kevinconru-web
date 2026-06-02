@@ -14,17 +14,17 @@ function MediaCard({ media, onDeleted }: { media: MediaView; onDeleted: (id: str
   const isImage = media.mimeType.startsWith("image/");
 
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-3">
-      <div className="relative mb-3 aspect-square overflow-hidden rounded bg-zinc-100">
+    <div className="rounded-lg border border-rule bg-bg-alt p-3">
+      <div className="relative mb-3 aspect-square overflow-hidden rounded bg-bg-alt">
         {isImage ? (
           <Image src={media.url} alt={media.alt ?? ""} fill className="object-contain" sizes="200px" />
         ) : (
-          <span className="flex h-full items-center justify-center text-xs text-zinc-500">
+          <span className="flex h-full items-center justify-center text-xs text-muted">
             {media.mimeType}
           </span>
         )}
       </div>
-      <div className="mb-2 text-xs text-zinc-500">
+      <div className="mb-2 text-xs text-muted">
         {media.width && media.height ? `${media.width}×${media.height} · ` : ""}
         {(media.bytes / 1024).toFixed(0)} KB
       </div>
@@ -38,7 +38,7 @@ function MediaCard({ media, onDeleted }: { media: MediaView; onDeleted: (id: str
         <button
           type="button"
           onClick={() => start(() => updateAlt(media.id, alt))}
-          className="rounded-md bg-zinc-900 px-2 text-xs text-white hover:bg-zinc-800"
+          className="rounded-md bg-fg px-2 text-xs text-bg hover:bg-terra"
         >
           Save
         </button>
@@ -51,7 +51,7 @@ function MediaCard({ media, onDeleted }: { media: MediaView; onDeleted: (id: str
             setCopied(true);
             setTimeout(() => setCopied(false), 1200);
           }}
-          className="text-zinc-600 hover:underline"
+          className="text-fg-soft hover:underline"
         >
           {copied ? "Copied!" : "Copy URL"}
         </button>
@@ -64,7 +64,7 @@ function MediaCard({ media, onDeleted }: { media: MediaView; onDeleted: (id: str
               else onDeleted(media.id);
             })
           }
-          className="text-red-600 hover:text-red-700"
+          className="text-terra-deep hover:text-terra"
         >
           Delete
         </button>
@@ -78,7 +78,7 @@ export default function MediaLibrary({ initial }: { initial: MediaView[] }) {
 
   return (
     <div className="space-y-6">
-      <div className="max-w-md rounded-lg border border-zinc-200 bg-white p-4">
+      <div className="max-w-md rounded-lg border border-rule bg-bg-alt p-4">
         <h2 className="mb-2 text-sm font-semibold">Upload</h2>
         <MediaUploader
           accept="image/*,application/pdf"
@@ -93,7 +93,7 @@ export default function MediaLibrary({ initial }: { initial: MediaView[] }) {
           ))}
         </div>
       ) : (
-        <p className="text-sm text-zinc-500">No media yet.</p>
+        <p className="text-sm text-muted">No media yet.</p>
       )}
     </div>
   );

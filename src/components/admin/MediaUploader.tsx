@@ -84,10 +84,10 @@ export default function MediaUploader({
           const f = e.target.files?.[0];
           if (f) handle(f);
         }}
-        className="block w-full text-sm text-zinc-600 file:mr-3 file:rounded-md file:border-0 file:bg-zinc-900 file:px-3 file:py-2 file:text-sm file:font-medium file:text-white hover:file:bg-zinc-800"
+        className="block w-full text-sm text-fg-soft file:mr-3 file:rounded-md file:border-0 file:bg-fg file:px-3 file:py-2 file:text-sm file:font-medium file:text-bg hover:file:bg-terra"
       />
-      {busy && <p className="mt-2 text-xs text-zinc-500">Uploading…</p>}
-      {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
+      {busy && <p className="mt-2 text-xs text-muted">Uploading…</p>}
+      {error && <p className="mt-2 text-xs text-terra-deep">{error}</p>}
     </div>
   );
 }

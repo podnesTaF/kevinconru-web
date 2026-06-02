@@ -41,10 +41,10 @@ export function Toggle({
       aria-pressed={on}
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium",
-        on ? "bg-green-100 text-green-800" : "bg-zinc-100 text-zinc-500",
+        on ? "bg-sage-deep text-bg" : "bg-bg-alt text-muted",
       )}
     >
-      <span className={cn("h-1.5 w-1.5 rounded-full", on ? "bg-green-600" : "bg-zinc-400")} />
+      <span className={cn("h-1.5 w-1.5 rounded-full", on ? "bg-bg" : "bg-muted")} />
       {on ? labels[0] : labels[1]}
     </button>
   );
@@ -76,7 +76,7 @@ export function DeleteButton({
           router.refresh();
         });
       }}
-      className={cn("text-xs font-medium text-red-600 hover:text-red-700 disabled:opacity-50", className)}
+      className={cn("text-xs font-medium text-terra-deep hover:text-terra disabled:opacity-50", className)}
     >
       {pending ? "…" : label}
     </button>
@@ -111,7 +111,7 @@ export function ReorderList({
   };
 
   return (
-    <ul className="divide-y divide-zinc-200 rounded-md border border-zinc-200 bg-white">
+    <ul className="divide-y divide-rule rounded-md border border-rule bg-bg-alt">
       {order.map((id, i) => (
         <li key={id} className="flex items-center gap-3 px-4 py-3">
           <div className="flex flex-col">
@@ -120,7 +120,7 @@ export function ReorderList({
               onClick={() => move(i, -1)}
               disabled={i === 0 || pending}
               aria-label="Move up"
-              className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30"
+              className="px-2 py-1 text-base leading-none text-muted hover:text-fg-soft disabled:opacity-30"
             >
               ▲
             </button>
@@ -129,7 +129,7 @@ export function ReorderList({
               onClick={() => move(i, 1)}
               disabled={i === order.length - 1 || pending}
               aria-label="Move down"
-              className="px-2 py-1 text-base leading-none text-zinc-400 hover:text-zinc-700 disabled:opacity-30"
+              className="px-2 py-1 text-base leading-none text-muted hover:text-fg-soft disabled:opacity-30"
             >
               ▼
             </button>

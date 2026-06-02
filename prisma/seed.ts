@@ -45,10 +45,11 @@ const KIND = {
 // ─────────────────────────── Seed media ───────────────────────────
 // First run points `url` at the bundled /seed assets; migrate to GCS later.
 const SEED_ASSETS = [
-  { file: "logo.jpg", alt: "Kevin Conru — logo" },
-  { file: "portrait.jpg", alt: "Portrait of Kevin Conru" },
-  { file: "object-mask.jpg", alt: "Mask, Lower Sepik, New Guinea" },
-  { file: "object-headdress.jpg", alt: "Headdress, Ramu River, New Guinea" },
+  { file: "logo-short.png", alt: "Kevin Conru — logo", mimeType: "image/png" },
+  { file: "logo.jpg", alt: "Kevin Conru — logo (full)", mimeType: "image/jpeg" },
+  { file: "portrait.jpg", alt: "Portrait of Kevin Conru", mimeType: "image/jpeg" },
+  { file: "object-mask.jpg", alt: "Mask, Lower Sepik, New Guinea", mimeType: "image/jpeg" },
+  { file: "object-headdress.jpg", alt: "Headdress, Ramu River, New Guinea", mimeType: "image/jpeg" },
 ] as const;
 
 const keyForAsset = (assetPath: string) => `seed/${assetPath.split("/").pop()}`;
@@ -325,8 +326,8 @@ async function main() {
     }
     const media = await db.media.upsert({
       where: { key },
-      update: { url: `/seed/${asset.file}`, mimeType: "image/jpeg", bytes, alt: asset.alt },
-      create: { key, url: `/seed/${asset.file}`, mimeType: "image/jpeg", bytes, alt: asset.alt },
+      update: { url: `/seed/${asset.file}`, mimeType: asset.mimeType, bytes, alt: asset.alt },
+      create: { key, url: `/seed/${asset.file}`, mimeType: asset.mimeType, bytes, alt: asset.alt },
     });
     mediaByKey.set(key, media.id);
   }

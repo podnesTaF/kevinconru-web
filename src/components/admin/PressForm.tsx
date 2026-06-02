@@ -77,7 +77,7 @@ export default function PressForm({
       <FormMessage state={state} />
       <div className="flex items-center gap-3">
         <SubmitButton>{mode === "create" ? "Create press item" : "Save changes"}</SubmitButton>
-        <Link href="/admin/press" className="text-sm text-zinc-500 hover:underline">
+        <Link href="/admin/press" className="text-sm text-muted hover:underline">
           Cancel
         </Link>
       </div>

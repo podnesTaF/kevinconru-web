@@ -42,7 +42,7 @@ export default function PlateForm({
   }, [state, onDone]);
 
   return (
-    <form action={formAction} className="space-y-3 rounded-md border border-zinc-200 bg-zinc-50 p-4">
+    <form action={formAction} className="space-y-3 rounded-md border border-rule bg-bg p-4">
       {defaults.id && <input type="hidden" name="id" value={defaults.id} />}
       <input type="hidden" name="publicationId" value={publicationId} />
 
@@ -86,7 +86,7 @@ export default function PlateForm({
       <FormMessage state={state} />
       <div className="flex items-center gap-3">
         <SubmitButton>{submitLabel}</SubmitButton>
-        <button type="button" onClick={onDone} className="text-sm text-zinc-500 hover:underline">
+        <button type="button" onClick={onDone} className="text-sm text-muted hover:underline">
           Close
         </button>
       </div>

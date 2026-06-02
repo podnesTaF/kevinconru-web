@@ -29,6 +29,9 @@ do not copy its internal structure (it's UMD React + hash router + globals). The
 | **Media uploads**  | **V4 signed URLs** — browser uploads directly to the GCS bucket; server only mints the URL and records `Media` rows.                                                               |
 | **Auth**           | Single admin (credentials), seeded from `ADMIN_EMAIL` / `ADMIN_PASSWORD`. NextAuth v5.                                                                                             |
 
+The **admin shares the public site's editorial design system** — same tokens, fonts, and components
+(locked to the `bone` palette), restyled at a denser "workbench" scale. See admin.md §2.
+
 
 ---
 
