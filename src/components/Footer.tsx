@@ -44,9 +44,7 @@ export default async function Footer() {
         <div className="foot-grid">
           <div className="foot-col">
             <div className="foot-brand">CONRU</div>
-            <div className="foot-tag">
-              African and Oceanic art — dealer, curator and publisher. Brussels.
-            </div>
+            <div className="foot-tag">Southern African art and the arts of Oceania. Brussels.</div>
             <div className="foot-social">
               {contact.facebook && (
                 <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -127,7 +125,7 @@ export default async function Footer() {
             <PaletteSwitcher />
             <TypographySwitcher />
           </div>
-          <span>Brussels · By appointment</span>
+          <span>Brussels</span>
         </div>
       </div>
     </footer>

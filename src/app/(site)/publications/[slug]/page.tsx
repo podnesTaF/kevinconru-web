@@ -10,7 +10,8 @@ import { kindLabel, regionLabel } from "@/lib/format";
 import { CONTACT } from "@/lib/site";
 import { ArrowRight } from "@/components/icons";
 import RichText from "@/components/RichText";
-import PlatesGallery, { type PlateView } from "@/components/PlatesGallery";
+import Gallery, { type GalleryView } from "@/components/Gallery";
+import PdfEmbed from "@/components/PdfEmbed";
 
 // Prerender published slugs. Resilient: if the DB is unreachable at build time,
 // fall back to on-demand rendering instead of failing the build.
@@ -35,7 +36,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const pub = await getPublicationBySlug(slug);
   if (!pub) return {};
-  const description = pub.subtitle ?? stripHtml(pub.summary).slice(0, 160);
+  const description = pub.subtitle ?? stripHtml(pub.body).slice(0, 160);
   return { title: pub.title, description };
 }
 
@@ -60,16 +61,11 @@ export default async function PublicationDetailPage({
     background: pub.coverBg ?? undefined,
   } as CSSProperties;
 
-  const plates: PlateView[] = pub.plates.map((pl) => ({
-    id: pl.id,
-    title: pl.title,
-    region: pl.region,
-    dateText: pl.dateText,
-    materials: pl.materials,
-    dimensions: pl.dimensions,
-    provenance: pl.provenance,
-    caption: pl.caption,
-    imageUrl: pl.image.url,
+  const gallery: GalleryView[] = pub.gallery.map((g) => ({
+    id: g.id,
+    title: g.title,
+    caption: g.caption,
+    imageUrl: g.media.url,
   }));
 
   const enquireHref = `mailto:${CONTACT.email}?subject=${encodeURIComponent(`Enquiry — ${pub.title}`)}`;
@@ -116,7 +112,7 @@ export default async function PublicationDetailPage({
                 {pub.subtitle}
               </p>
             )}
-            <RichText html={pub.summary} className="pd-lead" />
+            <RichText html={pub.body} className="pd-lead" />
             <div className="pd-specs">
               <div className="pd-spec">
                 <span className="lab">Year</span>
@@ -140,9 +136,9 @@ export default async function PublicationDetailPage({
               </div>
             </div>
             <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "20px 32px" }}>
-              {pub.pdf && (
-                <a className="link-arrow" href={pub.pdf.url} target="_blank" rel="noopener noreferrer">
-                  Read the book (PDF) <ArrowRight />
+              {pub.externalUrl && (
+                <a className="link-arrow" href={pub.externalUrl} target="_blank" rel="noopener noreferrer">
+                  Visit ↗ <ArrowRight />
                 </a>
               )}
               <a className="link-arrow" href={enquireHref}>
@@ -152,17 +148,31 @@ export default async function PublicationDetailPage({
           </div>
         </section>
 
-        {plates.length > 0 && (
+        {gallery.length > 0 && (
           <section>
             <div className="section-head" style={{ marginBottom: 40 }}>
               <div>
-                <span className="eyebrow">Selected plates</span>
+                <span className="eyebrow">Gallery</span>
                 <h2 className="display" style={{ fontSize: "clamp(28px,3.5vw,44px)", marginTop: 12 }}>
-                  From the catalogue
+                  Selected images
                 </h2>
               </div>
             </div>
-            <PlatesGallery plates={plates} />
+            <Gallery items={gallery} />
+          </section>
+        )}
+
+        {pub.pdf && (
+          <section style={{ marginTop: gallery.length ? 80 : 0 }}>
+            <div className="section-head" style={{ marginBottom: 40 }}>
+              <div>
+                <span className="eyebrow">Document</span>
+                <h2 className="display" style={{ fontSize: "clamp(28px,3.5vw,44px)", marginTop: 12 }}>
+                  Read the publication
+                </h2>
+              </div>
+            </div>
+            <PdfEmbed url={pub.pdf.url} title={pub.title} />
           </section>
         )}
 

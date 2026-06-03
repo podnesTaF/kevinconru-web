@@ -11,7 +11,7 @@ export default async function AboutAdminPage() {
     <div>
       <PageHeader
         title="About"
-        description="Biography, role line, hero stats and the home marquee."
+        description="Biography, hero stats and the home marquee."
         action={
           <div className="flex gap-2 text-sm">
             <Link href="/admin/about/chronology" className="rounded-md border border-rule px-3 py-2 hover:bg-bg-alt">
@@ -26,7 +26,6 @@ export default async function AboutAdminPage() {
       <AboutForm
         defaults={{
           bio: settings?.bio ?? "",
-          roleLine: settings?.roleLine ?? "",
           heroStats: (settings?.heroStats as HeroStat[] | undefined) ?? [],
           marquee: (settings?.marquee as Marquee | undefined) ?? [],
         }}

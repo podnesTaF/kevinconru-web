@@ -8,7 +8,7 @@ import RichText from "@/components/RichText";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Kevin Conru — dealer, curator and publisher of African and Oceanic art, based in Brussels.",
+    "Kevin Conru — known for his publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of Oceania. Brussels.",
 };
 
 const FALLBACK_BIO =
@@ -23,7 +23,6 @@ export default async function AboutPage() {
     getAffiliations(),
   ]);
 
-  const roleLine = settings?.roleLine ?? "Dealer · Curator · Publisher · Double bassist";
   const bio = settings?.bio ?? FALLBACK_BIO;
   const tel = settings?.tel ?? CONTACT.tel;
   const telHref = settings?.telHref ?? CONTACT.telHref;
@@ -45,7 +44,6 @@ export default async function AboutPage() {
               <br />
               Conru
             </h1>
-            <div className="ab-role">{roleLine}</div>
             <p className="ab-lead">
               Known for his publications on Southern African art, the photographs of{" "}
               <span className="it">Hugo Bernatzik</span>, and the arts of Oceania.

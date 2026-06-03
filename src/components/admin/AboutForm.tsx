@@ -11,7 +11,7 @@ type HeroStat = { num: string; label: string };
 export default function AboutForm({
   defaults,
 }: {
-  defaults: { bio: string; roleLine: string; heroStats: HeroStat[]; marquee: string[] };
+  defaults: { bio: string; heroStats: HeroStat[]; marquee: string[] };
 }) {
   const [state, formAction] = useActionState(updateAbout, initialActionState);
   const [stats, setStats] = useState<HeroStat[]>(defaults.heroStats.length ? defaults.heroStats : [{ num: "", label: "" }]);
@@ -29,12 +29,6 @@ export default function AboutForm({
       <div>
         <RichTextEditor name="bio" label="Biography" defaultValue={defaults.bio} />
         <FieldError errors={fe?.bio} />
-      </div>
-
-      <div>
-        <label className={labelCls}>Role line</label>
-        <input name="roleLine" defaultValue={defaults.roleLine} className={inputCls} />
-        <FieldError errors={fe?.roleLine} />
       </div>
 
       <div>

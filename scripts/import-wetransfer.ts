@@ -38,7 +38,7 @@ const ROOT = process.argv[2] ?? "wetransfer_publications_2026-06-02_1355";
 
 type Link =
   | { model: "publication"; id: string; field: "coverImageId" | "pdfId" }
-  | { model: "press"; id: string; field: "fileId" };
+  | { model: "press"; id: string; field: "coverImageId" | "pdfId" };
 
 // Explicitly-mapped assets ------------------------------------------------
 const ASSETS: {
@@ -81,7 +81,7 @@ const ASSETS: {
     key: "press/conru-online-insert.pdf",
     mime: "application/pdf",
     alt: "Special Conru Online insert (PDF)",
-    link: { model: "press", id: "press-conru-online", field: "fileId" },
+    link: { model: "press", id: "press-conru-online", field: "pdfId" },
   },
 ];
 

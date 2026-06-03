@@ -45,10 +45,11 @@ model Media {
   alt       String?
   createdAt DateTime @default(now())
 
-  coverFor    Publication[] @relation("PublicationCover")
-  pdfFor      Publication[] @relation("PublicationPdf")
-  plateImages Plate[]
-  pressFiles  PressItem[]
+  publicationCovers Publication[]  @relation("PublicationCover")
+  publicationPdfs   Publication[]  @relation("PublicationPdf")
+  pressCovers       PressItem[]    @relation("PressCover")
+  pressPdfs         PressItem[]    @relation("PressPdf")
+  galleryImages     GalleryImage[]
 }
 
 model Publication {
@@ -61,39 +62,40 @@ model Publication {
   publisher    String?
   region       Region
   kind         PublicationKind
-  summary      String // rich-text HTML
+  body         String // rich-text HTML (supports inline images, in any sequence)
   coverBg      String? // CSS gradient (fallback typographic cover)
   coverFg      String?
   coverImage   Media?          @relation("PublicationCover", fields: [coverImageId], references: [id])
   coverImageId String?
   pdf          Media?          @relation("PublicationPdf", fields: [pdfId], references: [id])
   pdfId        String?
+  externalUrl  String? // optional link out (e.g. publisher / order page)
   featured     Boolean         @default(false)
   published    Boolean         @default(true)
   sortOrder    Int             @default(0)
-  plates       Plate[]
+  gallery      GalleryImage[]
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
 
   @@index([published, sortOrder])
 }
 
-model Plate {
-  id            String      @id @default(cuid())
-  publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
-  publicationId String
-  title         String
-  region        String?
-  dateText      String?
-  materials     String?
-  dimensions    String?
-  provenance    String?
-  caption       String? // rich text or plain
-  image         Media       @relation(fields: [imageId], references: [id])
-  imageId       String
-  sortOrder     Int         @default(0)
+// A grid-gallery image with light meta (title + caption), shown in a lightbox.
+// Polymorphic: belongs to either a Publication or a PressItem.
+model GalleryImage {
+  id            String       @id @default(cuid())
+  publication   Publication? @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  publicationId String?
+  pressItem     PressItem?   @relation(fields: [pressItemId], references: [id], onDelete: Cascade)
+  pressItemId   String?
+  media         Media        @relation(fields: [mediaId], references: [id])
+  mediaId       String
+  title         String?
+  caption       String?
+  sortOrder     Int          @default(0)
 
   @@index([publicationId, sortOrder])
+  @@index([pressItemId, sortOrder])
 }
 
 model Film {
@@ -108,15 +110,21 @@ model Film {
 }
 
 model PressItem {
-  id        String  @id @default(cuid())
-  outlet    String
-  year      Int
-  title     String
-  url       String?
-  file      Media?  @relation(fields: [fileId], references: [id])
-  fileId    String?
-  published Boolean @default(true)
-  sortOrder Int     @default(0)
+  id           String         @id @default(cuid())
+  slug         String         @unique
+  outlet       String
+  title        String
+  subtitle     String? // citation / source line, e.g. "Art & Antiques · Apr 2009"
+  year         Int
+  body         String         @default("") // rich-text HTML (inline images, any sequence)
+  coverImage   Media?         @relation("PressCover", fields: [coverImageId], references: [id])
+  coverImageId String?
+  pdf          Media?         @relation("PressPdf", fields: [pdfId], references: [id])
+  pdfId        String?
+  externalUrl  String? // press hosted elsewhere
+  published    Boolean        @default(true)
+  sortOrder    Int            @default(0)
+  gallery      GalleryImage[]
 }
 
 model TimelineEntry {

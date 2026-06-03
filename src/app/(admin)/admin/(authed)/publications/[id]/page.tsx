@@ -3,8 +3,8 @@ import { adminGetPublication, adminListMedia } from "@/lib/queries/admin";
 import { updatePublication } from "@/lib/actions/publications";
 import { toMediaView, toMediaViews } from "@/lib/media-view";
 import { PageHeader } from "@/components/admin/ui";
-import PublicationForm from "@/components/admin/PublicationForm";
-import PlatesManager from "@/components/admin/PlatesManager";
+import WorkForm from "@/components/admin/WorkForm";
+import GalleryManager from "@/components/admin/GalleryManager";
 
 export default async function EditPublicationPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -23,38 +23,37 @@ export default async function EditPublicationPage({ params }: { params: Promise<
     publisher: pub.publisher,
     region: pub.region,
     kind: pub.kind,
-    summary: pub.summary,
+    body: pub.body,
     coverBg: pub.coverBg,
     coverFg: pub.coverFg,
+    externalUrl: pub.externalUrl,
     featured: pub.featured,
     published: pub.published,
     coverImage: pub.coverImage ? toMediaView(pub.coverImage) : null,
     pdf: pub.pdf ? toMediaView(pub.pdf) : null,
   };
 
-  const plates = pub.plates.map((pl) => ({
-    id: pl.id,
-    title: pl.title,
-    region: pl.region,
-    dateText: pl.dateText,
-    materials: pl.materials,
-    dimensions: pl.dimensions,
-    provenance: pl.provenance,
-    caption: pl.caption,
-    image: toMediaView(pl.image),
+  const gallery = pub.gallery.map((g) => ({
+    id: g.id,
+    title: g.title,
+    caption: g.caption,
+    image: toMediaView(g.media),
   }));
 
   return (
     <div className="space-y-10">
       <div>
         <PageHeader title="Edit publication" description={pub.title} />
-        <PublicationForm action={updatePublication} defaults={defaults} library={library} mode="edit" />
+        <WorkForm variant="publication" action={updatePublication} defaults={defaults} library={library} mode="edit" />
       </div>
 
-      <div className="max-w-2xl">
-        <h2 className="mb-3 text-lg font-semibold tracking-tight">Plates</h2>
-        <PlatesManager publicationId={pub.id} plates={plates} library={library} />
-      </div>
+      <section className="max-w-3xl rounded-lg border border-rule bg-bg-alt p-4">
+        <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Gallery</h2>
+        <p className="mt-1 mb-3 text-xs text-muted">
+          A grid gallery shown below the body, with a lightbox (title + caption per image).
+        </p>
+        <GalleryManager owner={{ publicationId: pub.id, pressItemId: null }} items={gallery} library={library} />
+      </section>
     </div>
   );
 }

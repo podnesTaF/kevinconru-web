@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     template: "%s — Kevin Conru",
   },
   description:
-    "Kevin Conru — dealer, curator and publisher of African and Oceanic art. Brussels.",
+    "Kevin Conru — publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of Oceania. Brussels.",
   openGraph: {
     type: "website",
     siteName: "Kevin Conru",

@@ -19,13 +19,6 @@ export default function PublicationCard({
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <PubCover pub={pub} />
-      <div className="pub-info">
-        <div className="pub-info-l">
-          <h3>{pub.title}</h3>
-          {pub.subtitle && <span className="pub-meta">{pub.subtitle}</span>}
-        </div>
-        <span className="pub-year">{pub.year}</span>
-      </div>
     </Link>
   );
 }

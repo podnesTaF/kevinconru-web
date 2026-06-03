@@ -20,27 +20,24 @@ export const publicationSchema = z.object({
   publisher: z.string().nullable(),
   region: z.enum(REGIONS),
   kind: z.enum(KINDS),
-  summary: z.string().min(1, "Summary is required"),
+  body: z.string().min(1, "Body is required"),
   coverBg: z.string().nullable(),
   coverFg: z.string().nullable(),
   coverImageId: z.string().nullable(),
   pdfId: z.string().nullable(),
+  externalUrl: z.union([z.string().url("Must be a valid URL"), z.null()]),
   featured: z.boolean(),
   published: z.boolean(),
 });
 export type PublicationInput = z.infer<typeof publicationSchema>;
 
-export const plateSchema = z.object({
-  title: z.string().min(1, "Title is required"),
-  region: z.string().nullable(),
-  dateText: z.string().nullable(),
-  materials: z.string().nullable(),
-  dimensions: z.string().nullable(),
-  provenance: z.string().nullable(),
+// A gallery image (grid + lightbox) carries only light meta — title + caption.
+export const galleryImageSchema = z.object({
+  title: z.string().nullable(),
   caption: z.string().nullable(),
-  imageId: z.string().min(1, "An image is required"),
+  mediaId: z.string().min(1, "An image is required"),
 });
-export type PlateInput = z.infer<typeof plateSchema>;
+export type GalleryImageInput = z.infer<typeof galleryImageSchema>;
 
 export const filmSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -53,11 +50,15 @@ export const filmSchema = z.object({
 export type FilmInput = z.infer<typeof filmSchema>;
 
 export const pressSchema = z.object({
+  slug,
   outlet: z.string().min(1, "Outlet is required"),
-  year: z.number().int().min(0).max(3000),
   title: z.string().min(1, "Title is required"),
-  url: z.union([z.string().url("Must be a valid URL"), z.null()]),
-  fileId: z.string().nullable(),
+  subtitle: z.string().nullable(),
+  year: z.number().int().min(0).max(3000),
+  body: z.string(), // may be empty (press can be just scans / a PDF / a link)
+  coverImageId: z.string().nullable(),
+  pdfId: z.string().nullable(),
+  externalUrl: z.union([z.string().url("Must be a valid URL"), z.null()]),
   published: z.boolean(),
 });
 export type PressInput = z.infer<typeof pressSchema>;
@@ -80,7 +81,6 @@ const heroStat = z.object({ num: z.string().min(1), label: z.string().min(1) });
 
 export const aboutSchema = z.object({
   bio: z.string().min(1, "Bio is required"),
-  roleLine: z.string().min(1, "Role line is required"),
   heroStats: z.array(heroStat),
   marquee: z.array(z.string().min(1)),
 });

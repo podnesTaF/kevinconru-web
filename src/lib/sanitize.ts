@@ -8,13 +8,15 @@ import DOMPurify from "isomorphic-dompurify";
 const ALLOWED_TAGS = [
   "p", "br", "strong", "b", "em", "i", "s", "u", "code", "pre",
   "h1", "h2", "h3", "h4", "ul", "ol", "li", "blockquote", "a",
+  // Inline images (TipTap image node) so a body can mix text + images freely.
+  "img", "figure", "figcaption",
 ];
 
 export function sanitizeHtml(html: string): string {
   return DOMPurify.sanitize(html, {
     ALLOWED_TAGS,
-    ALLOWED_ATTR: ["href", "target", "rel"],
-    // Only allow safe link protocols; blocks javascript:/data: URIs.
+    ALLOWED_ATTR: ["href", "target", "rel", "src", "alt", "title", "width", "height"],
+    // Only allow safe link/image protocols; blocks javascript:/data: URIs.
     ALLOWED_URI_REGEXP: /^(?:https?:|mailto:|tel:|#|\/)/i,
   });
 }

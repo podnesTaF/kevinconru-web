@@ -22,7 +22,7 @@ export default function Image() {
         }}
       >
         <div style={{ display: "flex", fontSize: 24, letterSpacing: "0.18em", color: "#7a7466" }}>
-          DEALER · CURATOR · PUBLISHER — BRUSSELS
+          BRUSSELS
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 104, lineHeight: 1.0 }}>
           <div style={{ display: "flex", gap: 24 }}>

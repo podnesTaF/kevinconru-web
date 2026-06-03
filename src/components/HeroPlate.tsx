@@ -3,12 +3,18 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// Dark hero plate that cross-fades the two New Ireland object photos every 7s,
+// Dark hero plate that slowly cross-fades a selection of object photos every 7s,
 // with the plate-info caption. Honors prefers-reduced-motion (holds frame 1).
 const OBJECTS = [
-  { url: "/seed/object-mask.jpg", plate: "173" },
-  { url: "/seed/object-headdress.jpg", plate: "124" },
+  "/objects/object-1.jpeg",
+  "/objects/object-2.jpeg",
+  "/objects/object-3.jpeg",
+  "/objects/object-4.jpeg",
+  "/objects/object-5.jpeg",
+  "/objects/object-6.jpeg",
 ];
+
+const pad = (n: number) => String(n).padStart(2, "0");
 
 export default function HeroPlate() {
   const [active, setActive] = useState(0);
@@ -21,10 +27,10 @@ export default function HeroPlate() {
 
   return (
     <div className="hero-photo">
-      {OBJECTS.map((o, i) => (
+      {OBJECTS.map((url, i) => (
         <Image
-          key={o.url}
-          src={o.url}
+          key={url}
+          src={url}
           alt=""
           fill
           priority={i === 0}
@@ -36,8 +42,8 @@ export default function HeroPlate() {
         />
       ))}
       <div className="plate-info">
-        <span>Plate № {OBJECTS[active].plate}</span>
-        <span>New Ireland · c. 1890</span>
+        <span>Selected work № {pad(active + 1)}</span>
+        <span>African &amp; Oceanic art</span>
       </div>
     </div>
   );

@@ -17,7 +17,6 @@ export default async function PressAdminPage() {
           </Link>
           <div className="truncate text-xs text-muted">
             {p.outlet} · {p.year}
-            {p.file ? " · file" : p.url ? " · link" : ""}
           </div>
         </div>
         <div className="flex items-center gap-x-3">

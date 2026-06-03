@@ -31,7 +31,6 @@ export async function updateAbout(_prev: ActionState, formData: FormData): Promi
   await requireAdmin();
   const parsed = aboutSchema.safeParse({
     bio: sanitizeHtml(str(formData.get("bio"))),
-    roleLine: str(formData.get("roleLine")),
     heroStats: parseJsonArray(str(formData.get("heroStats"))),
     marquee: parseJsonArray(str(formData.get("marquee"))),
   });
@@ -43,6 +42,7 @@ export async function updateAbout(_prev: ActionState, formData: FormData): Promi
     create: {
       id: "singleton",
       ...parsed.data,
+      roleLine: "",
       tel: "",
       telHref: "",
       email: "",

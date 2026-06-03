@@ -736,8 +736,17 @@ html[data-palette='ink'] .nav-brand .mark {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+}
+/* Bottom scrim so the plate caption stays legible over lighter studio grounds. */
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 140px;
+  background: linear-gradient(to top, rgba(16, 15, 18, 0.55), transparent);
+  pointer-events: none;
 }
 .hero-photo .plate-info {
   position: absolute;
@@ -1036,49 +1045,54 @@ html[data-palette='ink'] .nav-brand .mark {
   background: var(--cover-bg, linear-gradient(160deg, #2a2620, #18171a));
   transition: opacity 0.6s ease;
 }
-.pub-cover .pc-content {
+/* Text sits inside the cover (overlaid, bottom-aligned) — modern editorial. */
+.pc-overlay {
   position: absolute;
   inset: 0;
-  padding: 26px 24px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 22px;
   color: var(--cover-fg, #efe9d8);
 }
-.pub-cover .pc-mini {
+.pc-overlay .pc-eyebrow {
   font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.65;
+  opacity: 0.78;
 }
-.pub-cover .pc-title {
+.pc-overlay .pc-title {
   font-family: var(--f-display);
-  font-size: 24px;
-  line-height: 1.05;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.08;
   letter-spacing: -0.005em;
 }
-.pub-cover .pc-title .it {
-  font-style: italic;
+/* Over a photo: a scrim keeps the overlaid text legible; text is light. */
+.pub-cover--photo .pc-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(16, 15, 18, 0.82) 0%,
+    rgba(16, 15, 18, 0.25) 46%,
+    rgba(16, 15, 18, 0) 72%
+  );
+  color: #efe9d8;
 }
-.pub-cover .pc-image {
+/* Cover image shown by default (fills the card), gently zooms on hover. */
+.pub-cover--photo {
+  background: var(--plate);
+}
+.pub-cover .pc-photo {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  transition: opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5));
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.pub-card:hover .pub-cover .pc-image {
-  opacity: 1;
-}
-.pub-card:hover .pub-cover .pc-content {
-  opacity: 0;
-}
-.pub-card:hover .pub-cover .pc-bg {
-  opacity: 1;
+.pub-card:hover .pub-cover .pc-photo {
+  transform: scale(1.04);
 }
 .pub-info {
   display: flex;
@@ -1678,4 +1692,171 @@ html[data-palette='ink'] .nav-brand .mark {
   color: var(--fg-soft);
   font-size: 15px;
   line-height: 1.6;
+}
+
+/* ───── Rich-text inline images (body: text + images, any sequence) ───── */
+.rich-text img {
+  width: 100%;
+  height: auto;
+  margin: 28px 0;
+  border-radius: 2px;
+}
+.rich-text figure {
+  margin: 28px 0;
+}
+.rich-text figcaption {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.rich-text h2,
+.rich-text h3 {
+  font-family: var(--f-display);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  margin: 32px 0 12px;
+}
+.rich-text h2 {
+  font-size: clamp(26px, 3vw, 34px);
+}
+.rich-text h3 {
+  font-size: 22px;
+}
+.rich-text ul,
+.rich-text ol {
+  margin: 0 0 16px;
+  padding-left: 1.2em;
+  color: var(--fg-soft);
+}
+.rich-text li {
+  margin: 4px 0;
+}
+
+/* ───── PDF embed (publication / press attachment) ───── */
+.pdf-embed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pdf-frame {
+  width: 100%;
+  height: min(85vh, 1100px);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--bg-alt);
+}
+
+/* ───── Press detail ───── */
+.press-cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-alt);
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 48px;
+}
+.press-cover-img {
+  object-fit: cover;
+}
+.press-body {
+  max-width: 760px;
+}
+.press-body p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ───── Press index — cards (distinct from publications: wider, landscape) ───── */
+.press-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px 32px;
+}
+@media (max-width: 900px) {
+  .press-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 18px;
+  }
+}
+@media (max-width: 560px) {
+  .press-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.press-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.press-card-cover {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-alt);
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.4s ease;
+}
+.press-card:hover .press-card-cover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.18);
+}
+.press-card-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.press-card:hover .press-card-photo {
+  transform: scale(1.04);
+}
+/* Typographic fallback when a press item has no cover image. */
+.press-card-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background: var(--plate-grad);
+  color: #efe9d8;
+}
+.press-card-fallback .eyebrow {
+  color: rgba(239, 233, 216, 0.62);
+}
+.press-card-fallback .display {
+  font-family: var(--f-display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.1;
+}
+.press-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule-soft);
+}
+.press-card-meta .eyebrow {
+  display: block;
+}
+.press-card-meta h3 {
+  font-family: var(--f-display);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+.press-card:hover .press-card-meta h3 {
+  color: var(--terra);
+}
+.press-card-sub {
+  font-size: 14px;
+  color: var(--fg-soft);
 }

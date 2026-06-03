@@ -28,7 +28,7 @@ export default async function HomePage() {
             <div className="hero-type">
               <div className="hero-meta">
                 <span className="dot" />
-                <span className="eyebrow">Dealer · Curator · Publisher — Brussels</span>
+                <span className="eyebrow">Brussels</span>
               </div>
               <h1 className="display hero-title">
                 African&nbsp;&amp;
@@ -127,7 +127,7 @@ export default async function HomePage() {
             </div>
             <div className="about-copy">
               <span className="eyebrow" style={{ marginBottom: 18, display: "block" }}>
-                № 02 — The dealer
+                № 02 — About
               </span>
               <h3>
                 Publications, exhibitions, and a{" "}

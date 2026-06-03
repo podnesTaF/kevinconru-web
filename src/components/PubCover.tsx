@@ -1,35 +1,31 @@
 import type { CSSProperties } from "react";
 import type { Media, Publication } from "@/generated/prisma/client";
-import { kindLabel, regionLabel } from "@/lib/format";
+import { regionLabel } from "@/lib/format";
 
 type PubWithCover = Publication & { coverImage: Media | null };
 
-// Typographic publication cover (index grid). The object photo (if any) reveals
-// on hover via `.pc-image`; the typographic plate sits beneath.
+// Publication cover (index grid). The cover image (when present) fills the card
+// and the title/meta sit inside it, overlaid on a scrim. Without an image we
+// fall back to the typographic plate built from coverBg/coverFg.
 export default function PubCover({ pub }: { pub: PubWithCover }) {
-  const style = {
-    "--cover-bg": pub.coverBg ?? undefined,
-    "--cover-fg": pub.coverFg ?? undefined,
-  } as CSSProperties;
+  const hasImage = !!pub.coverImage;
+  const style = hasImage
+    ? undefined
+    : ({ "--cover-bg": pub.coverBg ?? undefined, "--cover-fg": pub.coverFg ?? undefined } as CSSProperties);
 
   return (
-    <div className="pub-cover" style={style}>
-      <div className="pc-bg" />
-      <div className="pc-content">
-        <div className="pc-mini">{regionLabel(pub.region)}</div>
-        <div>
-          <div className="pc-mini" style={{ marginBottom: 10 }}>
-            {kindLabel(pub.kind)} · {pub.year}
-          </div>
-          <div className="pc-title">{pub.title}</div>
-        </div>
-      </div>
-      {pub.coverImage && (
-        <div
-          className="pc-image"
-          style={{ backgroundImage: `url('${pub.coverImage.url}')` }}
-        />
+    <div className={"pub-cover" + (hasImage ? " pub-cover--photo" : "")} style={style}>
+      {hasImage ? (
+        <div className="pc-photo" style={{ backgroundImage: `url('${pub.coverImage!.url}')` }} />
+      ) : (
+        <div className="pc-bg" />
       )}
+      <div className="pc-overlay">
+        <span className="pc-eyebrow">
+          {regionLabel(pub.region)} · {pub.year}
+        </span>
+        <span className="pc-title">{pub.title}</span>
+      </div>
     </div>
   );
 }

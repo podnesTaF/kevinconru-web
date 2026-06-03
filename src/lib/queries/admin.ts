@@ -10,16 +10,19 @@ export const adminListPublications = () =>
 export const adminGetPublication = (id: string) =>
   db.publication.findUnique({
     where: { id },
-    include: { coverImage: true, pdf: true, plates: { orderBy: { sortOrder: "asc" }, include: { image: true } } },
+    include: { coverImage: true, pdf: true, gallery: { orderBy: { sortOrder: "asc" }, include: { media: true } } },
   });
 
 export const adminListFilms = () => db.film.findMany({ orderBy: { sortOrder: "asc" } });
 export const adminGetFilm = (id: string) => db.film.findUnique({ where: { id } });
 
 export const adminListPress = () =>
-  db.pressItem.findMany({ orderBy: { sortOrder: "asc" }, include: { file: true } });
+  db.pressItem.findMany({ orderBy: { sortOrder: "asc" }, include: { coverImage: true } });
 export const adminGetPress = (id: string) =>
-  db.pressItem.findUnique({ where: { id }, include: { file: true } });
+  db.pressItem.findUnique({
+    where: { id },
+    include: { coverImage: true, pdf: true, gallery: { orderBy: { sortOrder: "asc" }, include: { media: true } } },
+  });
 
 export const adminListTimeline = () => db.timelineEntry.findMany({ orderBy: { sortOrder: "asc" } });
 export const adminListAffiliations = () => db.affiliation.findMany({ orderBy: { sortOrder: "asc" } });

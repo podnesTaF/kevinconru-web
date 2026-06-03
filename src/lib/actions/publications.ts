@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { sanitizeHtml } from "@/lib/sanitize";
-import { publicationSchema, plateSchema } from "@/lib/validation/schemas";
+import { publicationSchema } from "@/lib/validation/schemas";
 import {
   type ActionState,
   requireAdmin,
@@ -36,9 +36,10 @@ function readPublication(formData: FormData) {
     coverFg: optStr(formData.get("coverFg")),
     coverImageId: optStr(formData.get("coverImageId")),
     pdfId: optStr(formData.get("pdfId")),
+    externalUrl: optStr(formData.get("externalUrl")),
     featured: bool(formData.get("featured")),
     published: bool(formData.get("published")),
-    summary: sanitizeHtml(str(formData.get("summary"))),
+    body: sanitizeHtml(str(formData.get("body"))),
   };
 }
 
@@ -51,16 +52,19 @@ export async function createPublication(
   if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
 
   const last = await db.publication.findFirst({ orderBy: { sortOrder: "desc" }, select: { sortOrder: true } });
+  let created: { id: string };
   try {
-    await db.publication.create({
+    created = await db.publication.create({
       data: { ...parsed.data, sortOrder: (last?.sortOrder ?? -1) + 1 },
+      select: { id: true },
     });
   } catch (e) {
     if (isUniqueSlug(e)) return { ok: false, fieldErrors: { slug: ["Slug already in use"] } };
     throw e;
   }
   revalidatePublic(parsed.data.slug);
-  redirect("/admin/publications");
+  // Land on the edit screen so the gallery can be added straight away.
+  redirect(`/admin/publications/${created.id}`);
 }
 
 export async function updatePublication(
@@ -109,67 +113,6 @@ export async function reorderPublications(ids: string[]) {
   await requireAdmin();
   await db.$transaction(ids.map((id, i) => db.publication.update({ where: { id }, data: { sortOrder: i } })));
   revalidatePublic();
-}
-
-// ── Plates ────────────────────────────────────────────────────────────────
-function readPlate(formData: FormData) {
-  const caption = optStr(formData.get("caption"));
-  return {
-    title: str(formData.get("title")),
-    region: optStr(formData.get("region")),
-    dateText: optStr(formData.get("dateText")),
-    materials: optStr(formData.get("materials")),
-    dimensions: optStr(formData.get("dimensions")),
-    provenance: optStr(formData.get("provenance")),
-    caption: caption === null ? null : sanitizeHtml(caption),
-    imageId: str(formData.get("imageId")),
-  };
-}
-
-export async function addPlate(_prev: ActionState, formData: FormData): Promise<ActionState> {
-  await requireAdmin();
-  const publicationId = str(formData.get("publicationId"));
-  if (!publicationId) return { ok: false, error: "Missing publication" };
-
-  const parsed = plateSchema.safeParse(readPlate(formData));
-  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
-
-  const last = await db.plate.findFirst({
-    where: { publicationId },
-    orderBy: { sortOrder: "desc" },
-    select: { sortOrder: true },
-  });
-  await db.plate.create({ data: { ...parsed.data, publicationId, sortOrder: (last?.sortOrder ?? -1) + 1 } });
-  await touchPublication(publicationId);
-  return { ok: true };
-}
-
-export async function updatePlate(_prev: ActionState, formData: FormData): Promise<ActionState> {
-  await requireAdmin();
-  const id = str(formData.get("id"));
-  if (!id) return { ok: false, error: "Missing id" };
-  const parsed = plateSchema.safeParse(readPlate(formData));
-  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
-  const plate = await db.plate.update({ where: { id }, data: parsed.data, select: { publicationId: true } });
-  await touchPublication(plate.publicationId);
-  return { ok: true };
-}
-
-export async function deletePlate(id: string) {
-  await requireAdmin();
-  const plate = await db.plate.delete({ where: { id }, select: { publicationId: true } });
-  await touchPublication(plate.publicationId);
-}
-
-export async function reorderPlates(publicationId: string, ids: string[]) {
-  await requireAdmin();
-  await db.$transaction(ids.map((id, i) => db.plate.update({ where: { id }, data: { sortOrder: i } })));
-  await touchPublication(publicationId);
-}
-
-async function touchPublication(publicationId: string) {
-  const pub = await db.publication.findUnique({ where: { id: publicationId }, select: { slug: true } });
-  revalidatePublic(pub?.slug);
 }
 
 function isUniqueSlug(e: unknown): boolean {

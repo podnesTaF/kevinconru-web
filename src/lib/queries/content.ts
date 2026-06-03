@@ -13,7 +13,27 @@ export const getPressItems = cache(async () =>
   db.pressItem.findMany({
     where: { published: true },
     orderBy: { sortOrder: "asc" },
-    include: { file: true },
+    include: { coverImage: true },
+  }),
+);
+
+export const getPressItemBySlug = cache(async (slug: string) =>
+  db.pressItem.findFirst({
+    where: { slug, published: true },
+    include: {
+      coverImage: true,
+      pdf: true,
+      gallery: { orderBy: { sortOrder: "asc" }, include: { media: true } },
+    },
+  }),
+);
+
+/** Published press slugs, for generateStaticParams. */
+export const getPressSlugs = cache(async () =>
+  db.pressItem.findMany({
+    where: { published: true },
+    orderBy: { sortOrder: "asc" },
+    select: { slug: true, title: true },
   }),
 );
 

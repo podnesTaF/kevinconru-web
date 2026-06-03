@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getPressItems } from "@/lib/queries/content";
+import PressCard from "@/components/PressCard";
 
 export const metadata: Metadata = {
   title: "Press",
@@ -22,37 +23,11 @@ export default async function PressPage() {
         </header>
 
         {press.length > 0 ? (
-          <section className="ab-cv">
-            <div>
-              {press.map((p) => {
-                const href = p.file?.url ?? p.url;
-                return (
-                  <div key={p.id} className="cv-row">
-                    <span className="yr">{p.year}</span>
-                    <span className="ev">
-                      <em>{p.title}</em>
-                      <span className="desc">
-                        {p.outlet}
-                        {href && (
-                          <>
-                            {" · "}
-                            <a
-                              href={href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{ borderBottom: "1px solid var(--rule)" }}
-                            >
-                              {p.file ? "Read the insert" : "Read"} ↗
-                            </a>
-                          </>
-                        )}
-                      </span>
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+          <div className="press-grid">
+            {press.map((p, i) => (
+              <PressCard key={p.id} item={p} index={i} />
+            ))}
+          </div>
         ) : (
           <p className="intro">No press items published yet.</p>
         )}

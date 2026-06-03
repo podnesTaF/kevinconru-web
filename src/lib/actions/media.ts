@@ -36,18 +36,39 @@ export async function deleteMedia(id: string) {
   await requireAdmin();
   const media = await db.media.findUnique({
     where: { id },
-    include: { _count: { select: { coverFor: true, pdfFor: true, plateImages: true, pressFiles: true } } },
+    include: {
+      _count: {
+        select: {
+          publicationCovers: true,
+          publicationPdfs: true,
+          pressCovers: true,
+          pressPdfs: true,
+          galleryImages: true,
+        },
+      },
+    },
   });
   if (!media) return { ok: false as const, error: "Not found" };
 
-  const { coverFor, pdfFor, plateImages, pressFiles } = media._count;
-  const refs = coverFor + pdfFor + plateImages + pressFiles;
-  if (refs > 0) {
+  const c = media._count;
+  const covers = c.publicationCovers + c.pressCovers;
+  const pdfs = c.publicationPdfs + c.pressPdfs;
+  const gallery = c.galleryImages;
+
+  // Inline body references aren't FK-tracked (the image URL is embedded in the
+  // sanitized rich-text HTML), so scan publication + press bodies for the URL.
+  const [bodyPub, bodyPress] = await Promise.all([
+    db.publication.count({ where: { body: { contains: media.url } } }),
+    db.pressItem.count({ where: { body: { contains: media.url } } }),
+  ]);
+  const inline = bodyPub + bodyPress;
+
+  if (covers + pdfs + gallery + inline > 0) {
     const where = [
-      coverFor && `${coverFor} cover${coverFor > 1 ? "s" : ""}`,
-      pdfFor && `${pdfFor} publication PDF${pdfFor > 1 ? "s" : ""}`,
-      plateImages && `${plateImages} plate${plateImages > 1 ? "s" : ""}`,
-      pressFiles && `${pressFiles} press item${pressFiles > 1 ? "s" : ""}`,
+      covers && `${covers} cover${covers > 1 ? "s" : ""}`,
+      pdfs && `${pdfs} PDF attachment${pdfs > 1 ? "s" : ""}`,
+      gallery && `${gallery} gallery image${gallery > 1 ? "s" : ""}`,
+      inline && `${inline} inline body reference${inline > 1 ? "s" : ""}`,
     ]
       .filter(Boolean)
       .join(", ");

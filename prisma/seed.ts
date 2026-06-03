@@ -336,7 +336,8 @@ async function main() {
   // 3) Site settings (singleton) -------------------------------------------
   const settings = {
     bio: BIO_HTML,
-    roleLine: "Dealer · Curator · Publisher · Double bassist",
+    roleLine: "", // role labels intentionally omitted — not in the client brief
+
     heroStats: [
       { num: "10", label: "Publications" },
       { num: "6", label: "Curated exhibitions" },
@@ -381,7 +382,7 @@ async function main() {
       publisher: p.publisher,
       region: REGION[p.region],
       kind: KIND[p.type],
-      summary: `<p>${p.summary}</p>`,
+      body: `<p>${p.summary}</p>`,
       coverBg: p.coverBg,
       coverFg: p.coverFg,
       coverImageId,
@@ -395,32 +396,28 @@ async function main() {
       create: { id: p.id, ...data },
     });
 
-    const plates = "plates" in p ? p.plates : [];
-    for (let j = 0; j < plates.length; j++) {
-      const pl = plates[j];
-      const imageId = mediaByKey.get(keyForAsset(pl.image));
-      if (!imageId) continue;
-      const plateId = `${p.id}__${pl.id}`;
-      const plateData = {
+    const gallery = "plates" in p ? p.plates : [];
+    for (let j = 0; j < gallery.length; j++) {
+      const g = gallery[j];
+      const mediaId = mediaByKey.get(keyForAsset(g.image));
+      if (!mediaId) continue;
+      const gid = `${p.id}__${g.id}`;
+      // Object metadata dropped — gallery images carry only title + caption.
+      const gData = {
         publicationId: p.id,
-        title: pl.title,
-        region: pl.region,
-        dateText: pl.date,
-        materials: pl.materials,
-        dimensions: pl.dims,
-        provenance: pl.provenance,
-        caption: pl.caption,
-        imageId,
+        title: g.title,
+        caption: g.caption,
+        mediaId,
         sortOrder: j,
       };
-      await db.plate.upsert({
-        where: { id: plateId },
-        update: plateData,
-        create: { id: plateId, ...plateData },
+      await db.galleryImage.upsert({
+        where: { id: gid },
+        update: gData,
+        create: { id: gid, ...gData },
       });
     }
   }
-  console.log(`✔ ${PUBLICATIONS.length} publications (+ plates)`);
+  console.log(`✔ ${PUBLICATIONS.length} publications (+ gallery)`);
 
   // 5) Films ----------------------------------------------------------------
   for (let i = 0; i < FILMS.length; i++) {
@@ -441,7 +438,7 @@ async function main() {
   // 6) Press ----------------------------------------------------------------
   for (let i = 0; i < PRESS.length; i++) {
     const pr = PRESS[i];
-    const data = { outlet: pr.outlet, year: pr.year, title: pr.title, published: true, sortOrder: i };
+    const data = { slug: pr.id, outlet: pr.outlet, year: pr.year, title: pr.title, body: "", published: true, sortOrder: i };
     await db.pressItem.upsert({ where: { id: pr.id }, update: data, create: { id: pr.id, ...data } });
   }
   console.log(`✔ ${PRESS.length} press items`);

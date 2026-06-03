@@ -34,9 +34,9 @@ export const getPublicationBySlug = cache(async (slug: string) => {
     include: {
       coverImage: true,
       pdf: true,
-      plates: {
+      gallery: {
         orderBy: { sortOrder: "asc" },
-        include: { image: true },
+        include: { media: true },
       },
     },
   });
