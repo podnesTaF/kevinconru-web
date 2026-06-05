@@ -60,7 +60,7 @@ export default async function AboutPage() {
 
         {/* Chronology */}
         {timeline.length > 0 && (
-          <section className="ab-cv" style={{ marginTop: 90 }}>
+          <section className="ab-cv" style={{ marginTop: "clamp(56px, 10vw, 90px)" }}>
             <h3 className="display">
               Selected
               <br />
@@ -82,7 +82,7 @@ export default async function AboutPage() {
 
         {/* Affiliations */}
         {affiliations.length > 0 && (
-          <section className="ab-cv" style={{ marginTop: 60 }}>
+          <section className="ab-cv" style={{ marginTop: "clamp(40px, 8vw, 60px)" }}>
             <h3 className="display">Affiliations</h3>
             <div>
               {affiliations.map((a) => (

@@ -21,6 +21,7 @@ enum Region {
   Polynesia
   Melanesia
   AfricaAndOceania
+  SoutheastAsia
 }
 
 enum PublicationKind {
@@ -31,6 +32,14 @@ enum PublicationKind {
 
 enum Role {
   ADMIN
+}
+
+// How an item's gallery renders: Grid = thumbnail grid + lightbox (object
+// plates); List = full-width page-by-page flow (journal/article scans — nicer
+// than an embedded PDF reader).
+enum GalleryLayout {
+  Grid
+  List
 }
 
 // ─────────────────────────── Content ───────────────────────────
@@ -70,10 +79,11 @@ model Publication {
   pdf          Media?          @relation("PublicationPdf", fields: [pdfId], references: [id])
   pdfId        String?
   externalUrl  String? // optional link out (e.g. publisher / order page)
-  featured     Boolean         @default(false)
-  published    Boolean         @default(true)
-  sortOrder    Int             @default(0)
-  gallery      GalleryImage[]
+  featured      Boolean       @default(false)
+  published     Boolean       @default(true)
+  sortOrder     Int           @default(0)
+  galleryLayout GalleryLayout @default(Grid)
+  gallery       GalleryImage[]
   createdAt    DateTime        @default(now())
   updatedAt    DateTime        @updatedAt
 
@@ -122,9 +132,10 @@ model PressItem {
   pdf          Media?         @relation("PressPdf", fields: [pdfId], references: [id])
   pdfId        String?
   externalUrl  String? // press hosted elsewhere
-  published    Boolean        @default(true)
-  sortOrder    Int            @default(0)
-  gallery      GalleryImage[]
+  published     Boolean        @default(true)
+  sortOrder     Int            @default(0)
+  galleryLayout GalleryLayout  @default(Grid)
+  gallery       GalleryImage[]
 }
 
 model TimelineEntry {

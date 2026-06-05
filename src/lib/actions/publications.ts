@@ -39,6 +39,7 @@ function readPublication(formData: FormData) {
     externalUrl: optStr(formData.get("externalUrl")),
     featured: bool(formData.get("featured")),
     published: bool(formData.get("published")),
+    galleryLayout: str(formData.get("galleryLayout")) || "Grid",
     body: sanitizeHtml(str(formData.get("body"))),
   };
 }

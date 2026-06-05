@@ -78,27 +78,41 @@ export default async function PublicationDetailPage({
         </Link>
 
         <section className="pd-hero">
-          <div className="pd-cover" style={coverStyle}>
-            <div className="pc-content" style={{ color: pub.coverFg ?? undefined }}>
-              <div className="pc-mini">
-                {regionLabel(pub.region)} · {kindLabel(pub.kind)}
-              </div>
-              <div>
-                {pub.publisher && (
-                  <div className="pc-mini" style={{ marginBottom: 14 }}>
-                    {pub.publisher}
-                  </div>
-                )}
-                <div className="pc-title">{pub.title}</div>
-              </div>
-            </div>
-            {pub.coverImage && (
+          {pub.coverImage ? (
+            /* Real cover: shown bare at its natural ratio — no plate frame,
+               no gradient letterboxing, nothing cropped. */
+            <div
+              className="pd-cover pd-cover--bare"
+              style={{
+                aspectRatio:
+                  pub.coverImage.width && pub.coverImage.height
+                    ? `${pub.coverImage.width} / ${pub.coverImage.height}`
+                    : "3 / 4",
+              }}
+            >
               <div
                 className="pc-image"
                 style={{ backgroundImage: `url('${pub.coverImage.url}')` }}
               />
-            )}
-          </div>
+            </div>
+          ) : (
+            /* Typographic plate is the fallback when no cover exists. */
+            <div className="pd-cover" style={coverStyle}>
+              <div className="pc-content" style={{ color: pub.coverFg ?? undefined }}>
+                <div className="pc-mini">
+                  {regionLabel(pub.region)} · {kindLabel(pub.kind)}
+                </div>
+                <div>
+                  {pub.publisher && (
+                    <div className="pc-mini" style={{ marginBottom: 14 }}>
+                      {pub.publisher}
+                    </div>
+                  )}
+                  <div className="pc-title">{pub.title}</div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div>
             <span className="eyebrow">
@@ -108,7 +122,7 @@ export default async function PublicationDetailPage({
               {pub.title}
             </h1>
             {pub.subtitle && (
-              <p className="serif-italic" style={{ fontSize: 24, color: "var(--fg-soft)", margin: "-8px 0 24px" }}>
+              <p className="serif-italic" style={{ fontSize: "clamp(19px, 5vw, 24px)", color: "var(--fg-soft)", margin: "-8px 0 24px" }}>
                 {pub.subtitle}
               </p>
             )}
@@ -148,22 +162,15 @@ export default async function PublicationDetailPage({
           </div>
         </section>
 
+        {/* Gallery flows as part of the body — no separate section chrome. */}
         {gallery.length > 0 && (
-          <section>
-            <div className="section-head" style={{ marginBottom: 40 }}>
-              <div>
-                <span className="eyebrow">Gallery</span>
-                <h2 className="display" style={{ fontSize: "clamp(28px,3.5vw,44px)", marginTop: 12 }}>
-                  Selected images
-                </h2>
-              </div>
-            </div>
-            <Gallery items={gallery} />
+          <section style={{ marginTop: "clamp(32px, 6vw, 56px)" }}>
+            <Gallery items={gallery} layout={pub.galleryLayout === "List" ? "list" : "grid"} />
           </section>
         )}
 
         {pub.pdf && (
-          <section style={{ marginTop: gallery.length ? 80 : 0 }}>
+          <section style={{ marginTop: gallery.length ? "clamp(48px, 9vw, 80px)" : 0 }}>
             <div className="section-head" style={{ marginBottom: 40 }}>
               <div>
                 <span className="eyebrow">Document</span>
@@ -172,12 +179,12 @@ export default async function PublicationDetailPage({
                 </h2>
               </div>
             </div>
-            <PdfEmbed url={pub.pdf.url} title={pub.title} />
+            <PdfEmbed url={pub.pdf.url} title={pub.title} bytes={pub.pdf.bytes} />
           </section>
         )}
 
         {next && (
-          <section style={{ marginTop: 100, paddingTop: 40, borderTop: "1px solid var(--rule)" }}>
+          <section style={{ marginTop: "clamp(56px, 11vw, 100px)", paddingTop: 40, borderTop: "1px solid var(--rule)" }}>
             <div
               style={{
                 display: "flex",

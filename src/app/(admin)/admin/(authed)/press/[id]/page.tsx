@@ -41,6 +41,7 @@ export default async function EditPressPage({ params }: { params: Promise<{ id: 
             published: item.published,
             coverImage: item.coverImage ? toMediaView(item.coverImage) : null,
             pdf: item.pdf ? toMediaView(item.pdf) : null,
+            galleryLayout: item.galleryLayout,
           }}
         />
       </div>
@@ -48,7 +49,7 @@ export default async function EditPressPage({ params }: { params: Promise<{ id: 
       <section className="max-w-3xl rounded-lg border border-rule bg-bg-alt p-4">
         <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Gallery</h2>
         <p className="mt-1 mb-3 text-xs text-muted">
-          A grid gallery shown below the body, with a lightbox (title + caption per image).
+          Shown after the body — as a grid with lightbox, or page by page (set the layout in Details).
         </p>
         <GalleryManager owner={{ publicationId: null, pressItemId: item.id }} items={gallery} library={library} />
       </section>

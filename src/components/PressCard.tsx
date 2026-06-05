@@ -3,9 +3,10 @@ import type { Media, PressItem } from "@/generated/prisma/client";
 
 type PressWithCover = PressItem & { coverImage: Media | null };
 
-// Press index card — landscape cover (or a typographic fallback) + outlet/year
-// and title. Deliberately distinct from the portrait publication cards.
+// Press index card — uniform portrait frame (3:4) so the grid rows align;
+// covers are top-anchored and crop at most ~10% (never into a landscape band).
 export default function PressCard({ item, index = 0 }: { item: PressWithCover; index?: number }) {
+  const cover = item.coverImage;
   return (
     <Link
       href={`/press/${item.slug}`}
@@ -13,8 +14,8 @@ export default function PressCard({ item, index = 0 }: { item: PressWithCover; i
       style={{ animationDelay: `${index * 60}ms` }}
     >
       <div className="press-card-cover">
-        {item.coverImage ? (
-          <div className="press-card-photo" style={{ backgroundImage: `url('${item.coverImage.url}')` }} />
+        {cover ? (
+          <div className="press-card-photo" style={{ backgroundImage: `url('${cover.url}')` }} />
         ) : (
           <div className="press-card-fallback">
             <span className="eyebrow">{item.outlet}</span>

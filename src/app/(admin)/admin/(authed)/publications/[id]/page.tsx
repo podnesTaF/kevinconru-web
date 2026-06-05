@@ -31,6 +31,7 @@ export default async function EditPublicationPage({ params }: { params: Promise<
     published: pub.published,
     coverImage: pub.coverImage ? toMediaView(pub.coverImage) : null,
     pdf: pub.pdf ? toMediaView(pub.pdf) : null,
+    galleryLayout: pub.galleryLayout,
   };
 
   const gallery = pub.gallery.map((g) => ({

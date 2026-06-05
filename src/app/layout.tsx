@@ -57,10 +57,6 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-// Restore saved palette + type pairing before first paint (no flash of the
-// defaults). Mirrors the PaletteSwitcher / TypographySwitcher storage keys.
-const themeRestoreScript = `(function(){try{var d=document.documentElement;var p=localStorage.getItem("palette");if(p==="bone"||p==="sage"||p==="ink")d.dataset.palette=p;var t=localStorage.getItem("typepair");if(t==="editorial"||t==="modern"||t==="literary")d.dataset.typepair=t;}catch(e){}})();`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -74,12 +70,12 @@ export default function RootLayout({
       className={`${geist.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} ${newsreader.variable}`}
     >
       <body>
-        {/* Injected into the initial HTML and run before hydration (no flash of
-            the default palette/type pairing). Uses next/script rather than a raw
-            <script> so React 19 doesn't warn about non-executing script tags. */}
-        <Script id="theme-restore" strategy="beforeInteractive">
-          {themeRestoreScript}
-        </Script>
+        {/* Restores the saved palette/type pairing before hydration (see
+            public/theme-restore.js). Must be src-based: the App Router injects
+            beforeInteractive scripts via React preinit(), which doesn't support
+            inline scripts — an inline one renders as a raw <script> that
+            React 19 warns about. */}
+        <Script src="/theme-restore.js" strategy="beforeInteractive" />
         {children}
       </body>
     </html>

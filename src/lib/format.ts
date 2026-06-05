@@ -7,6 +7,7 @@ export const REGION_LABEL: Record<Region, string> = {
   Polynesia: "Polynesia",
   Melanesia: "Melanesia",
   AfricaAndOceania: "Africa & Oceania",
+  SoutheastAsia: "Southeast Asia",
 };
 
 export const KIND_LABEL: Record<PublicationKind, string> = {

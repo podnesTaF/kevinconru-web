@@ -3,8 +3,9 @@ import { z } from "zod";
 // Single source of truth for entity shapes — used by Server Actions (and
 // available to client forms). Inputs are pre-coerced from FormData in actions.
 
-export const REGIONS = ["Africa", "Oceania", "Polynesia", "Melanesia", "AfricaAndOceania"] as const;
+export const REGIONS = ["Africa", "Oceania", "Polynesia", "Melanesia", "AfricaAndOceania", "SoutheastAsia"] as const;
 export const KINDS = ["Archive", "Monograph", "ExhibitionCatalogue"] as const;
+export const GALLERY_LAYOUTS = ["Grid", "List"] as const;
 
 const slug = z
   .string()
@@ -28,6 +29,7 @@ export const publicationSchema = z.object({
   externalUrl: z.union([z.string().url("Must be a valid URL"), z.null()]),
   featured: z.boolean(),
   published: z.boolean(),
+  galleryLayout: z.enum(GALLERY_LAYOUTS),
 });
 export type PublicationInput = z.infer<typeof publicationSchema>;
 
@@ -60,6 +62,7 @@ export const pressSchema = z.object({
   pdfId: z.string().nullable(),
   externalUrl: z.union([z.string().url("Must be a valid URL"), z.null()]),
   published: z.boolean(),
+  galleryLayout: z.enum(GALLERY_LAYOUTS),
 });
 export type PressInput = z.infer<typeof pressSchema>;
 

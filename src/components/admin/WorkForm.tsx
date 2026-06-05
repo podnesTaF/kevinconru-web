@@ -35,6 +35,7 @@ export type WorkDefaults = {
   published?: boolean;
   coverImage?: MediaView | null;
   pdf?: MediaView | null;
+  galleryLayout?: string;
 };
 
 const slugify = (s: string) =>
@@ -236,6 +237,17 @@ export default function WorkForm({
               </div>
             </>
           )}
+          <div>
+            <label className={labelCls}>Gallery layout</label>
+            <select name="galleryLayout" defaultValue={defaults.galleryLayout ?? "Grid"} className={inputCls}>
+              <option value="Grid">Grid — object plates with lightbox</option>
+              <option value="List">Page by page — journal / article scans</option>
+            </select>
+            <p className="mt-1 text-xs text-muted">
+              “Page by page” shows the images full-width, one after another — the friendly
+              alternative to a PDF reader.
+            </p>
+          </div>
         </Card>
 
         <Card title="Cover" hint="Upload a cover image.">

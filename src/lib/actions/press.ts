@@ -32,6 +32,7 @@ function readPress(formData: FormData) {
     pdfId: optStr(formData.get("pdfId")),
     externalUrl: optStr(formData.get("externalUrl")),
     published: bool(formData.get("published")),
+    galleryLayout: str(formData.get("galleryLayout")) || "Grid",
   };
 }
 

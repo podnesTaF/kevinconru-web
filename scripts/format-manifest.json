@@ -1,0 +1,1411 @@
+{
+  "publications": [
+    {
+      "action": "enrich",
+      "slug": "william-oldman",
+      "sortOrder": 0,
+      "cover": {
+        "local": "media/publications-covers/OLDMAN-cover.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2076,2802,400,2802/0-0-0/7574f1d1-7433-4b3a-8d7c-b00fb27ac616/1/1/OLDMAN-cover.jpg?fjkss=exp=2096237425~hmac=56e96293855a406b764d77e81f780c1152aad03231f1e3c0135430e7d36d4a2f",
+        "file": "oldman-cover.jpg"
+      },
+      "gallery": [
+        {
+          "file": "oldman-k-.jpg",
+          "local": "media/publications-oldman/Oldman-K-.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1906,1260,900,1260/0-0-0/bfef93af-5bd1-415c-bb8d-baef59044c07/1/1/Oldman-K-.jpg?fjkss=exp=2096269395~hmac=1c1c5e0ee78825005ef042695202eec4a341c688dede8a261847fee093fc5443",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "oldman-k2.jpg",
+          "local": "media/publications-oldman/Oldman-K2.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3658,2419,900,2419/0-0-0/a3958f68-2331-4ac0-9927-521ffc336f09/1/1/Oldman-K2.jpg?fjkss=exp=2096269395~hmac=4c78332e39451b54240d86be796ef7b0efcf90acba6b13d52389589592b13ea7",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "oldman-k3.jpg",
+          "local": "media/publications-oldman/Oldman-K3.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3658,2419,900,2419/0-0-0/ca669a9a-cc47-429a-97cc-72f2ab287ff3/1/1/Oldman-K3.jpg?fjkss=exp=2096269395~hmac=4c78332e39451b54240d86be796ef7b0efcf90acba6b13d52389589592b13ea7",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "oldman-k4.jpg",
+          "local": "media/publications-oldman/Oldman-K4.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3658,2419,900,2419/0-0-0/c778369b-e0dc-4c7d-858a-0e3239c870ad/1/1/Oldman-K4.jpg?fjkss=exp=2096269395~hmac=4c78332e39451b54240d86be796ef7b0efcf90acba6b13d52389589592b13ea7",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "oldman-k5.jpg",
+          "local": "media/publications-oldman/Oldman-K5.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3658,2419,900,2419/0-0-0/98c6a1a4-3791-4b3e-96a4-fa58a6dc1018/1/1/Oldman-K5.jpg?fjkss=exp=2096269395~hmac=4c78332e39451b54240d86be796ef7b0efcf90acba6b13d52389589592b13ea7",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "oldman-k6.jpg",
+          "local": "media/publications-oldman/Oldman-K6.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3658,2419,900,2419/0-0-0/082d3f0d-08cb-47a7-9586-4ff98c322b35/1/1/Oldman-K6.jpg?fjkss=exp=2096269395~hmac=4c78332e39451b54240d86be796ef7b0efcf90acba6b13d52389589592b13ea7",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "oldman-k7.jpg",
+          "local": "media/publications-oldman/Oldman-K7.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3658,2419,900,2419/0-0-0/f884f24e-0414-4524-90fb-cf9f075c12bf/1/1/Oldman-K7.jpg?fjkss=exp=2096269395~hmac=4c78332e39451b54240d86be796ef7b0efcf90acba6b13d52389589592b13ea7",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "masterpieces-rmca",
+      "sortOrder": 1,
+      "cover": {
+        "local": "media/publications-covers/catalogue-jaquette.jpg.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2671,3312,400,3312/0-0-0/7b219741-96e3-45d8-a2b3-1996c13ee7fa/1/1/catalogue-jaquette.jpg.jpg?fjkss=exp=2096237425~hmac=32aee744bed8fe99675cbe035388bcc55a70610dc11282405a665c95bc49d0d5",
+        "file": "catalogue-jaquette.jpg.jpg"
+      },
+      "gallery": [
+        {
+          "file": "tervuren.jpg",
+          "local": "media/masterpieces/tervuren.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3729,2373,900,2373/0-0-0/7d03383e-4dad-4af9-ade2-b890489f1c85/1/1/tervuren.jpg?fjkss=exp=2096269396~hmac=3666ff1f75e209105d05b43f2b398a56d5839958dfab0055d8d58abfc000728a",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "tervuren2.jpg",
+          "local": "media/masterpieces/tervuren2.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3729,2373,900,2373/0-0-0/264a9962-d657-4175-82b3-3ad51a73d143/1/1/tervuren2.jpg?fjkss=exp=2096269396~hmac=3666ff1f75e209105d05b43f2b398a56d5839958dfab0055d8d58abfc000728a",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "tervuren3.jpg",
+          "local": "media/masterpieces/tervuren3.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3729,2373,900,2373/0-0-0/467bee9b-92f2-47ca-ab82-177b382d7c7d/1/1/tervuren3.jpg?fjkss=exp=2096269396~hmac=3666ff1f75e209105d05b43f2b398a56d5839958dfab0055d8d58abfc000728a",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "tervuren4.jpg",
+          "local": "media/masterpieces/tervuren4.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3729,2373,900,2373/0-0-0/e2b33136-e1b8-485a-98d1-53483482749d/1/1/tervuren4.jpg?fjkss=exp=2096269396~hmac=3666ff1f75e209105d05b43f2b398a56d5839958dfab0055d8d58abfc000728a",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "title": "Masterpieces — New Guinea Art from the Royal Museum for Central Africa",
+      "year": 2014,
+      "kind": "ExhibitionCatalogue",
+      "region": "Oceania",
+      "publisher": "Royal Museum for Central Africa, Tervuren",
+      "body": "<p>Catalogue of the exhibition of Papua New Guinea masterpieces from the Royal Museum for Central Africa, curated by Kevin Conru and held in Brussels in 2014.</p>",
+      "galleryLayout": "List"
+    },
+    {
+      "action": "enrich",
+      "slug": "bismarck",
+      "sortOrder": 2,
+      "cover": {
+        "local": "media/publications-covers/cover UK.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1181,1552,400,1552/0-0-0/418b91b3-2f1a-46ff-a8bb-7bf726fce66c/1/1/cover+UK.jpg?fjkss=exp=2096237425~hmac=d2a13a67fe98283290091109c16ff52411815bf8a5a1c7bf9b4162f7c89d3e9b",
+        "file": "cover uk.jpg"
+      },
+      "gallery": [
+        {
+          "file": "12 01 182 uli_00007.jpg",
+          "local": "media/bismarck-archipelago-art/12 01 182 uli_00007.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,600,800,900,800/0-0-0/ca56017e-0f1e-403f-8e88-616e6ea45da5/1/1/12+01+182+uli_00007.jpg?fjkss=exp=2096269396~hmac=6df31d85c0ae8123ce6345d282621840b911bbeaccf13d2426e8ab051eed8306",
+          "title": "Uli Figure",
+          "caption": "Collected before 1914 by a German botanist Herman Seeger, Stuttgart Wood, turbo petholatus opercula, shell, fiber, adhesive putty and pigments\n108 cm"
+        },
+        {
+          "file": "12 12 184 malagan_00009.jpg",
+          "local": "media/bismarck-archipelago-art/12 12 184 malagan_00009.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,600,800,900,800/0-0-0/7e265ef3-60d4-4a39-8643-8e523e04192a/1/1/12+12+184+malagan_00009.jpg?fjkss=exp=2096269396~hmac=6df31d85c0ae8123ce6345d282621840b911bbeaccf13d2426e8ab051eed8306",
+          "title": "Dance Mask, Matua",
+          "caption": "Collected between 1896 and 1899 by Father Rascher and Richard Parkinson. Herz-Jesu-Mission, MCS Schwesterngemeinschaft, Munster- Hiltrup, Germany, 1905.\nManfred Steffmann, Möhnsee- Günne, Germany Wood, turbo petholatus opercula, adhesive gum, fiber, feathers and pigments\n111cm"
+        },
+        {
+          "file": "12 10 124 new ireland_00007.jpg",
+          "local": "media/bismarck-archipelago-art/12 10 124 New ireland_00007.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,600,450,900,450/0-0-0/bac99835-45c7-4cb9-ad23-35f98e1964c9/1/1/12+10+124+New+ireland_00007.jpg?fjkss=exp=2096269396~hmac=5645fc267872952f8cbe7232242ac45f2d69418a82421fd9e6a529f5b300aad4",
+          "title": "Dance Mask with mouth ornament, Tatanua",
+          "caption": "Collected by Dr. Lautenbach in Ungalubu Villiage, New Hannover\nLemaire, Amsterdam\nMuseum voor Land en Volkenkunde, Rotterdam Wood, fiber, turbo petholatus opercula, trade cloth, glass beads and pigments\n56 cm"
+        },
+        {
+          "file": "12 12 173 new ireland _00008.jpg",
+          "local": "media/bismarck-archipelago-art/12 12 173 new ireland _00008.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,600,800,900,800/0-0-0/b019f261-c2a4-4002-b068-9edc44234592/1/1/12+12+173+new+ireland+_00008.jpg?fjkss=exp=2096269396~hmac=6df31d85c0ae8123ce6345d282621840b911bbeaccf13d2426e8ab051eed8306",
+          "title": "Southern New Ireland Dance Mask.",
+          "caption": "Private Collection, Newcastle, England\nChris and Anna Thorpe, Sydney\nWood, turbo petholatus opercula, adhesive gum, abrus seeds and pigments\n37 cm"
+        }
+      ]
+    },
+    {
+      "action": "create",
+      "slug": "bernatzik-africa",
+      "sortOrder": 3,
+      "cover": {
+        "local": "media/publications-covers/Numériser 41.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1699,2325,400,2325/0-0-0/eae6ccd5-dfec-4378-b4b3-8b833173b9c5/1/1/Nume%CC%81riser+41.jpg?fjkss=exp=2096237425~hmac=ddb34ec17ff49b416c3ec407880f847f910c00172de7afa4cdd47af03a845ae9",
+        "file": "numériser 41.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 48.jpeg",
+          "local": "media/bernatzik-afrika/Numériser 48.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1655,2319,900,2319/0-0-0/e2f06c46-9e00-4a4d-8e29-b7e170e93f56/1/1/Nume%CC%81riser+48.jpeg?fjkss=exp=2096220590~hmac=6d0f751b1eca8e1626a4247bd4a7b25a97bd8a6e96623bcb1fd184d6a0175dfe",
+          "title": "A young Southern Bayot man and woman celebrating the harvest in Elia.",
+          "caption": "The man is trying to persuade his girlfriend to participate in the wrestling-match.\nPortuguese New Guinea, 1930-31.\nH. Bernatzik : Äthiopen 1933, pl.120 ;\nD. Byer : Fremde Frauen 1985, pl. 120"
+        },
+        {
+          "file": "numériser 46.jpeg",
+          "local": "media/bernatzik-afrika/Numériser 46.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1640,2325,900,2325/0-0-0/c4c6454a-7162-4ef4-a0b5-35f5280e8d90/1/1/Nume%CC%81riser+46.jpeg?fjkss=exp=2096220590~hmac=72e3b0192c4e2c1672ed7d61696d3d2388ad97855e92ab390c7724ee967dfae6",
+          "title": "A young Bidyogo woman participating in an initiation dance.",
+          "caption": "She wears a bulls-horn headdress and has a sculpted staff with bells.\nEtikoka, 1930-1931.\nD. Byer : Fremde Frauen 1985, pl.134"
+        },
+        {
+          "file": "numériser 44.jpg1.jpg",
+          "local": "media/bernatzik-afrika/Numériser 44.jpg1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1632,2309,900,2309/0-0-0/db31f318-29b2-4106-bfbd-85d981be27ac/1/1/Nume%CC%81riser+44.jpg1.jpg?fjkss=exp=2096220590~hmac=5671055ac02f2441ab4ed785b56cf78dffd8adb06d37420f81f2428a60528bee",
+          "title": "A young Dinka woman who resides in a Jur village near Rumbek. 1927",
+          "caption": "H. Bernatzik: Nil und Kongo 1929, pl.53 ; 1943, pl.79\nH. Bernatzik: Gari-Gari , Berlin 1930, pl.39 ; New York 1936, pl.39\nWien 1936, pl. 49 ; Wien 1937, pl.49 ;\nH. Bernatzik: Dunkle 1930, pl. 139 ;\nD. Byer : Fremde Frauen 1985"
+        },
+        {
+          "file": "numériser 43.jpg",
+          "local": "media/bernatzik-afrika/Numériser 43.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1672,2317,900,2317/0-0-0/82ae1dd5-cba9-4f40-b904-43b1ee90401c/1/1/Nume%CC%81riser+43.jpg?fjkss=exp=2096220590~hmac=c42bef5ddaf57d471dac3f326e28c504c74fbdd8b28248e23746cecdf4fa552e",
+          "title": "The painting and ornaments on the Nuba woman's face and body",
+          "caption": "represent her strong countenance and reflect her honours. Berg Talodi, 1927.\nH. Bernatzik : Gari-Gari , Berlin 1930, pl. 102 ; Wien 1936, pl. 133;\nWien 1937, pl. 133; Wien 1943, pl. 77; Graz 1948, pl. 77;\nD. Byer : Fremde Frauen 1985, pl 69"
+        },
+        {
+          "file": "numériser 42.jpg1.jpg",
+          "local": "media/bernatzik-afrika/Numériser 42.jpg1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1656,2309,900,2309/0-0-0/f0b54f6a-3476-4b08-b6ce-1a48502319a5/1/1/Nume%CC%81riser+42.jpg1.jpg?fjkss=exp=2096220590~hmac=ad822fcb2a7ceb989bb07cd59135236ac287d0c6c28857e66e957f1491313937",
+          "title": "A sudanese gawhazi dancer performing the ancient stomach dance.",
+          "caption": "Her body is wrapped in a street dress. Omdurman, 1927.\nH. Bernatzik : Gari-Gari , berlin 1930, pl.7 ; Wien 1936, pl.10 ;\nNew York 1936, pl.7 ; Wien 1937, pl.10; Wien 1943, pl.12;\nGraz 1948, pl.12; D. Byer : Fremde Frauen 1985, pl. 43"
+        }
+      ],
+      "title": "Hugo Bernatzik — Africa",
+      "year": 2003,
+      "kind": "Archive",
+      "region": "Africa",
+      "publisher": "5 Continents Editions",
+      "body": "<p>Photographs of Africa by Hugo Bernatzik, drawn from his expeditions of the 1920s and 1930s and published with full scholarly apparatus.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "bernatzik-south-pacific",
+      "sortOrder": 4,
+      "cover": {
+        "local": "media/publications-covers/Numériser 49.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1698,2335,400,2335/0-0-0/d475cf7c-86bd-4642-b70f-2f2b3bfe696b/1/1/Nume%CC%81riser+49.jpg?fjkss=exp=2096237425~hmac=e24503b067dc7898dcf723c427fcf4095bf14227b3d9e40b69a9a380a08353fb",
+        "file": "numériser 49.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 54.jpeg",
+          "local": "media/bernatzik-south-pacific/Numériser 54.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1656,2309,900,2309/0-0-0/ec4bfc8f-782e-403b-97a5-46417b4c13e0/1/1/Nume%CC%81riser+54.jpeg?fjkss=exp=2096205211~hmac=f51d2f9aee004b94de0767529daeed5ece0ba06ed1faa17e69e02bea026806be",
+          "title": "Portrait of a Bena-Bena man wearing a bird-of-paradise feather headdress,",
+          "caption": "and a shell and bead necklace. Sigoyabu Village.\n(H. Bernatzik, Südsee , 1944, 1960, pl. 58)"
+        },
+        {
+          "file": "numériser 53.jpeg",
+          "local": "media/bernatzik-south-pacific/Numériser 53.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1656,2317,900,2317/0-0-0/42a2a0de-d36c-41d5-a1a7-5cd366d114f1/1/1/Nume%CC%81riser+53.jpeg?fjkss=exp=2096203403~hmac=61923a5657132f10be561d1121aa432dd2b415f4e089fc9fb7d281929d7e7f41",
+          "title": "A widow in mourning wearing a bast-fibre hood and a shell ring necklace.",
+          "caption": "Domara village. (n.p.)"
+        },
+        {
+          "file": "numériser 52.jpg",
+          "local": "media/bernatzik-south-pacific/Numériser 52.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1013,1533,900,1533/0-0-0/fa9f7106-ea2c-4fb2-93d8-ff97aee7c6a5/1/1/Nume%CC%81riser+52.jpg?fjkss=exp=2096205211~hmac=5e9aabd6212f948b858fba6db33ba03d93db2a47332de71393ff272fdc46bf90",
+          "title": "Couples of dancers facing each other and dancing. Koraudi Village. (n.p.)",
+          "caption": null
+        },
+        {
+          "file": "numériser 51.jpeg",
+          "local": "media/bernatzik-south-pacific/Numériser 51.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1656,2309,900,2309/0-0-0/a43de59f-ed5c-4554-8fdf-e2913bba1bf8/1/1/Nume%CC%81riser+51.jpeg?fjkss=exp=2096205211~hmac=f51d2f9aee004b94de0767529daeed5ece0ba06ed1faa17e69e02bea026806be",
+          "title": "The guest of the initiation festival bringing the sacred bonito canoe",
+          "caption": "to the ocean. Gupuna village, Owa Raha Island.\n(H. Bernatzik, Südsee , 1934, pl.12)"
+        },
+        {
+          "file": "numériser 50.jpeg",
+          "local": "media/bernatzik-south-pacific/Numériser 50.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1672,2293,900,2293/0-0-0/88a9d115-605b-47a8-a269-d24303b71475/1/1/Nume%CC%81riser+50.jpeg?fjkss=exp=2096205211~hmac=c4a68a8ff048938267a2b24c5298ad0a1b00963528900917dfa20d7b397578fe",
+          "title": "Portrait of Charlie Küper. Gupuna Village, Owa Raha Island.",
+          "caption": "(H. Bernatzik, Südsee , 1935, pl.1; 1944-1949, 1960, pl.12;\nD. Byer, Die Grosse Insel , 1996, p.216 ;\nT.Theye, Der geraubte Schatten , 1989, p. 145)"
+        }
+      ],
+      "title": "Hugo Bernatzik — South Pacific",
+      "year": 2004,
+      "kind": "Archive",
+      "region": "Oceania",
+      "publisher": "5 Continents Editions",
+      "body": "<p>Hugo Bernatzik's South Pacific photographs — portraits and scenes from Melanesia and the Solomon Islands taken in the early 1930s.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "bernatzik-southeast-asia",
+      "sortOrder": 5,
+      "cover": {
+        "local": "media/publications-covers/Numériser 55.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1699,2309,400,2309/0-0-0/f39d92f8-25d0-4682-aa78-80531aeee19a/1/1/Nume%CC%81riser+55.jpg?fjkss=exp=2096237425~hmac=c06e20e673cfad1ec481c52f044d59b53b48b95303a279edb95be3199296c210",
+        "file": "numériser 55.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 60.jpg",
+          "local": "media/bernatzik-southeast-asia/Numériser 60.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1653,2314,900,2314/0-0-0/ddab2693-149a-400c-af2a-0cb9a539f410/1/1/Nume%CC%81riser+60.jpg?fjkss=exp=2096269424~hmac=8319eedb18d06a3ffc55a283ef5b34b5bf08f03d8fd967b693762a7f9cebc648",
+          "title": "An Akha girl carrying a basket on her shoulders. Siam/Burmese border.",
+          "caption": "H. Bernatzik : Völkerkunde 1939, pl.164"
+        },
+        {
+          "file": "numériser 59.jpeg",
+          "local": "media/bernatzik-southeast-asia/Numériser 59.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1509,2043,900,2043/0-0-0/c96cbec6-5889-4c2e-95b9-239e5883917f/1/1/Nume%CC%81riser+59.jpeg?fjkss=exp=2096269424~hmac=e7bddee562f477cefba9a7e87ce0b37707a7e61b8bc2a9a5e9202e2586bbda8a",
+          "title": "A Phi Tong Luang woman in the headwater region of",
+          "caption": "the Mae Nam. East of Chiang Rai.\nD. Byer, Fremde Frauen 1985, p. 219, p.193"
+        },
+        {
+          "file": "numériser 58.jpeg",
+          "local": "media/bernatzik-southeast-asia/Numériser 58.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1656,2309,900,2309/0-0-0/dd8cb5cc-9158-4f1d-b46f-bf07ce25bba8/1/1/Nume%CC%81riser+58.jpeg?fjkss=exp=2096269424~hmac=5c974b3b3bbec405206052d65ad5c5dda95926242f5d789c1933873301d10186",
+          "title": "Male Kris dancers wrestling in a scene from the Ngureu. Bali, 1933.",
+          "caption": "H. Bernatzik : Südsee , London 1935, pl.102."
+        },
+        {
+          "file": "numériser 57.jpeg",
+          "local": "media/bernatzik-southeast-asia/Numériser 57.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1499,2029,900,2029/0-0-0/8240439d-adf9-4870-b6e8-4d90f7ae8a2d/1/1/Nume%CC%81riser+57.jpeg?fjkss=exp=2096269424~hmac=5972242913d2e5ea4a088b976a93076d7cfce9ef75d049ce9dd495f8160525a7",
+          "title": "A sacrificial platform, next to a Pnong Budung grave. Mid-Indochina. n.p.",
+          "caption": null
+        },
+        {
+          "file": "numériser 56.jpeg",
+          "local": "media/bernatzik-southeast-asia/Numériser 56.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1644,2316,900,2316/0-0-0/e5539a84-3bfd-4d4a-a62c-c0d3282cb417/1/1/Nume%CC%81riser+56.jpeg?fjkss=exp=2096269424~hmac=9f7460444bdf23b5383575752925a56e658b25b0b30161eb1a65153553fef08a",
+          "title": "A moken father trending to his children. Mergui Archipelago, Burma. n.p.",
+          "caption": null
+        }
+      ],
+      "title": "Hugo Bernatzik — Southeast Asia",
+      "year": 2005,
+      "kind": "Archive",
+      "region": "SoutheastAsia",
+      "publisher": "5 Continents Editions",
+      "body": "<p>Hugo Bernatzik's Southeast Asian photographs, from Burma and Siam to Bali and mid-Indochina.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "solomon-islands-art",
+      "sortOrder": 6,
+      "cover": {
+        "local": "media/publications-covers/Numériser 69.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1274,1748,400,1748/0-0-0/618cc279-684b-4059-8e02-f86863fcf3a1/1/1/Nume%CC%81riser+69.jpg?fjkss=exp=2096237425~hmac=c9945215efeeb721006d37fc972ea50fb5bc8f26d98bfcfdc353d59c5f5cc431",
+        "file": "numériser 69.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 70.jpeg",
+          "local": "media/solomon-islands-art/Numériser 70.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1174,1734,900,1734/0-0-0/6f7cd533-e62b-486b-8c43-771aa506805c/1/1/Nume%CC%81riser+70.jpeg?fjkss=exp=2096257838~hmac=9befc970ec594da66ddb0cdb95e28db4cacfcb9efc9c081524dedea73e702cab",
+          "title": "ca. 1900",
+          "caption": "Collected by Captain Nauer and sold to Leipzig Museum in 1913.\nInv. No. ME 10875\nPublished :\nCarlier, Regard sur les îles Salomon , 2002, no.89\nHerreman, Oceania , Brussels, 2008\nExhibited :\nOceania, ING Cultural Center, Place Royale, Brussels, 22 Oct 2008-15 Feb.2009\n23 in - 58 cm"
+        },
+        {
+          "file": "numériser 72.jpeg",
+          "local": "media/solomon-islands-art/Numériser 72.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1220,1734,900,1734/0-0-0/e255d8e5-1350-471f-a8ba-16a528ccf5a7/1/1/Nume%CC%81riser+72.jpeg?fjkss=exp=2096257838~hmac=5316aa5356a0b8b82af1795dd1f6ffc516bc2250d0f4e0589c08a0654f4afeb2",
+          "title": "19th century",
+          "caption": "Sold, Christie's London, 24 June 1996, 1944\nEx-collection Wayne Heathcote, London\nEx-collection Daniella Cavaliere, Milan\nAcquired 2006, from Roberto Gamba, Milan\n14 in - 36 cm"
+        },
+        {
+          "file": "numériser 71.jpg",
+          "local": "media/solomon-islands-art/Numériser 71.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1274,1740,900,1740/0-0-0/8a6fda17-a9c5-44d7-b990-763233dc1f71/1/1/Nume%CC%81riser+71.jpg?fjkss=exp=2096257838~hmac=6f1467b403eced59e4c386c4497263ac61d56d58e19bb559a1602382dcf7462c",
+          "title": "19th century",
+          "caption": "Old label on base, inscribed : 'S352'\nAcquired 2000 from Margaret Soriero, Santa Fe, New Mexico.\nPublished :Herreman, Oceania, Brussels, 2008\nExhibited : Oceania, ING Cultural Center, Place Royale, Brussels,\n22 Oct 2008-15 Feb.2009\n17 in - 43 cm"
+        },
+        {
+          "file": "numériser 74.jpg",
+          "local": "media/solomon-islands-art/Numériser 74.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1772,1382,900,1382/0-0-0/6691faf0-1fe8-40df-8be7-b29948f4b9b3/1/1/Nume%CC%81riser+74.jpg?fjkss=exp=2096257838~hmac=1d8c71d38ab7309896765b6a2c0907cd68638f2f489268d5020bd4f1406c3480",
+          "title": "19th century",
+          "caption": "Ex-collection Henry Kuper, Santa Ana Island\nPhotographed by Hugo Bernatzik, Christmas Eve 1933, Kuper house interior\nGiven to Hugo Bernatzik, 1933\nAcquired 2000 from Doris Byer, Vienna\n18 in - 46 cm"
+        },
+        {
+          "file": "numériser 75.jpg",
+          "local": "media/solomon-islands-art/Numériser 75.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1242,1734,900,1734/0-0-0/77e6883a-2670-4dbd-a5fe-10ea9d4e55de/1/1/Nume%CC%81riser+75.jpg?fjkss=exp=2096257838~hmac=1a566cbb5e155b407b77d943fa9c17cbb2be0cdb519046e4e07fd9be0e3132d9",
+          "title": "19th century",
+          "caption": "From left to right :\na. Ex-collection Alain Bovis, Paris. Acquired in 2004. 68 in - 173 cm\nb. Acquired 2007 from Michael Auliso, San Francisco70 in - 178 cm\nc. 67 in - 170 cm"
+        }
+      ],
+      "title": "Solomon Islands Art",
+      "year": 2008,
+      "kind": "Monograph",
+      "region": "Melanesia",
+      "publisher": "5 Continents Editions",
+      "body": "<p>A survey of the sculptural arts of the Solomon Islands, with documented works from Nissan Island, the Roviana Lagoon and beyond.</p>"
+    },
+    {
+      "action": "enrich",
+      "slug": "southern-african",
+      "sortOrder": 7,
+      "cover": {
+        "local": "media/publications-covers/Numériser 63.jpg1.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1258,1752,400,1752/0-0-0/45e9ba71-000e-4782-96eb-2548ea9915ad/1/1/Nume%CC%81riser+63.jpg1.jpg?fjkss=exp=2096237425~hmac=bb5f3ad56e77b5f06de3b7b937b01a27bc7bff62a46ae2261df0fd1fb99e069b",
+        "file": "numériser 63.jpg1.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 64_essai.jpg",
+          "local": "media/the-art-of-southeast-afrika/Numériser 64_ESSAI.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,876,1496,900,1496/0-0-0/e8fed01d-46f2-4dc2-b112-e6c3b460dd3d/1/1/Nume%CC%81riser+64_ESSAI.jpg?fjkss=exp=2096212459~hmac=bac1b26623b127bb765af45278e022c0211f44ac5ce66a62d8b8c753f2b5d658",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 65_modifié-1.jpg",
+          "local": "media/the-art-of-southeast-afrika/Numériser 65_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1200,944,900,944/0-0-0/f8d651f5-5552-42b8-bd55-b2190c6e9e5a/1/1/Nume%CC%81riser+65_modifie%CC%81-1.jpg?fjkss=exp=2096212459~hmac=6b5dccc9bf90996be145abe44cec6dee193d8638d778c16929ce2123e5398cd3",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 66.jpeg",
+          "local": "media/the-art-of-southeast-afrika/Numériser 66.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1218,1720,900,1720/0-0-0/eafcc75a-04a0-48d8-ae8e-2411488f6a0f/1/1/Nume%CC%81riser+66.jpeg?fjkss=exp=2096212459~hmac=a31429f52ba7eaf03ae99cb7691d46c2301dbf718b4a3254b5d293b498aea8fe",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 67_modifié-2.jpg",
+          "local": "media/the-art-of-southeast-afrika/Numériser 67_modifié-2.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1600,1445,900,1445/0-0-0/fcdb9a98-8331-4925-9995-44a39df45cf0/1/1/Nume%CC%81riser+67_modifie%CC%81-2.jpg?fjkss=exp=2096212459~hmac=45a3b1084bfaba1311eb9967a27e98795f67f98edd79faa194efb1326ff245ac",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 68.jpg",
+          "local": "media/the-art-of-southeast-afrika/Numériser 68.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1204,894,900,894/0-0-0/fd566ed0-b12a-4970-b0b4-87517c6b35d6/1/1/Nume%CC%81riser+68.jpg?fjkss=exp=2096212459~hmac=544c0ec797dec8ef658a05ecda56eaef4ac381ca80420a8bfc18f184038265a5",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "title": "The Art of Southeast Africa"
+    },
+    {
+      "action": "enrich",
+      "slug": "ab-lewis",
+      "sortOrder": 8,
+      "cover": {
+        "local": "media/publications-guinea-art-in-chicago/Numériser 46.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1967,3341,900,3341/0-0-0/6ddb4854-35e6-4231-8e2c-30582de9e161/1/1/Num%C3%A9riser+46.jpg?fjkss=exp=2096256359~hmac=98a0fc00d6b96327e3bea82f33c2d3b8875975a4b952b5c17e1b3544c5027b7a",
+        "file": "numériser 46.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 47.jpg",
+          "local": "media/publications-guinea-art-in-chicago/Numériser 47.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1951,3037,900,3037/0-0-0/65afc99d-1b5b-4849-a934-aa9f3bac3234/1/1/Num%C3%A9riser+47.jpg?fjkss=exp=2096256359~hmac=49843451096034f029acd53bdfee85cbf05c9be748e06bcdc0beb09e24e6e2c6",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 49.jpg",
+          "local": "media/publications-guinea-art-in-chicago/Numériser 49.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1957,3063,900,3063/0-0-0/d254c8d1-cb70-4f1e-a665-dbc452a3df3f/1/1/Num%C3%A9riser+49.jpg?fjkss=exp=2096256359~hmac=44541246749b3bc16473bacf39ecce8e8dc79566c3ee1605918990684313aa83",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 48.jpg",
+          "local": "media/publications-guinea-art-in-chicago/Numériser 48.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2002,2901,900,2901/0-0-0/0ee0f2bb-a4c9-4fad-bc12-7087f488a47c/1/1/Num%C3%A9riser+48.jpg?fjkss=exp=2096256359~hmac=9d5a13dffd93b22f271531325a3f8530d4bc8a0db37c46e9cb6504f54022ef2e",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 51.jpg",
+          "local": "media/publications-guinea-art-in-chicago/Numériser 51.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2337,2883,900,2883/0-0-0/f74c124c-4d3a-4a24-aeee-caaeb1a7f9aa/1/1/Num%C3%A9riser+51.jpg?fjkss=exp=2096256359~hmac=bd4e3b9fc59d0c27e78865b285727ffd65ba88044fe022be6c2da0c7a992656e",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "body": "<p>The two decades before the 1st World War was the greatest period of contact, exploration, and cultural exchange in Melanesia. Following their systematic programs of colonization, Holland, Germany, England and France laid claim to these varied islands in order to further their political, if not economical interests. Researchers and scientists were dispatched to learn about the ‘new’ lands, and they found an incredible variety of peoples, languages and cultural practices. Coinciding, this was also the period where major schools of anthropology were founded by the likes of Boas, Haddon and Rivers. They along with their pupils and colleagues worldwide, formulated strategies and structures for understanding what was deemed exotic and foreign. Anthropology at this time sought to answer questions about the development of humankind, and it was thought that indigenous societies provided keys to further comprehension. Anthropologists analyzed social frameworks and attempted to make ordered collections of the physical objects created by their subjects. Museums played an important role in that they were often the official bodies sponsoring research among indigenous peoples and they were the repositories of the newly collected material culture that was required to illustrate anthropological perspectives. Museums during this pre-War period very actively sought cultural artifacts, and were often in competition with each other to secure the most important collections and dramatic specimens. Unlike Polynesian culture which had by then almost a century of acculturation and Micronesia with its many difficult to visit small islands, Melanesia was a vast treasure trove of untapped possibilities, and it was here that many large scale collecting expeditions took place. Chicago’s Field Museum was a young institution that sought its place among the older and established museums of the East Coast and Europe and in 1908 the curator of anthropology, George Dorsey, made a tour of the world that included a two month stay in German New Guinea. While the museum had acquired Pacific island artifacts on the international curio market, notably from Umlauff in Hamburg, Dorsey saw the opportunity of acquiring interesting artifacts directly in Melanesia, and of collecting them systematically. On his return to Chicago, Dorsey convinced the museum’s director and trustees to mount a major collecting expedition to Melanesia by suggesting that a large number of specimens and artifacts could be gathered quite cheaply in comparison to international market prices and in comparison to other areas of scientific endeavor. He also suggested that the public display of the numerous artifacts would burnish the reputation of the fledgling institution in the eyes of the wider museum community as well as of the local public. In the spring of 1909, Alfred Buell Lewis, Dorsey’s newly appointed assistant curator, left Chicago for what turned out to be one of the Field Museum’s most important field research projects, and on his return, the over 14,000 objects became the largest gathering of Melanesian artifacts ever made in situ.</p>\n<p>A.B. Lewis spent 4 years in Melanesia documenting traditional cultures as he saw them. Fiji was his entrée into the Southern Pacific, and here he developed his own anthropological investigative method. As his arrival in Fiji was relatively late regarding the possibility of making a valuable specimen collection, he spent his time with camera and notebook, documenting what he could of the quickly disappearing traditional ways of life. After leaving Fiji and stopping in Sydney for a brief time, he went to the seat of the then German New Guinea, Hebertshöhe in New Britain. From here, with the aid of Governor Hahl, he made his research along the north coast of New Guinea from Madang up to Aitape and the Humboldt Bay. In December of 1909, Lewis embarked upon a five month exploration of West New Britain and the Huon Gulf, and then until September worked along the Sepik Coastal area before finally going up the Sepik River on the German ship Siar. Throughout his time in New Guinea, Lewis focused on all aspects of the indigenous cultures he encountered, acquiring not only visually impressive carvings and fibre objects, but building collections of more mundane and utilitarian artifacts such as baskets, bowls and utensils. Ever mindful of the requirements of the museum to obtain the most comprehensive group possible, Lewis would in addition to his own field collecting acquire artifacts singly or in bulk from traders such as Isokichi Komine in the Admiralty Islands, and Wilhelm Gramms on New Guinea’s north coast. After leaving New Guinea, he spent the next few years making similar detailed researches and collections in the Bismarck Archipelago, the Solomon Islands, New Hebrides and New Caledonia, before returning to New Guinea to complete his fieldwork in the Papuan Gulf. Although the scale of Lewis’ entire Melanesian collection is extraordinary, his New Guinea material and field research is unrivalled in its scope and breadth.</p>\n<p>Upon his return to Chicago in 1913, Lewis spent the next several years cataloging his and his predecessor’s collections and in 1921 installed them in 50 rooms in the new Joseph S. Field Hall of Melanesian Anthropology. These exhibits remained virtually unchanged until the mid 1980’s when the direction of the institution changed, and the objects placed into store. The displays were of a time and place, and as the science of anthropology evolved, so did the didactic visual requirements required to illustrate the subject.</p>\n<p>With the 1958 acquisition of Captain A.W.F Fuller’s Pacific Island material, a collection that included a number of important Polynesian pieces, The Field Museum became one of the world’s great centers for Oceanic Art.</p>\n<p>Kevin Conru</p>",
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "south-seas-2008",
+      "sortOrder": 9,
+      "cover": {
+        "local": "media/catalogs/Numériser 42.jpeg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2480,3507,1600,3507/0-0-0/cc8d94ab-db49-4c3d-bceb-79089f5fa012/1/1/Num%C3%A9riser+42.jpeg?fjkss=exp=2096269425~hmac=71ee0bd7828d334dc9232425303a4c9c462a5e50d578b2bd49697cb7d6a69fa9",
+        "file": "numériser 42.jpeg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 42_modifié-1.jpg",
+          "local": "media/conru-mer-du-sud-2008/Numériser 42_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2487,3543,900,3543/0-0-0/5a2cfb0a-e95c-4f07-899a-014f5c1b50ae/1/1/Num%C3%A9riser+42_modifi%C3%A9-1.jpg?fjkss=exp=2096247998~hmac=ec8bc0b532a2d3e74cf9ba68ca335bd50b2b40012e58bd2bcc19147bb5ca654f",
+          "title": "Buy this book",
+          "caption": null
+        },
+        {
+          "file": "female figure,roviana lagoon_modifié-1.jpg",
+          "local": "media/conru-mer-du-sud-2008/Female Figure,Roviana Lagoon_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1239,1969,900,1969/0-0-0/35dbe10d-3226-4052-bc56-50d03c5b56c0/1/1/Female+Figure%2CRoviana+Lagoon_modifi%C3%A9-1.jpg?fjkss=exp=2096247998~hmac=b6ea223e7dcc7110f3c50c5b924d32fa2fc497dc6f161bf7015bd34d8fc2edf5",
+          "title": "Female Figure",
+          "caption": "Roviana Lagoon,New Georgia Islands,Solomon Islands\nMid 19th century\nH : 18cm - 7,1in\nProvenance:\nJean Cambier,Waterloo, Belgium\nRobert Wall,San Francisco"
+        },
+        {
+          "file": "male figure; coastal sepik river _modifié-1.jpg",
+          "local": "media/conru-mer-du-sud-2008/Male Figure; Coastal Sepik River _modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1372,1870,900,1870/0-0-0/a8bf598e-049b-4567-a34b-23ac945ab483/1/1/Male+Figure%3B+Coastal+Sepik+River+_modifi%C3%A9-1.jpg?fjkss=exp=2096247998~hmac=af4071538f338467252170ee7a44e0ddc691b1fcd1d56b47d14c2ba047ca3ba3",
+          "title": "Male Figure",
+          "caption": "Coastal Sepik River Area,PNG\nLate 19th century\nH: 26,5cm - 10,4in\nProvenance :\nSkip Holbrook,Santa Fe"
+        },
+        {
+          "file": "breast pectoral_modifié-1.jpg",
+          "local": "media/conru-mer-du-sud-2008/Breast Pectoral_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1425,1772,900,1772/0-0-0/f2365c34-9ebe-4416-8e97-1c9fa4d1ef30/1/1/Breast+Pectoral_modifi%C3%A9-1.jpg?fjkss=exp=2096247998~hmac=67997080227d45e1a8262219fefff612e77397ec72e869b0fc0189136293c56a",
+          "title": "Breast Pectoral",
+          "caption": "Civavonovono,Viti Levu,Fiji Islands\nMid 19th century\nH:19cm - 7,5in\nProvenance :\nWilliam G. Schulz,Oregon,USA"
+        },
+        {
+          "file": "numériser 44.jpg",
+          "local": "media/catalogs/Numériser 44.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1934,3073,1600,3073/0-0-0/941c3bda-2bce-4657-ae9d-a02f38a3ba24/1/1/Nume%CC%81riser+44.jpg?fjkss=exp=2096269426~hmac=4e2ab1de06e342f30c79a1d4b34faec74a3da83d81674cb4271b072ac697d481",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 45.jpg",
+          "local": "media/catalogs/Numériser 45.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2480,3083,1600,3083/0-0-0/d2f7fdf5-0282-485f-afd4-22f0e6ff8b0d/1/1/Nume%CC%81riser+45.jpg?fjkss=exp=2096269426~hmac=5a8a0d5c5524d8230e43e005bdb92f7816afe3b8b0fc9a22724d545f08205897",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "title": "South Seas — Art of the Pacific",
+      "year": 2008,
+      "kind": "ExhibitionCatalogue",
+      "region": "Oceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue of Pacific works, with published objects from the Solomon Islands, the Sepik coast and Fiji.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "rarities-2007",
+      "sortOrder": 10,
+      "cover": {
+        "local": "media/publications-covers/Numériser 36.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2352,3417,400,3417/0-0-0/d25bbd01-ed52-4c79-95d0-2680d657cc4b/1/1/Num%C3%A9riser+36.jpg?fjkss=exp=2096237425~hmac=cb8cadbc56cc1d2667df7e49bfb9f574f3222e5648bd88ae4c05224083321dd5",
+        "file": "numériser 36.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 36_modifié-1.jpg",
+          "local": "media/publications-rarities/Numériser 36_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1355,1969,900,1969/0-0-0/54c6c330-2576-4940-82b1-0353314ab638/1/1/Num%C3%A9riser+36_modifi%C3%A9-1.jpg?fjkss=exp=2096210807~hmac=03561ef9a755516ba019930723ea7d164f6cab42c7d67b8b61fbc79af9a27d4c",
+          "title": "Buy this book",
+          "caption": null
+        },
+        {
+          "file": "maori figure_modifié-1.jpg",
+          "local": "media/publications-rarities/Maori Figure_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1241,1969,900,1969/0-0-0/eb7eb499-6a1a-4140-b6e3-b990bec8c54f/1/1/Maori+Figure_modifi%C3%A9-1.jpg?fjkss=exp=2096210807~hmac=8f18ab4738f9aab6a2a3992a888d919dd5cf6b39bbd2b572996820574ff0aba3",
+          "title": "Maori Figure",
+          "caption": "Mid 19th century\nNew Zealand\nProvenance Casey and Laurie Conway,Kingman,Arizona\n17cm - 6,7 in"
+        },
+        {
+          "file": "new ireland dance mask_modifié-2.jpg",
+          "local": "media/publications-rarities/New Ireland Dance Mask_modifié-2.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1292,1930,900,1930/0-0-0/a42da88d-d5a0-4a92-9138-a5323ba36b63/1/1/New+Ireland+Dance+Mask_modifi%C3%A9-2.jpg?fjkss=exp=2096210807~hmac=3c4b5240dd051f5002ee173820aa929a3e9151f4582c8ae6ee5cabbd2264d859",
+          "title": "New Ireland Dance Mask,Kipang, Papua New Guinea",
+          "caption": "Circa 1900\nProvenance :\nUbersee Museum Bremen,acquired from Rhode in 1912(D14514).\nDeaccessioned to Walter Kaiser, Stuttgart, in 1974\nGisela Kaiser, Stuttgart\nH : 68cm - 26\"3/4"
+        },
+        {
+          "file": "tami island cult object_modifié-1.jpg",
+          "local": "media/publications-rarities/Tami Island Cult Object_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1241,1969,900,1969/0-0-0/c7d411bd-499f-413a-b630-008f3c970db9/1/1/Tami+Island+Cult+Object_modifi%C3%A9-1.jpg?fjkss=exp=2096210807~hmac=8f18ab4738f9aab6a2a3992a888d919dd5cf6b39bbd2b572996820574ff0aba3",
+          "title": "Tami Island Cult Object, Papua New Guinea",
+          "caption": "19th century\nProvenance :\nJoel Cooner, Dallas,Texas\nH: 38cm - 15\""
+        },
+        {
+          "file": "maori chief's cloack.jpg",
+          "local": "media/publications-rarities/Maori Chief's Cloack.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1964,1417,900,1417/0-0-0/245be108-a40c-4d18-8aeb-418d4d084c6c/1/1/Maori+Chief%27s+Cloack.jpg?fjkss=exp=2096210807~hmac=3b53983329ef2c8ce1cb6795a63c24f315decd811991ed374fe4e439de5b5bfd",
+          "title": "Maori Chief's Cloack,Huaki",
+          "caption": "Contact period,circa 1800\nNew Zealand\nW : 242cm - 95\"1/4\nProvenance :\nJames Hooper, Arundel,no99\nSteven Hooper,East Anglia\nChristies London, 3 July 1990, lot321\nLynda Cunningham,New York"
+        }
+      ],
+      "title": "Rarities — Art from the Pacific Islands",
+      "year": 2007,
+      "kind": "ExhibitionCatalogue",
+      "region": "Oceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue of rare Pacific works — Maori figures and chief's cloak, a New Ireland dance mask, a Tami Island cult object, and more.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "oceanic-shields-2006",
+      "sortOrder": 11,
+      "cover": {
+        "local": "media/publications-covers/Numériser 31.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2397,3419,400,3419/0-0-0/ec400d35-baad-48c4-856b-566a592ee935/1/1/Num%C3%A9riser+31.jpg?fjkss=exp=2096237425~hmac=b6c8aa8af7e53f90857d4b8f594683dd34190399b21cecc762ac29488fcea25f",
+        "file": "numériser 31.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 31_modifié-1.jpg",
+          "local": "media/conru-oceanic-shields/Numériser 31_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1380,1969,900,1969/0-0-0/deed83c9-6506-49d0-9d88-72401752690c/1/1/Num%C3%A9riser+31_modifi%C3%A9-1.jpg?fjkss=exp=2096210924~hmac=a8852bfb5385242de75517d9158825f0db769df6f17c0960cf2998094de63c36",
+          "title": "Buy this book",
+          "caption": null
+        },
+        {
+          "file": "a may river war shield, east sepik.jpg",
+          "local": "media/conru-oceanic-shields/A May River War Shield, East Sepik.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1344,1969,900,1969/0-0-0/ae63e672-defa-4018-bc79-e0f8b12bcffb/1/1/A+May+River+War+Shield%2C+East+Sepik.jpg?fjkss=exp=2096210924~hmac=73ed22bc81e90596a324940bdeb7ca105314f5f7cc3bbf954753fa79227180b0",
+          "title": "A May River War Shield",
+          "caption": "East Sepik Province, Papua New Guinea\nCirca 1900\nwood, fibre, pigment\nProvenance :\nCollected by Ingeborg de Beausacq in the 1950's.\nJulius Carlebach, New York, 1964. By descent to Josefa Carlebach.\nPrivate New york collection\nH: 216cm - 85\""
+        },
+        {
+          "file": "a mengen war shield, east britain.jpg",
+          "local": "media/conru-oceanic-shields/A Mengen War Shield, East Britain.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1370,1969,900,1969/0-0-0/856e8d25-ff33-4765-9fa3-8f4124ab3332/1/1/A+Mengen+War+Shield%2C+East+Britain.jpg?fjkss=exp=2096210924~hmac=68dedc40c782607ac72f5e4adfb29670dad32463cef61eacf0f4ff55ebaf5a3a",
+          "title": "A Mengen War Shield",
+          "caption": "East Britain\n19th century\nwood, rattan,pigment\nProvenance :\nLinden Museum, Stuttgart, with an old inventory script L.1482/38, S.N. Pommern, Dr. Hahl H:148cm - 58 1/4 in"
+        },
+        {
+          "file": "a wola war shield, southern highlands.jpg",
+          "local": "media/conru-oceanic-shields/A Wola War Shield, Southern Highlands.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1242,1969,900,1969/0-0-0/b34848a3-58c2-4eda-a8c9-b680e936a301/1/1/A+Wola+War+Shield%2C+Southern+Highlands.jpg?fjkss=exp=2096210924~hmac=c984e549fd8a85dcb71449c42054726a19039b0602bf8754f6b72b48a70fc0b3",
+          "title": "A Wola War Shield",
+          "caption": "Southern Highlands, Papua New Guinea\nEarly 20th century\nwood, fibre, pigment\nProvenance :\nCollected by Ulrich Kortmann, 1985. Ulrich Kortmann collection, Dortmund.\nH : 126cm - 49 1/2 in"
+        },
+        {
+          "file": "an astrobale bay war shield, madang province.jpg",
+          "local": "media/conru-oceanic-shields/An Astrobale Bay War Shield, Madang Province.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1368,1870,900,1870/0-0-0/c21b9caa-d62e-4ce5-ac94-ab511ca98fd4/1/1/An+Astrobale+Bay+War+Shield%2C+Madang+Province.jpg?fjkss=exp=2096210925~hmac=b104dc3f1e480b145ed6b8aa946ebfd2e04669f78af14434603d90735dbda102",
+          "title": "An Astrobale Bay War Shield",
+          "caption": "Madang Province, Papua New Guinea\n19th century\nwood, pigment\nProvenance :\ncollected before 1902 by Dr. Hermann Finck, Rostock, Germany\nH : 90cm - 35,4in"
+        }
+      ],
+      "title": "Oceanic Shields",
+      "year": 2006,
+      "kind": "ExhibitionCatalogue",
+      "region": "Oceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue devoted to the war shields of New Guinea and island Melanesia.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "catalogue-2005",
+      "sortOrder": 12,
+      "cover": {
+        "local": "media/publications-covers/Numériser 26.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2346,3450,400,3450/0-0-0/f5ae8229-385f-4bf2-b541-530e07d0c1ca/1/1/Num%C3%A9riser+26.jpg?fjkss=exp=2096237425~hmac=c6f3eca978a6f2492c570df39c4665e36d97e01a96c0b3e855c41f2c95243bac",
+        "file": "numériser 26.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 26_modifié-1.jpg",
+          "local": "media/conru-2005/Numériser 26_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1339,1969,900,1969/0-0-0/fecd2258-2340-4e16-96d1-7e3be27efc5f/1/1/Num%C3%A9riser+26_modifi%C3%A9-1.jpg?fjkss=exp=2096269426~hmac=9a2ba16b8dcab8fb53ffd348b9cac8846326d0d823d126c60a11b04792ad95ef",
+          "title": "Buy this book",
+          "caption": null
+        },
+        {
+          "file": "a northern nguni prestige staff.jpg",
+          "local": "media/conru-2005/A Northern Nguni Prestige Staff.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1244,1969,900,1969/0-0-0/6c3e56a2-8709-458b-bf38-eaaad2f1d266/1/1/A+Northern+Nguni+Prestige+Staff.jpg?fjkss=exp=2096269426~hmac=208fb01086667192f08425f9faee2b0be59830c9244a512b0f6f7eae23364201",
+          "title": "A Northern Nguni Prestige Staff",
+          "caption": "South Africa\n18th or 19th century\nH: 68cm - 26 3/4\"\nProvenance : Dimonstein collection, California"
+        },
+        {
+          "file": "a royal maori meeting house carving.jpg",
+          "local": "media/conru-2005/A Royal Maori Meeting House Carving.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1243,1969,900,1969/0-0-0/7f67b612-18e1-410e-84fd-4a88b58994f8/1/1/A+Royal+Maori+Meeting+House+Carving.jpg?fjkss=exp=2096269426~hmac=2f23054f68da09659ba5ccb9cd6eab90b1549aebd78c2304417083d99bee4bc1",
+          "title": "A Royal Maori Meeting House Carving",
+          "caption": "Raparapa, Ngaruawahia, New Zealand\nCirca 1840-1860\nH: 162,5cm - 64\"\nProvenance :\nJulius Carlebach,1964, by descent to Josefa Carlebach,2000\nAcquired from Carlebach by Howard Rose, New York, 2001"
+        },
+        {
+          "file": "a yimar figure,yipwon,korewori river.jpg",
+          "local": "media/conru-2005/A Yimar Figure,Yipwon,Korewori River.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1295,1969,900,1969/0-0-0/547683f2-6af3-4ea9-9533-79e8789c5dcb/1/1/A+Yimar+Figure%2CYipwon%2CKorewori+River.jpg?fjkss=exp=2096269426~hmac=166363944c9c69eb8116bb0511ffc5dd19642c2cf94cf81bad29d907eb09178f",
+          "title": "A Yimar Figure",
+          "caption": "Yipwon,Korewori River,Papua New Guinea\n18th or early19th century\nH : 209,5cm - 82 1/2\"\nProvenance :\ncollected by Pierre Langlois, circa 1960\nMichel Gaud collection St Tropez,France"
+        },
+        {
+          "file": "an admiratlty islands feast bowl.jpg",
+          "local": "media/conru-2005/An Admiratlty Islands Feast Bowl.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1273,1969,900,1969/0-0-0/808dd885-7d22-4373-9d90-61a4d57b4b91/1/1/An+Admiratlty+Islands+Feast+Bowl.jpg?fjkss=exp=2096269426~hmac=3cb14e9d2ecdb3857a7e4e435b34b73029f0a9f9d9bd6fb1faf6d435d9dd398d",
+          "title": "An Admiratlty Islands Feast Bowl",
+          "caption": "Papua New Guinea\n19th century\nH : 26cm - 10,2\"\nProvenance :\nGerman Colonial Collection,Berlin\nFrank Reiter,Berlin, no1148"
+        }
+      ],
+      "title": "Southeast African and Oceanic Art",
+      "year": 2005,
+      "kind": "ExhibitionCatalogue",
+      "region": "AfricaAndOceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue, 2005 — Southeast African and Oceanic works, from an Nguni prestige staff to a royal Maori meeting-house carving.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "catalogue-2004",
+      "sortOrder": 13,
+      "cover": {
+        "local": "media/publications-conru-2004/Numériser 20.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2307,3450,900,3450/0-0-0/a27e4a69-b62c-4df7-8f9b-b32eb045f009/1/1/Num%C3%A9riser+20.jpg?fjkss=exp=2096235616~hmac=808d0b96f14264621983de3978f7a255b229dfbfd9c28dfd2de592b4f26291c1",
+        "file": "numériser 20.jpg"
+      },
+      "gallery": [
+        {
+          "file": "21.jpg",
+          "local": "media/publications-conru-2004/21.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1108,1654,900,1654/0-0-0/35006084-1855-4b11-bd13-cfd3d94d60f5/1/1/21.jpg?fjkss=exp=2096235616~hmac=32a8b915ccd9594991a6808dddcca69b7de7341c0eb6b1846850e4964be427d1",
+          "title": "Luba Female Figure, Democratic Republic of Congo",
+          "caption": "H: 21\" - 53,5cm\nProvenance René Rasmussen,Paris\nTom Phillips,London"
+        },
+        {
+          "file": "12.jpg",
+          "local": "media/publications-conru-2004/12.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1787,1575,900,1575/0-0-0/24375040-33b1-4596-9d47-c543fa36cf91/1/1/12.jpg?fjkss=exp=2096235616~hmac=9f2f57d12097cb4cb7d9442738496bbd361928c165c2cf6bc6060d73d9cde1e6",
+          "title": "Kwele Mask, Gabon",
+          "caption": "H: 26 - 1/4\" 66,5cm\nPrivate austrian collection"
+        },
+        {
+          "file": "31.jpg",
+          "local": "media/publications-conru-2004/31.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2352,3443,900,3443/0-0-0/fee2215e-29ed-447c-b756-e2ca9cefcb9f/1/1/31.jpg?fjkss=exp=2096235616~hmac=f4a1235f031a030a5fa2d8db378f915f86e5a3d95817827ef28e2a6c65c209b5",
+          "title": "Sepik Dance Mask, Papua New Guinea",
+          "caption": "20\" - 51cm\nCollected by Fabricius in German New Guinea circa 1902\nAcquired by the Ubersee Museum n°D3306.\nIn 1974 exchanged with Walter Kaiser\nPart of the collection of Gisela Kaiser, Stuttgart"
+        },
+        {
+          "file": "4.jpg",
+          "local": "media/publications-conru-2004/4.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2326,3507,900,3507/0-0-0/9c30b2ab-9ea2-406f-9e49-afe76ac12648/1/1/4.jpg?fjkss=exp=2096235616~hmac=0c59d21b55f6758febb88a15bc5554323d314ef999cd5bbe0cadc8aa08220ef4",
+          "title": "Tshokwe Mask, Democratic Republic of Congo",
+          "caption": "12\" - 31cm\nBelgian private collection"
+        }
+      ],
+      "title": "Catalogue 2004",
+      "year": 2004,
+      "kind": "ExhibitionCatalogue",
+      "region": "AfricaAndOceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue, 2004 — African and Oceanic works including Luba, Kwele, Sepik and Tshokwe pieces.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "catalogue-2002",
+      "sortOrder": 14,
+      "cover": {
+        "local": "media/publications-covers/Numériser 15.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2371,3450,400,3450/0-0-0/ae109a24-f414-4de8-b4fe-a29b27c1ffa9/1/1/Num%C3%A9riser+15.jpg?fjkss=exp=2096237425~hmac=e87dc1d7c44c0acefea401b4675acebdf01a721763a298d7ac9527cd0b3641c0",
+        "file": "numériser 15.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 15_modifié-1.jpg",
+          "local": "media/conru-2002/Numériser 15_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,974,1417,900,1417/0-0-0/6019bf6c-3b60-4286-8dc9-41ea945deb87/1/1/Num%C3%A9riser+15_modifi%C3%A9-1.jpg?fjkss=exp=2096269427~hmac=b02be458c91a08f1953de16511210066706b3d69a5a3e30ef106c007da939a53",
+          "title": "Buy this book",
+          "caption": null
+        },
+        {
+          "file": "tabwa figure1.jpg",
+          "local": "media/conru-2002/Tabwa Figure1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1665,3543,900,3543/0-0-0/666a00f5-12bf-4731-b27e-6a1f29b14981/1/1/Tabwa+Figure1.jpg?fjkss=exp=2096269427~hmac=2f5c9d98b1dfb70c75f8890c18219ff1649576aa708f2fefb6f439ab6c8da8ae",
+          "title": "Tabwa Figure",
+          "caption": "Democratic Republic of Congo\nH 44cm - 17 1/4\"\nProvenance :\nPaul Tishman collection,U.S.A.\nP.Danhaive collection,Belgium\nPublication:\nMusée de l'Homme,Arts Connus et Arts Méconnus de l’Afrique Noire, collection Paul Tishman, Paris, 1966, no 106."
+        },
+        {
+          "file": "kota reliquary.jpg",
+          "local": "media/conru-2002/Kota Reliquary.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1028,1417,900,1417/0-0-0/a48631a8-2da3-436d-aaea-855493644223/1/1/Kota+Reliquary.jpg?fjkss=exp=2096269427~hmac=5b1aa8781ed88dae340ab2c5efd1f24efe7d8be3720200832cb34dc67171bff8",
+          "title": "Kota Reliquary",
+          "caption": "Gabon\nH.61cm - 24in\nProvenance :\nCharles Ratton, Paris, sold to Jacques Uhlmann in 1955\nPublication :\nGermain in \"Arts d'Afrique Noire\" issue 117, p15\nde Grunne, \"Mains de Maîtres\", Bruxelles, 2001, cat 44, p.159\nExhibition : \"Mains de Maîtres\", Brussels, 2001, no 44"
+        },
+        {
+          "file": "kongo figure.jpg",
+          "local": "media/conru-2002/Kongo Figure.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,817,1417,900,1417/0-0-0/8f24e569-caec-4c66-8459-9b2c013026d1/1/1/Kongo+Figure.jpg?fjkss=exp=2096269427~hmac=b2a8cf21794a905e44b289102d3c852a44ccef8f3e1f2f01a88759cc347c5323",
+          "title": "Kongo Figure",
+          "caption": "Democratic Republic of Congo\nH 25cm - 9 3/4\"\nProvenance :\nJacques Kerchache,Paris\nPrivate French collection"
+        },
+        {
+          "file": "epa sculpture.jpg",
+          "local": "media/conru-2002/Epa Sculpture.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,725,1417,900,1417/0-0-0/a8b77918-9723-4e61-b3a2-1ad568ef7dfe/1/1/Epa+Sculpture.jpg?fjkss=exp=2096269427~hmac=32d01c1df9472aec2ecbafb3afc266fa845e5b793e619e18b903e6a4fb84dfb2",
+          "title": "Epa Sculpture",
+          "caption": "Ekiti,Nigeria\nH 93cm - 36 1/2\"\nProvenance :\nPrivate german collection"
+        }
+      ],
+      "title": "Catalogue 2002",
+      "year": 2002,
+      "kind": "ExhibitionCatalogue",
+      "region": "AfricaAndOceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue, 2002 — African works with distinguished provenance: Tabwa, Kota, Kongo and Epa pieces.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "colour-of-melanesia-1999",
+      "sortOrder": 15,
+      "cover": {
+        "local": "media/conru-1999/Numériser 10.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1341,1969,900,1969/0-0-0/a5c1eeab-f80b-487a-9f88-1fbd0fc4d01c/1/1/Num%C3%A9riser+10.jpg?fjkss=exp=2096251086~hmac=fe1e2b1929efc382ae716c1e53d710503b8061e9fa354528f11c9046776068e9",
+        "file": "numériser 10.jpg"
+      },
+      "gallery": [
+        {
+          "file": "a sepik river, yuat people, charm_modifié-1.jpg",
+          "local": "media/conru-1999/A Sepik River, Yuat People, charm_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1657,4920,900,4920/0-0-0/3f246d09-765b-4b33-9e87-5f563fdfa4fc/1/1/A+Sepik+River%2C+Yuat+People%2C+charm_modifi%C3%A9-1.jpg?fjkss=exp=2096251086~hmac=030562d78fcd78f125c6978384a4b310cc93012d78ced0777d25751f17f0c79c",
+          "title": "A Sepik River charm",
+          "caption": "Yuat People\nH.66cm 26in"
+        },
+        {
+          "file": "a rare massim islands figure-provenance anthony moris, paris, prior to 1939-h. 58cm 22 3-4 in.jpg",
+          "local": "media/conru-1999/A Rare Massim Islands Figure-Provenance Anthony Moris, Paris, prior to 1939-H. 58cm 22 3-4 in.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1866,3937,900,3937/0-0-0/7c1e02ee-64a2-42a5-9bee-2215f82709ac/1/1/A+Rare+Massim+Islands+Figure-Provenance+Anthony+Moris%2C+Paris%2C+prior+to+1939-H.+58cm+22+3-4+in.jpg?fjkss=exp=2096251086~hmac=a15ed82a3c3224fc98b49b74ce690e2f0b3a36e6b1205f64b9b2b96a0920fe70",
+          "title": "A Rare Massim Islands Figure",
+          "caption": "Provenance Anthony Moris, Paris, prior to 1939\nH. 58cm - 22 3/4 in"
+        },
+        {
+          "file": "a new ireland tatanua mask.jpg",
+          "local": "media/conru-1999/A New Ireland Tatanua Mask.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1341,1969,900,1969/0-0-0/f109d7fe-3ea0-4517-860a-5f7e0b8b8462/1/1/A+New+Ireland+Tatanua+Mask.jpg?fjkss=exp=2096251086~hmac=fe1e2b1929efc382ae716c1e53d710503b8061e9fa354528f11c9046776068e9",
+          "title": "A New Ireland Tatanua Mask",
+          "caption": "Provenance :\nLinden Museum no. 22845, collected by Bruno Menke in 1901, and donated to the museum after his death by his widow and brother in law Ludwig Bretschneider, Munich, by exchange\nwidth 40cm - 15 3/4 in"
+        },
+        {
+          "file": "a coastal sepik male ancestor figure.jpg",
+          "local": "media/conru-1999/A Coastal Sepik Male Ancestor Figure.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1693,3543,900,3543/0-0-0/feda6a80-57b5-4c8a-8b0c-40d3829261b7/1/1/A+Coastal+Sepik+Male+Ancestor+Figure.jpg?fjkss=exp=2096251086~hmac=f1e2dc12ef64979562862dcd3aae419c1e55e482e83e8599da347de77b45b145",
+          "title": "A Coastal Sepik Male Ancestor Figure",
+          "caption": "Provenance :\nW.D. Webster, no 6762, Bicester,Oxford,1897\nGeneral A.C.E. Pittrivers, Farnham,Dorset\nPublication:\nEthnographic Specimens, catalogue no.19,Oxford House,Bicester,Oxon,England,1897,no.130\nH.37cm - 14 1/2 in"
+        }
+      ],
+      "title": "The Colour of Melanesia",
+      "year": 1999,
+      "kind": "ExhibitionCatalogue",
+      "region": "Melanesia",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue, 1999 — Melanesian works from the Sepik, the Massim region and New Ireland.</p>"
+    },
+    {
+      "action": "create",
+      "slug": "catalogue-1995",
+      "sortOrder": 16,
+      "cover": {
+        "local": "media/publications-covers/Numériser.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2326,3460,400,3460/0-0-0/c9f9e8c5-72bb-4efd-b4c5-e9648f475077/1/1/Num%C3%A9riser.jpg?fjkss=exp=2096237425~hmac=8c0a3eb314a13cfb6a4014d9647bc234e38408558610965316d8de5529751bb5",
+        "file": "numériser.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser_modifié-1.jpg",
+          "local": "media/conru-1995/Numériser_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1108,1654,900,1654/0-0-0/dd50bfa7-1e6b-4fd2-af27-94c8c15e0647/1/1/Num%C3%A9riser_modifi%C3%A9-1.jpg?fjkss=exp=2096269428~hmac=24eafe887eb83491792c6b86fec9f2be8890b436baf4bf9455b3fa80d3141a30",
+          "title": "Catalog, 1995",
+          "caption": null
+        },
+        {
+          "file": "41.jpg",
+          "local": "media/conru-1995/41.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1832,2453,900,2453/0-0-0/1d77ec5f-ffed-439c-8f9f-7e0f61952567/1/1/41.jpg?fjkss=exp=2096269428~hmac=0a74e464e1a5fb6191a8db4cabb01cd2a83887e926ca90b46dde21244e170003",
+          "title": "Ibibio Mask",
+          "caption": "H : 40,5cm - 16in"
+        },
+        {
+          "file": "3.jpg",
+          "local": "media/conru-1995/3.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,698,1417,900,1417/0-0-0/169087a7-803f-4b91-b7dd-f50a0432b8b8/1/1/3.jpg?fjkss=exp=2096269428~hmac=a51daecfa9dd144e800a0fe55f3b869042db2748b25bed9aa7953c9e10ca7170",
+          "title": "Marquesian Stilt Step",
+          "caption": "H : 36cm - 14 in"
+        },
+        {
+          "file": "22.jpg",
+          "local": "media/conru-1995/22.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1704,3000,900,3000/0-0-0/00688ddb-df29-408c-8b9c-2a2bdba575b7/1/1/22.jpg?fjkss=exp=2096269428~hmac=a8a6f7b4ec946ed2662b4c1c90506ac1f005c33f7d4788bdd13362847f7d6747",
+          "title": "Luba Female Figure",
+          "caption": "H : 55,5cm - 21,75 in"
+        },
+        {
+          "file": "13.jpg",
+          "local": "media/conru-1995/13.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2358,1371,900,1371/0-0-0/2ce6e62e-8157-4677-9c69-1c8445495698/1/1/13.jpg?fjkss=exp=2096269428~hmac=29d402151a428fe8c724cb9171dce07c1d5491e249d3ab78ec10255fdbe7e466",
+          "title": "Cook Islands Stool",
+          "caption": "47cm - 18,5 in"
+        }
+      ],
+      "title": "Catalogue 1995",
+      "year": 1995,
+      "kind": "ExhibitionCatalogue",
+      "region": "AfricaAndOceania",
+      "publisher": "Conru Editions",
+      "body": "<p>Gallery catalogue, 1995 — African and Oceanic works, from an Ibibio mask to a Cook Islands stool.</p>"
+    }
+  ],
+  "press": [
+    {
+      "action": "create",
+      "slug": "fragments-of-the-fang",
+      "sortOrder": 4,
+      "outlet": "Art & Antiques Magazine",
+      "title": "Fragments of the Fang",
+      "subtitle": "Art & Antiques Magazine · October 2007",
+      "year": 2007,
+      "cover": {
+        "local": "media/press-fragments-of-the-fangs/Panorama0.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2636,3139,900,3139/0-0-0/f14fabd0-2f49-4185-a6c6-b7e3f93c3e71/1/1/Panorama0.jpg?fjkss=exp=2096214553~hmac=bfbae5d4b79e592739879aa548cc8c2a2f7fc701290c5fc010c00fe5d776d6af",
+        "file": "panorama0.jpg"
+      },
+      "gallery": [
+        {
+          "file": "panorama1.jpg",
+          "local": "media/press-fragments-of-the-fangs/Panorama1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3824,2314,900,2314/0-0-0/7057c997-282a-41b7-9000-5d844285f2a2/1/1/Panorama1.jpg?fjkss=exp=2096214553~hmac=cb839ff5f93e6f6d0fb0a770336da1016941744e0d9b27117e67a0eea5679804",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "panorama2.jpg",
+          "local": "media/press-fragments-of-the-fangs/Panorama2.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3849,2298,900,2298/0-0-0/60187fd1-f9ff-4bc5-b306-3e67888e10b3/1/1/Panorama2.jpg?fjkss=exp=2096214553~hmac=b024a5d73818425a92cc5a4e9e336dd891423766867095a68341878078f80f48",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "panorama3.jpg",
+          "local": "media/press-fragments-of-the-fangs/Panorama3.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3830,2310,900,2310/0-0-0/d85a5894-1d7b-4ec8-b607-feb914171bed/1/1/Panorama3.jpg?fjkss=exp=2096214553~hmac=5c1afb3fc76b62d396b293fed4a256e6593c4e2a7332b5fe65003e3ee7404212",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "panorama4.jpg",
+          "local": "media/press-fragments-of-the-fangs/Panorama4.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,3823,2314,900,2314/0-0-0/7e004fc7-6559-40ed-a070-7a4d4058ad5f/1/1/Panorama4.jpg?fjkss=exp=2096214553~hmac=96e2f50cae8a50c9addf09911951dfdd0eded7557f9ea4bca49dcdd04e059495",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "nacf-1988",
+      "sortOrder": 5,
+      "outlet": "NACF Magazine",
+      "title": "Towards 1992 — Export of Cultural Heritage Objects",
+      "subtitle": "NACF Magazine · Christmas 1988",
+      "year": 1988,
+      "cover": {
+        "local": "media/press-covers/NACF_cover.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,814,1032,400,1032/0-0-0/c511feb7-5d7f-40af-bcd5-64f70d24b0de/1/1/NACF_cover.jpg?fjkss=exp=2096211195~hmac=3552aa673e380d6ecb922c093e540b91278c3e30726b95de3a709514d7c2572b",
+        "file": "nacf_cover.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 104_modifié-1.jpg",
+          "local": "media/nacf/Numériser 104_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2393,2988,1600,2988/0-0-0/f681b8c9-066f-4aaf-b6fe-b49882774a84/1/1/Nume%CC%81riser+104_modifie%CC%81-1.jpg?fjkss=exp=2096269428~hmac=8e0972c7d54795bc5653690b5d647302a63e02e1af0e394e2a8e56f641ca8a70",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 105_e.jpg",
+          "local": "media/nacf/Numériser 105_E.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2282,2836,1600,2836/0-0-0/e62ee8bd-f7a2-4bd7-bafd-4933f0d852a4/1/1/Nume%CC%81riser+105_E.jpg?fjkss=exp=2096269428~hmac=a0f48d230b9989609b4cefc2a6bd70c71fa5c6ce80adcf6d56898fd3414544f7",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 106.jpg",
+          "local": "media/nacf/Numériser 106.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2302,2938,1600,2938/0-0-0/e3cccde4-4d69-4b34-a5be-41829f041296/1/1/Nume%CC%81riser+106.jpg?fjkss=exp=2096269428~hmac=9aa6466b9fcc728dbcd56b8e4721904711335d76fee696ef4b1337a3e15e6cd5",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 107_modifié-1.jpg",
+          "local": "media/nacf/Numériser 107_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2385,2877,1600,2877/0-0-0/f90a3d13-886b-477b-98ff-321e7dc049e0/1/1/Nume%CC%81riser+107_modifie%CC%81-1.jpg?fjkss=exp=2096269428~hmac=067e605bf2a2be1070d1c0a28eefc05deee8d5efa28eccf91e5acf30073bb4b8",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 108.jpg",
+          "local": "media/nacf/Numériser 108.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2218,2861,1600,2861/0-0-0/f68774ec-e536-41fd-960c-745162fab0c6/1/1/Nume%CC%81riser+108.jpg?fjkss=exp=2096269428~hmac=65c663b238956558f0cbef82f25db1907cf4ee64a64fb04cee4ce53ab77070d2",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 109_modifié-1.jpg",
+          "local": "media/nacf/Numériser 109_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2354,2948,1600,2948/0-0-0/e5c57b53-cefd-4025-941d-57767de9979b/1/1/Nume%CC%81riser+109_modifie%CC%81-1.jpg?fjkss=exp=2096269428~hmac=e650f0ebd160204c00f1427abd18587af222e2b556f98a62749b9c80fe698613",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 110.jpg",
+          "local": "media/nacf/Numériser 110.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2363,3024,1600,3024/0-0-0/f5221cf6-fbe6-45d4-b807-fce38734eca9/1/1/Nume%CC%81riser+110.jpg?fjkss=exp=2096269428~hmac=04d0820d69475f0a2879159abf356b297c2e2e79a2903f514b620f4bcbe5789d",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 111.jpg",
+          "local": "media/nacf/Numériser 111.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2472,2844,1600,2844/0-0-0/f625fb5a-bc75-4231-b188-5dfb4e5f69f3/1/1/Nume%CC%81riser+111.jpg?fjkss=exp=2096269428~hmac=db048d6fa26d5d4effb9d24bfc7186e3b8565daa5904d982ef702c105add3534",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 112_modifié-1.jpg",
+          "local": "media/nacf/Numériser 112_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2213,2845,1600,2845/0-0-0/fea3f88f-43e9-48cf-91cb-fa9f580fdb4b/1/1/Nume%CC%81riser+112_modifie%CC%81-1.jpg?fjkss=exp=2096269428~hmac=2b215cfa5dfb56aaab13996d21c3940698122683cb29ec4d6b31157a766b7c03",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "tam-1994-issue-3",
+      "sortOrder": 6,
+      "outlet": "Tribal Arts Magazine",
+      "title": "Treasures of the Museum für Völkerkunde",
+      "subtitle": "Tribal Arts Magazine · September 1994, Issue 3",
+      "year": 1994,
+      "cover": {
+        "local": "media/press-covers/TAM1994_cover.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,788,1152,400,1152/0-0-0/f7c1f9b6-bf6e-4ed4-a1a7-ded2c701a923/1/1/TAM1994_cover.jpg?fjkss=exp=2096211195~hmac=4ceb530c60493418384a4791dc7f14a8f53f1f50984830f00468ec6d519f5fed",
+        "file": "tam1994_cover.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 114.jpg",
+          "local": "media/press-tam94-ussue3/Numériser 114.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2299,3371,1600,3371/0-0-0/f632f08b-9de8-469e-90c1-61edb0189515/1/1/Nume%CC%81riser+114.jpg?fjkss=exp=2096269429~hmac=1b2ae2e15cce5cebd4087bce65e4b29bc962f03797afea7e1e9e62c6879bf529",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 115_modifié-1.jpg",
+          "local": "media/press-tam94-ussue3/Numériser 115_modifié-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1163,1702,1600,1702/0-0-0/a9a9aa64-2bdd-442a-ba90-910c9875acea/1/1/Nume%CC%81riser+115_modifie%CC%81-1.jpg?fjkss=exp=2096269429~hmac=b7164686975d88ba8308505fbec9aed88f7e5cf38c43658a7613dd6d35d3e9e5",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 116.jpg",
+          "local": "media/press-tam94-ussue3/Numériser 116.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2410,3342,1600,3342/0-0-0/e7e8fc6e-0054-49e4-ba69-596e33cec8f5/1/1/Nume%CC%81riser+116.jpg?fjkss=exp=2096269429~hmac=f724317c562aec322fc2246ce4eda601052860c331a0e89902eb7f943a93b62c",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "tam-1994-issue-4",
+      "sortOrder": 7,
+      "outlet": "Tribal Arts Magazine",
+      "title": "The Royal Albert Memorial Museum Exeter and an Important Hawaiian Spear Support",
+      "subtitle": "Tribal Arts Magazine · Winter 1994–95, Issue 4",
+      "year": 1994,
+      "cover": {
+        "local": "media/press-covers/TAM_94_00.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,569,829,400,829/0-0-0/b4fe46d6-8077-437c-8a53-e5ae08863505/1/1/TAM_94_00.jpg?fjkss=exp=2096211195~hmac=20e8d526b88962a9f80f197bdbf12e5cf85b7be7110571c9bb19593c93a0ac98",
+        "file": "tam_94_00.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 98.jpg",
+          "local": "media/press-tam94-issue4/Numériser 98.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2337,3440,1600,3440/0-0-0/f95b8cc2-2cbf-482b-99be-75c28f0f33f8/1/1/Nume%CC%81riser+98.jpg?fjkss=exp=2096269429~hmac=f1d14732e6904d894c7cdbf76da5c1f58811e805dc1a2332a809408a7bd02396",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 100.jpeg",
+          "local": "media/press-tam94-issue4/Numériser 100.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2452,3436,1600,3436/0-0-0/e0dd42d9-2769-454c-8c5f-fd10f8dfec9a/1/1/Nume%CC%81riser+100.jpeg?fjkss=exp=2096269429~hmac=716a9ebb28087d0b77848c93dcb64b8e33e04749e8a25ef3f86f8b3fd7f2e909",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 101.jpg",
+          "local": "media/press-tam94-issue4/Numériser 101.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2308,3324,1600,3324/0-0-0/f11ed8dd-9bfd-490c-ac7a-5bf1d2f61aa0/1/1/Nume%CC%81riser+101.jpg?fjkss=exp=2096269429~hmac=4a0df26d064b0705ba86bc4730ddb3e90ffa98ca4fba55c6bca6b547266c22e9",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "tam-1999",
+      "sortOrder": 8,
+      "outlet": "Tribal Arts Magazine",
+      "title": "Thoughts over an Attribution",
+      "subtitle": "Tribal Arts Magazine · Spring 1999",
+      "year": 1999,
+      "cover": {
+        "local": "media/press-covers/TAM1999_cover.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,789,1152,400,1152/0-0-0/e241f704-b051-4440-b1d8-777f3bd391d2/1/1/TAM1999_cover.jpg?fjkss=exp=2096211196~hmac=dc07cd2bb53cd294238c0e71a33c16fb7097cbcce0e504eeb03de7198e718714",
+        "file": "tam1999_cover.jpg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 118.jpg",
+          "local": "media/press-tam-99/Numériser 118.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2199,3393,1600,3393/0-0-0/971a3d35-b8e6-4898-a0ca-8f4fe18c553d/1/1/Nume%CC%81riser+118.jpg?fjkss=exp=2096269430~hmac=d04abc4e5d5b522f4e4d4be5e9545205641bfc4082a5a453c055ac727a3fc164",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 119.jpg",
+          "local": "media/press-tam-99/Numériser 119.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2303,3413,1600,3413/0-0-0/d3f71676-5adc-4a82-bf78-95476de931c1/1/1/Nume%CC%81riser+119.jpg?fjkss=exp=2096269430~hmac=ed3e373b01b8ab52db38fa008c5006e0df1c19c6a481b96122a53ea55fdb4f9c",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 120.jpg",
+          "local": "media/press-tam-99/Numériser 120.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2347,3386,1600,3386/0-0-0/fa076ba7-f203-4fe8-9b47-ae78eae3d2ff/1/1/Nume%CC%81riser+120.jpg?fjkss=exp=2096269430~hmac=13c35f829153b4bab7b1af50d43c5af6afd5e1d80cf0267fd72f052994977ce8",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 121.jpeg",
+          "local": "media/press-tam-99/Numériser 121.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,2380,3456,1600,3456/0-0-0/f722920c-acde-48af-9cff-729fac28ad84/1/1/Nume%CC%81riser+121.jpeg?fjkss=exp=2096269430~hmac=2a972626f94f106bbc01ec5a9dd9de00645a951f8a71615554130a7d618e66ba",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    },
+    {
+      "action": "create",
+      "slug": "passionate-journey-2009",
+      "sortOrder": 9,
+      "outlet": "Art & Antiques",
+      "title": "Passionate Journey",
+      "subtitle": "Art & Antiques · April 2009, Vol. 32, Issue 4",
+      "year": 2009,
+      "cover": {
+        "local": "media/press-covers/ArtsAntiques_02.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1436,1870,400,1870/0-0-0/ac76b9e3-956a-4002-8f43-1cc4ae26d45a/1/1/ArtsAntiques_02.jpg?fjkss=exp=2096211196~hmac=ae5d7187903004ccb4699d0e46166bb6f0a1dd682f2b803dd7d5e3f6f23e5973",
+        "file": "artsantiques_02.jpg"
+      },
+      "gallery": [],
+      "body": "<img data-import-file=\"artsantiques_03.jpg\">\n<p>Serendipity is the word that comes to mind when I think of my pattern of collecting. I grew up in Indiana, in an environment that wasn’t particularly artistic, and I spent my first decade after college playing the double bass. It wasn’t until I studied arts policy in London in the late 1980s that I became aware of the art-collecting world, and only after working at Bonhams for a few years did I begin to occasionally acquire a painting, sculpture or tribal piece. Part of my London life was to visit friends who had stalls at the Portobello Road street market and spend time looking at their various wares. As I worked in the auction house’s ethnographic department, I naturally gravitated to those dealers who specialized in the subject, and I gained valuable insight on all those Saturdays. With centuries of colonial connections, England had a wealth of tribal material, a lot of which came onto the market through auctions or dealers. Artifacts from South Africa, because of the region’s ties to England, were relatively common, as were those from the Pacific. As the market for African art was driven mostly by demand for masks and figures from West and Central Africa, quite amazing works from the much less-known South could readily be had for relatively little money. I acquired many fine pieces on Portobello Road, as well as from other English sources, and within a few years I had quite a core group. After leaving Bonhams in 1993 to set out as a private dealer, I was invited to exhibit my South African material at a commercial gallery in New York, and although the show was successful in selling the less-expensive items, I went home with practically all my major pieces. It was then that, after evaluating the results, I decided to put the remainder aside and do something more intelligent than to disperse what was left to the winds. I realized early on that I had come by some remarkable things, and in the next couple of years I added many important pieces. By luck, one of my next-door neighbors in South Kensington was the collector Seward Kennedy, who had amassed an Aladdin’s cave of tribal treasure. He was just beginning to disperse his holdings, and he knew that I was looking for South African items and paying what was perceived at the time to be top dollar. Practically every day, he walked over with a bag of knobkerries (a type of club from southern and eastern Africa) or snuff containers or wood pillows, and offered me the lot. Some of my very best pieces came from him. In a similar vein, I also benefited from Jonathan Lowen, a passionate lover of the arts who went through several phases of collecting. As soon as he would sell one collection, he was off to the market to start another. His habits fed not only my collection but also formed the core of the Johannesburg Art Gallery. After the first 50 or so pieces, I began to look for unusual works that would build and complement the group. As figures from South Africa are extremely rare, I searched worldwide for any that could possibly become available and pounced whenever they did. Likewise, certain vessel forms, iconic in museum collections, were almost impossible to find, and in these cases I had to wait years, if not decades, for a choice item to appear. Around 1997 I made my first trip to the South Pacific, visiting the Melanesian Islands of New Guinea, New Ireland and New Britain. While good, old material was scarce to see, let alone export, the trip kindled a love for the island peoples and their art that led my collecting in another direction. From my auction days, I had always liked Pacific pieces, as the use of wood, especially in Polynesia, is reminiscent of works from South Africa. And while prices for the region were generally much higher than for southern Africa, utilitarian objects could still be had quite reasonably. While I appreciated Polynesian forms and patinas very much, some Fiji clubs I acquired led me over into Melanesian art. Here was a world of surreal masks, crazed figures and wild colors, and the vocabulary of the art spoke to me directly. I quickly found that, as with South African art, there were pockets of discovery where opportunities to acquire world-class pieces still existed. Although the field of Papua New Guinea was dominated by the American collector John Friede (he always had a way of winkling out the best pieces), regions like New Britain and the Solomon Islands were still open. Old colonial-era pieces from these cultures were just common enough to find with the help of perseverance and good contacts but rare enough not to hit the big-screen auctions that inevitably fuel demand and high prices. Luckily, in both these areas I acquired some seminal pieces quite early and, in the Solomon Islands in particular, continued collecting until I built up a representative group. My main criterion for all my ethnographic collections has been that each piece has to be among the very best of its type in terms of its age, usage and aesthetics. Long research into Pacific art has shown me what types of objects the island peoples produced, and for comparison purposes, my reference library has most of the published examples known. One very different area where I’ve had fun at home is with a Lucite bag collection. Years ago, on a rainy Saturday morning during a fair week in New York, my wife and I were wandering around the West 26th Street flea market when we spied a brilliant red box object forlornly placed on a table. The owner explained that it was a plastic bag from the 1950s and would cost me $65. We bought it and took it to my booth at the tribal fair, where later on during a calm moment in the afternoon we looked at it on a pedestal base under the spotlight. It was beautiful. Minutes later, Anthony Meyer, the prominent Paris dealer, saw it and mentioned to me that there was a specialist dealer of such bags on West 25th. Needless to say, the next morning I made a beeline to the place and, well, started collecting something else all over again.</p>\n<img data-import-file=\"artsantiques_04.jpg\">\n<img data-import-file=\"artsantiques_09.jpg\">\n<img data-import-file=\"artsantiques_05.jpg\">\n<img data-import-file=\"artsantiques_10.jpg\">",
+      "bodyImages": [
+        {
+          "file": "artsantiques_03.jpg",
+          "local": "media/conru-arts-and-antiques/ArtsAntiques_03.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1550,1870,1600,1870/0-0-0/1e4ae5fb-bd3b-4f9d-8e28-339b4d810c9e/1/1/ArtsAntiques_03.jpg?fjkss=exp=2096269430~hmac=3a704e17459d94ea4cf7ce7c8234f9b9d674bdd4a11c51a28f094aa8d6badb87"
+        },
+        {
+          "file": "artsantiques_04.jpg",
+          "local": "media/conru-arts-and-antiques/ArtsAntiques_04.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1569,1772,1600,1772/0-0-0/3180344d-127f-4ba1-a8d8-10f97d1545fc/1/1/ArtsAntiques_04.jpg?fjkss=exp=2096269430~hmac=3efe2330f1b163ae38f91bd4354dcfcbc4f3b002bcc0db48278df77acc721068"
+        },
+        {
+          "file": "artsantiques_09.jpg",
+          "local": "media/conru-arts-and-antiques/ArtsAntiques_09.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1124,2362,1600,2362/0-0-0/2453f701-aeed-4841-9b5a-be454b4343e4/1/1/ArtsAntiques_09.jpg?fjkss=exp=2096269430~hmac=16489551e25fc33f904b5020ed321a9f78ff5bda36bfd0da30ec38d1fe1e9b5e"
+        },
+        {
+          "file": "artsantiques_05.jpg",
+          "local": "media/conru-arts-and-antiques/ArtsAntiques_05.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1369,1969,1600,1969/0-0-0/e6e41ba6-6bd5-465b-80d0-1c9c81fae1c4/1/1/ArtsAntiques_05.jpg?fjkss=exp=2096269431~hmac=11c192470b5e365fbe83a25c24851eb452cbb33729d71c45f70899ccb7d4cf51"
+        },
+        {
+          "file": "artsantiques_10.jpg",
+          "local": "media/conru-arts-and-antiques/ArtsAntiques_10.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1446,1772,1600,1772/0-0-0/b0dce2c6-ebd4-4390-b8ed-2ac9903923a3/1/1/ArtsAntiques_10.jpg?fjkss=exp=2096269431~hmac=0b7c8875a0dc8b674a8fc1c9417d7f58d90b118f0bfae3b4ccf6b799b0a3dd33"
+        }
+      ]
+    },
+    {
+      "action": "create",
+      "slug": "tribalmania-interview",
+      "sortOrder": 10,
+      "outlet": "Tribalmania Gallery",
+      "title": "An Interview with Kevin Conru",
+      "subtitle": "Tribalmania Gallery · Santa Fe",
+      "year": 2005,
+      "cover": {
+        "local": "media/press-covers/Conru_Tribalmnia_modifié-11.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1372,1870,400,1870/0-0-0/6c07335e-46bd-420f-9822-cbed3e34407a/1/1/Conru_Tribalmnia_modifi%C3%A9-11.jpg?fjkss=exp=2096211196~hmac=d46450f65cdb5ea13b3bf5c3b011b2e8813c686591b394de460033a881067744",
+        "file": "conru_tribalmnia_modifié-11.jpg"
+      },
+      "gallery": [],
+      "body": "<img data-import-file=\"photoconru.jpg\">\n<p>KevinHolding a Tami Island Neckrest at a Private Viewing of Tribalmania Objects</p>\n<p><strong>KevinConru is very well known in the Tribal Art community as aninternationally acclaimed dealer and collector. His consistently fine qualitytribal material, his life achievements, and extensive knowledge of Tribal andEthnographic Art has earned him recognition from his fellowdealers, trust from institutions, and private collectors.</strong> <strong>Irecently met with Kevin at the charming \"Water Street Inn\" inSanta Fe New Mexico, during the run of the Tribal Art shows. Wechatted on the outdoor terrace over a cup of morning coffee. The followingis a transcript of his thoughts on a variety of topics. </strong> <strong>We hopeyou find this an interesting and valuable new feature to the website. Weare honored to present views on Tribal Art from \"KEVINCONRU\"...</strong> <strong></strong> I studied classical music at the university, in particular double bass. Performance is what I did for a number of years and played professionallyin symphony orchestras in Chicago. I moved to South Africa when the Orchestra started in Durban, then off to Hong Kong when I met my first wife who was S. African. We had the choice of going to Memphis or staying in Hong Kong, we thought Hong Kong was more interesting.</p>\n<p>Because of the claustrophobicnature of Hong Kong and my small salary and small apartment, I had a longing forAfrican (South Africa) in a sense, the space, the sunset, the romance… and youknow having lived year round we had a few African things, you know gourds; stuffyou would buy at curio shops in Durban. Iremember I had a pair of modern Ci WarasI bought at “Ivys” in Johannesburg. This was about 20 years ago in1985. So that was just my interestin the culture.</p>\n<p>I left Hong Kong and the Orchestra in the end and went to London. I wanted to change careersbecause I got a little bit tired of the symphony life although I loved themusic. I did my masters degree in London. It was an MBA on Arts PolicyAdministration for museums. I usedfor some of my research the ethnographic museums because I sort of carried alittle bit of the African thing through, not really knowing about the art perse; but just buying books and looking at pictures, going to the British Museum(Pitt Rivers Museum) and attending a few auctions. I sort of became interested in African Art. After a year of study I got my degree…be that as such, I wanted to stayin London. In 1987 I convincedBonham’s which was a small auction house then, now of course they areenormously big, to start a department of African Art, Tribal Art andAntiquities.</p>\n<p>I don’t’ know if that was agood thing or bad thing, but we started it in London. My African Art experienceinitially was a disaster. The firstsale was terrible, a “crime against humanity” auction. Fortunately, they had the courage to back me for another auction. I learned very quickly. Ihad five people in the audience the first auction. One of them was Pierre Loos who took me aside afterwards and said, “youhad some nice things (which was of course he bought for no money) and therest was crap\". Come to Brussels for you next auction and I’ll give you stuff that will at least be real”.</p>\n<p>Auctions in London were tapering down at this time in the late 1980s. Sotheby’s had just hired Jean-Baptiste Bacquart to run the few smallsales. Then in the early 90’s both Sotheby’s and Christie’s basicallypacked up and went to New York and Amsterdam because the market was just dryingup; at that stage I went privatelyas a dealer in 1992. I was leavingthe auction house behind (Bonham’s) after 5 years there. The antiquities, the Asian art and the other departments remained strong. Their Antiquities department had a sale about a month ago where they made11 million dollars in 25 lots from a very important collection, so there isstill great strength. I’mvery pleased to see from the small beginnings how these things went. Tribal Art in London has stayed on a very small level, and that’s why I left London altogether.</p>\n<p>I did my first black and whitecatalog in 1995 in London and also exhibited at the Royal Academy show of thecontinent. This wasI thinkprobably the last year Christies was there, maybe 1996, Sotheby’s was gone bythen. I did consulting for a fewyears. There was always a bit of“pull”. In June the international tribal art community would come to Christiesand because London was always a magical place to find things. This wastrue whether it was Polynesian treasures, or American Indian or African, mainlyethnography of course but odd sculpture would turn up, because the Englishcollected a lot of things.</p>\n<p>England and the UK, even with thechannel is still an Island cut off from the continent; you just can’t get inyour car and “willy-nilly” drive to Paris, Holland, or Germany. It is a little bit of an extra effort to get there. So people didn’t just think of popping over and if they did, they werethe French and Belgian’s who were all of course looking for real bargains. Theyounger dealers arriving would find simple ethnography which is all that wasleft. There was not really anymoney or professional standing left in it anymore.</p>\n<p>The cost of doing business in London was just too expensive. It’soutrageous, property; everything in London makes it an expensive city. Thatis why over time I decided to move a part of my operations to Brussels. I’m an English residentand keep my residency there. So Ikeep my main operations in London and I go back often because we have a house there. I’m in London once very couple weeks, and I still do find things there.</p>\n<p>But for selling, it is aninternational world as we know. That’swhy you see me everywhere doing all sorts of things; because the market placefor good pieces is global. You knowthat as well Mike from your work on your website, which is very clever the wayyou market your material. It'sfabulous, it’s like your gallery is all over the world. I don’t do that. Iprobably don’t know how to do that, but I seem to get by with what I do. There are many people in their 50’s and 60’s who are the major buyersbut don’t use the internet to buy.</p>\n<p>I think I have an affinity foranything very very good! The realcrux of the biscuit, when I think about what I really like, isvery beautiful objects. Now, Istarted my South African collection ten or twelve years ago when I was still in London, when I didn’t have a lot of money and the things were beautiful and a littlebit affordable and available. Allthose ingredients conspired to create an interest; if you can find nice thingson a pretty regular basis through sources. That’s how my collection gotstarted. I’ve always liked SouthPacific material, coming from my surrealist sculptural interest. Also in England you tend to find more South Pacific items. For every quality African thing that came in, I had five South Pacificthings….now that maybe ethnography again, but there was an interest there. Great African sculpture is also wonderful… hard to find, welleverything is hard to find obviously. SeventyFive percent of my business is African Art, Pacific is less. In one sense at home I have a few things that are Pacific, but quitehonestly it is only because the African Art comes and goes much more quickly. So I have Pacific things I get noticed for. I think I see people branching out as well. There use to be a time when African Art Dealers were just “AfricanArt Dealers”. Those days arechanging, now one has to perhaps have a bit of American Indian occasionally…something a bit interesting. Iwould like to have more American Indian material, but I don’t really have theclients for it and it is quite expensive. Ithink the middle quality for American Indian is expensive. An Eskimo mask for $35,000 is not always that wonderful to look at andyou can’t get it for much less than $32,500 so the margins are small too.</p>\n<p>I don’t have any philosophy on buying whatsoever, other than I look at a pieceand evaluate its aesthetics, figure out if there is money it, quite honestly,and perhaps what I think I can achieve. I just tend to get the best piece I can buy. I love buying pieces. If itis a great piece I’ll try to buy it. Itend not to buy medium quality pieces. Inoticed at Bruneaf (Tribal Show Brussels) this year there was more interest inmedium pieces and I didn’t have that many medium priced African Sculptures. A friend of mine is Steve Alpert, who I admire very much as a dealer,because he has a much focused eye. Perhapsit is just the way he arranges things that makes it exciting, when in fact he isjust doing what we all do and buying beautiful things at the right price. But coming from an auction background if I see something inexpensivelaying on the ground and there is money in it I’ll buy that and move it alongor give it to somebody else to sell.</p>\n<p>Here in Santa Fe I meet a lot of people, astute collectors, new collectors who ask what I thinkthey should be doing. Some peopleare at the end of their collecting, some people are at their beginning. I’ve often thought that the best thing any collector could do is to buythe best that their budget can allow. Itis very simple. It is not oftenfollowed because many collectors like to buy three things instead of one. Even people with all the money like to buy smaller objects and may not becomfortable with this idea. A lotof it is subjective because what is a “masterpiece”? Why is one thing worth more than others? For instance, I have recently acquired an Arawe Shield from New Britain with the three bands and the circles. I’vehad many and there are many around of all ages. As an object type it is quite interesting. From the 19th century when the first ones werecollected, up until fairly recently in the 80’s and 90’s when the last oneswere collected. I’ve sold about15, generally good ones. I try tokeep the level high where the pigments are all natural. This one I just got, I’ve only had one other as nice. It is an old 19th century one but it has a \"price\". Some people may find it hard to see the difference in this and one thatwas made in the 1960s. Yes, theyall have the circles and all have the binding and painting on the back; sowhat’s the difference? Wellthere is a difference, subtle differences, that’s what I’m talking aboutwhen I say: doessomeone buy the best, or something which makes them feel comfortable on abudget, where you get just as much bang for the buck.</p>\n<p>I always say, try to buy thevery best, but I also recognize that very few collectors follow that rulebecause they all have different modusoperandi for buying. In the end the collector is the winner, right?! I find my philosophy is much better to be supportive of the collector,and their ideas of what they are trying to do; rather than strictly impose myown perspective. If I did this Iwould very quickly be out of business.</p>\n<p>To sit here and look at Santa Fe, with all of the shows, events, and galleries, I would say the market fortribal art is “exploding”. Thereis an explosion not necessarily at the high end but for stuffand interesting things—a lot more interest. I see that also in Europe (Paris and Brussels); the marketplace has truly expanded in the last ten years. I’ve watched it across the board. There are more collectors and much more interest. Between Paris and Brussels there is a lot more going on exponentially than there was ten years ago. Quality wise of course is another thing. Masterpieces are harder to find, but they are out there. With a reasonable amonut of money, one can still built a great collectiontoday. There are still in privatehands most of the great treasures, so there are many opportunities still there. People say it is not like the old days. Yes, I know the old days there was Webster, you could go there and he wastripping over stuff. Now you haveto look a little bit harder… but it ispossible.</p>\n<p>It is one thing to have Tribal Artkept for the connoisseurs and esoterica. Exposure--I’ve seen this in exhibiting fairs. Theyare a fairly recently phenomenon. Fairsare quite good for this field because the public can go and see a lot ofmaterial under one roof in a fairly short amount of time. What it comes down to is how the material is presented. Thinking about how the material is displayed can quite honestly attractnew people. Is it pleasing to lookat? I find a lot of displays veryethnographic and old. I’m notsaying it is bad, it is interesting, but a new person can be a bit more stymied by seeing thousands and thousands of things all looking similar, stackedup in groups. You tend to find thatin American Indian events, that sort of material does tend to run into eachother (baskets, blankets, etc.). It’sdifficult to give enough space to each object, so there is little chance forsomeone possibly new to focus on them. Itis always ok for the connoisseurs; of course most of what we do is preach to theconverted. If there is a way tofind new people it is “presentation”no matter whether you’re in a booth, a crowded fair, a hotel room, it alwayscomes down to presentation.</p>\n<p>I’ve just finished the secondweek of an exhibition of African Art with my friend Billy Siegal at his galleryin Santa Fe (135 Palace Ave. #101). Hecame to me in Brussels and said “would you like to do something”. I had been coming to Santa Fe every year, but not really doing anything with my material. So I said, “okay this is great.” Normally my material is in storage in Europe. He and I did some business, metnew clients and it was fun. Then, I’m back to Europe. I’ve worked on my Bernatzikphotographs, setting up an exhibition at the Linden Museum Stuttgart of South Pacific photographs. I acquired the archive of the photos from the heirs through a connectionin Austria. It is a significant archive, theonly one left in the world in private hands, it is incredibly important. The books we’ve published have had a lot of interest. There is also the Paris “parcours des mondes” fair (starting on September 16th). And then of course gosh knows what we’ll be doing… we’re doingsomething!</p>\n<p>The most exciting thing I found wasthe thing I bought yesterday, this is always the case isn’t it. Quite honestly that’s the excitement. I’m not saying this was my most important purchase. As a dealer, to stay fresh the most exciting thing I bought was what Ibought last. That’s how Ithink about it. I have in my owncollection a Solomon Island inlaid shield, Mundugamors (Sacred New Guinea Flute Stoppers from the Biwatpeople, Yuat River); quite important material that was very exciting at the time they were bought. The latest things I’ve boughtare the most exciting things. When that stops, I will stop.</p>",
+      "bodyImages": [
+        {
+          "file": "photoconru.jpg",
+          "local": "media/press-conru-tribalmania/photoconru.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,739,537,739,1200/0-0-0/054070ed-5fd6-47f8-8455-662a62c5258b/1/1/photoconru.jpg?fjkss=exp=2096269431~hmac=b055b06a3b478dfd9decc315123ac1e9349a0b83e94320fcccd0573c950f74a4"
+        }
+      ]
+    },
+    {
+      "action": "create",
+      "slug": "tribal-art-society-interview",
+      "sortOrder": 11,
+      "outlet": "Tribal Art Society",
+      "title": "Kevin Conru — Tribal Art Society Interview",
+      "subtitle": "Conversation with Alex Arthur and Joaquin Pecci",
+      "year": 2020,
+      "cover": {
+        "local": "media/press-covers/TAS.jpg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1063,1417,400,1417/0-0-0/f656001f-73fa-4bdb-b17e-7af3bd93d5cb/1/1/TAS.jpg?fjkss=exp=2096211196~hmac=977859a1b4a809da29d64d0844b1d66484e221be5890313b6bc6f7647f275a38",
+        "file": "tas.jpg"
+      },
+      "gallery": [],
+      "body": "<p>Joaquin Pecci: Kevin, tell me about your background.</p>\n<p>Kevin Conru: I was born and grew up in northern Indiana, not far from Chicago. My education had nothing to do with art but was about music. I went to Northwestern University near Chicago where I studied double bass and played in several orchestras. Music was my profession for about fifteen years after university. After my last year at school, I moved to Amsterdam where I found a situation in an orchestra and then I moved to orchestras in South Africa and Hong Kong.J.P.: So you lived in South Africa...</p>\n<p>K.C.: Yes, it was my job before Hong Kong. I was a bass player in an orchestra in Durban, the biggest city in Natal/KwaZulu. It suited me very well to be in a vibrating African community. It was my first contact with Africa and I found it all very exciting. The first two years I was playing music, leading a ’western’ social life, but I traveled often to Zululand in so-called real Africa and saw many amazing villages and people… It’s when I left Africa and Hong Kong for London and graduate studies, that my curiosity was seriously aroused about African culture. My whole focus was shifting from music to art after my training in London. It was just at the end of Apartheid, in the mid to late 80’s, a time when you could still go in the field and find something. I was collecting objects, neck rests and beer pots - utilitarian sort of things -and seeing how people lived, how art was created and used. I was finishing my Master's degree in Arts Policy Administration for Museums in London then and I had just started to work as an adviser for Bonham's. They asked me to start a Tribal Art department.</p>\n<p>J.P.: Not having that much experience, wasn't it a big challenge for you?</p>\n<p>K.C. : Well, I had my Master's degree but I didn’t realize it was a big challenge until my second auction because the first one flopped…”We give you one more chance, buddy” ... but the second one was on a level. One of the things that saved me was my knowledge of music and instruments. So while setting up the African and Oceanic department we also set up a musical instrument department. So even if my first auction didn’t work I could work on music instruments or for the Antiquities department, ...I learned very quickly. <p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">Joaquin Pecci: Kevin, tellme about your background.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">Kevin Conru: I was born andgrew up in northern Indiana, not far from Chicago. My education had nothing todo with art but was about music. I went to Northwestern University near Chicagowhere I studied double bass and played in several orchestras. Music was myprofession for about fifteen years after university. After my last year atschool, I moved to Amsterdam where I found a situation in an orchestra and thenI moved to orchestras in South Africa and Hong Kong.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.: So you lived in SouthAfrica...</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">K.C.: Yes, it was my jobbefore Hong Kong. I was a bass player in an orchestra in Durban, the biggestcity in Natal/KwaZulu. It suited me very well to be in a vibrating Africancommunity. It was my first contact with Africa and I found it all veryexciting. The first two years I was playing music, leading a ’western’ sociallife, but I traveled often to Zululand in so-called real Africa and saw manyamazing villages and people… It’s when I left Africa and Hong Kong for Londonand graduate studies, that my curiosity was seriously aroused about Africanculture. My whole focus was shifting from music to art after my training inLondon. It was just at the end of Apartheid, in the mid to late 80’s, a timewhen you could still go in the field and find something. I was collectingobjects, neck rests and beer pots - utilitarian sort of things -and seeing howpeople lived, how art was created and used. I was finishing my Master's degreein Arts Policy Administration for Museums in London then and I had just startedto work as an adviser for Bonham's. They asked me to start a Tribal Artdepartment.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.: Not having that muchexperience, wasn't it a big challenge for you?</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">K.C. : Well, I had myMaster's degree but I didn’t realize it was a big challenge until my secondauction because the first one flopped…”We give you one more chance, buddy” ...but the second one was on a level. One of the things that saved me was myknowledge of music and instruments. So while setting up the African and Oceanicdepartment we also set up a musical instrument department. So even if my firstauction didn’t work I could work on music instruments or for the Antiquitiesdepartment, ...I learned very quickly.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">Joaquin Pecci: Kevin, tellme about your background.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">Kevin Conru: I was born andgrew up in northern Indiana, not far from Chicago. My education had nothing todo with art but was about music. I went to Northwestern University near Chicagowhere I studied double bass and played in several orchestras. Music was myprofession for about fifteen years after university. After my last year atschool, I moved to Amsterdam where I found a situation in an orchestra and thenI moved to orchestras in South Africa and Hong Kong.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.: So you lived in SouthAfrica...</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">K.C.: Yes, it was my jobbefore Hong Kong. I was a bass player in an orchestra in Durban, the biggestcity in Natal/KwaZulu. It suited me very well to be in a vibrating Africancommunity. It was my first contact with Africa and I found it all veryexciting. The first two years I was playing music, leading a ’western’ sociallife, but I traveled often to Zululand in so-called real Africa and saw manyamazing villages and people… It’s when I left Africa and Hong Kong for Londonand graduate studies, that my curiosity was seriously aroused about Africanculture. My whole focus was shifting from music to art after my training inLondon. It was just at the end of Apartheid, in the mid to late 80’s, a timewhen you could still go in the field and find something. I was collectingobjects, neck rests and beer pots - utilitarian sort of things -and seeing howpeople lived, how art was created and used. I was finishing my Master's degreein Arts Policy Administration for Museums in London then and I had just startedto work as an adviser for Bonham's. They asked me to start a Tribal Artdepartment.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.: Not having that muchexperience, wasn't it a big challenge for you?</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">K.C. : Well, I had myMaster's degree but I didn’t realize it was a big challenge until my secondauction because the first one flopped…”We give you one more chance, buddy” ...but the second one was on a level. One of the things that saved me was myknowledge of music and instruments. So while setting up the African and Oceanicdepartment we also set up a musical instrument department. So even if my firstauction didn’t work I could work on music instruments or for the Antiquitiesdepartment, ...I learned very quickly.</p></p>\n<img data-import-file=\"photo 1.jpg\">\n<img data-import-file=\"photo 1-1.jpg\">\n<p>J.P.: Alex, you met Kevin when he was starting to work for Bonham's? Did you buy something at his auctions?Alex Arthur: I was very young and inexperienced but I got some good things from this auction: a Senufo headdress.J.P.: Both of you came more and more to Brussels and this conditioned your taste and your sensitivity, right? You became more and more interested in the Congo.A.A.: Yes, this is the place to be if you want to find some good Congo pieces.</p>\n<p>K. C.: Don’t forget that in England you do not see much Congo stuff. The various British museums have a lot of Congo material, but there wasn’t much floating around in private hands. I went once to the British Museum to see the Pende masks collected by Torday. I had some fascination for them twenty years ago. They smelled heavily of smoke, almost overwhelming the fresh smell of Africa, and they were collected in 1907! You can learn a lot with your eyes or with your nose but, you can not make a judgment. A friend of mine had a white faced Congo mask many years ago. When he bought the piece it was white, 30 years later it changed patina because he was a cigar smoker... Objects have a life outside the museums. They were first created, then they came on a ship, then came over ...Often those pieces lived more outside the original context than inside. So it’s very hard to determine what the original surface is supposed to be.A. A: A lot of objects we like are waxed...</p>\n<p>K.C.: The patina in many ways is “our patina “ we have an obsession with patina... Playing the double bass was, for me, my real introduction to the knowledge of wood. Because my basses were always very old, a minimum of 100 years old and being of quality French, Italian, English make, I saw everyday what old wood was supposed to be like. My current bass is a 200 year old English bass, and it’s archaic! Being behind it and playing it all day you feel what old wood is. It has been used every day, not even like a statue, which is used once a week or once a month, but used hours each day. So, musical instruments gave me an extremely valuable, visual, and emotional entre to old wood.</p>\n<p>J.P.: Which personality or collection impresses you the most?</p>\n<p>A.A: The Mestach collection.J.P.: And for you Kevin?</p>\n<p>K. C.: John Friede’s collection...there was André Fourquet as well..</p>\n<p>J.P.:Fourquet was like Willy for us?</p>\n<p>K.C.: Yes, but more universal. Willy was very “Belgian” André Fourquet was international, even if his way of thinking was very French, he went to New York, London, even the Marquesas islands... so his taste was formed differently. Willy is an artist first and foremost. An artist's eye is different from a writer’s eye or a banker’s eye... Willy had a few Polynesian things but it was mainly a Congo collection whereas Fourquet’s was geographically more eclectic.For me, John Friede, like William Oldman, built one of the greatest collections by focusing all his energy- and resources on his project, collecting piece by piece. And they were invariably all masterpieces.</p>\n<p>A.A.:Well it’s true that the John Friede collection was great for its continuity. And then I do think that Willy is different from any other collector.</p>\n<p>J.P There is a real “fil conducteur” he really creates something, his collection is a work of art. <p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.: Which personality orcollection impresses you the most? </p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">A.A: The Mestachcollection.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.: And for you Kevin? </p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">K. C.: John Friede’scollection...there was André Fourquet as well.. </p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P.:Fourquet was likeWilly for us?</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">K.C.: Yes, but moreuniversal. Willy was very “Belgian”André Fourquet was international, even if his way of thinking was very French,he went to New York, London, even the Marquesas islands... so his taste wasformed differently. Willy is an artist first and foremost. An artist's eye isdifferent from a writer’s eye or a banker’s eye... Willy had a few Polynesianthings but it was mainly a Congo collection whereas Fourquet’s wasgeographically more eclectic.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">For me, John Friede, likeWilliam Oldman, built one of the greatest collections by focusing all hisenergy- and resources on his project, collecting piece by piece. And they wereinvariably all masterpieces.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">A.A.:Well it’s true thatthe John Friede collection was great for its continuity. And then I do thinkthat Willy is different from any other collector.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">J.P There is a real “fil conducteur” he really creates something,his collection is a work of art.</p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;mso-hyphenate:auto;mso-layout-grid-align:none;text-autospace:none\">A.A. That shows that heunderstands Tribal art. A lot of collectors, maybe, do not get the whole thing,they pick nice pieces but... Being a collector is a sort of art…</p></p>\n<img data-import-file=\"photo 3.jpg\">\n<img data-import-file=\"photo 2-1.jpg\">\n<p>J.P.: Would you be able to work without objects ?</p>\n<p>K.C.: Some parts of my life are full of objects, some others are devoid. I started without objects very comfortably and, believe me, it was a very nice part of my life, in one or two cases it was much easier .So I would be glad to go back to that total freedom...</p>\n<p>J.P.: So if you return to this time with only one case, which piece would you take with you ?</p>\n<p>K.C.: This past year I went to two marvelous places where monumental sculpture completely reduces you to tears: Easter Island and Egypt. And for me I can argue that this is my true experience of art.</p>\n<p>A.A.: I went to Easter Island in 1988, in the first issue in Tribal art Magazine there was an article about Easter Island... It was a feeling of being alone, in the “ immensity”, in spirituality. I felt the strongest of emotions there.</p>\n<p>K.C.: When you stand in that “immensity”, you realize that you are nothing...</p>\n<p>A.A.: I think there are marvelous civilizations but do not forget that there are individual artists. What I learned when I was buying at Bonham's - I had a small budget- is that first of all you have to like the object whatever the price. Because I could not afford a certain piece I took one of the same quality but cheaper. You know, the difference between a Kandinsky paint stroke and an unknown artist's is the intensity of that stroke, and you can see it.</p>\n<p>K.C.: Yes, it's very true ... and you can see that from the moment you enter a room: it’s there.. As art professionals, our life is made of understanding emotionally what the artist communicates. Then how do we translate our interaction with this artist? What is behind this Fiji figure or the Berend Hoekstra painting? What does the artist want to express? And then how do we communicate that to somebody else ? That is what Tribal Art Magazine is about...</p>\n<p>A.A.: Yes, yet actually, today, we interpret some objects as art pieces although they weren’t meant to be so. We have many ways of “seeing” an object...</p>\n<img data-import-file=\"photo 2.jpg\">\n<img data-import-file=\"photo 4-1.jpg\">\n<p>J.P. How do you perceive the evolution of the market? In the early 20th century all modern artists were buying tribal art pieces, but will everybody be concerned by tribal art in the next years?</p>\n<p>K.C.: When I listen to your question I have many answers...There is a big change...Our generation is a little more rock n' roll. We have new people interested, we have fashions, the Chinese are now interested and museums in Middle East countries.... It's boiling. It's harder than before to find good objects but no matter how tough it is, it’s good.</p>\n<p>A.A.: Well I think this is a key period. Today, if we find a new drawing by Leonardo da Vinci, which is not in the catalogue raisonné, it is immediately suspect. As for Primitive Art we are only producing those catalogues raisonnés now: we are situating the pieces where they belong and if somebody finds a Luba in a fleamarket it can still be a masterpiece. This is were we are standing, we are still discovering</p>\n<p>J.P.: What do you think about this “Internet” a way of working ?</p>\n<p>A.A.: Well I think there is no going back...</p>\n<p>K.C.: We are used to working in actual physical spaces, but many of our commercial transactions take place in cyberspace: People in Australia, America... Still, eye contact is important to sell an object. We are now so much more connected to people and to different places. We are all doing this with a website, you tube, Facebook, twitter...We didn’t grow up with multimedia -my children have but not me†. Could we, one day, have a Skype gallery? My Old Maori film hits 400 viewers in one week, but in the meantime there's 20 million hits for car videos, so we have a long way to go...</p>\n<img data-import-file=\"photo 5-1.jpg\">\n<img data-import-file=\"photo 3-1.jpg\">\n<p>J.P.: How do you see the future of a gallery with all these new ways of working?</p>\n<p>K.C.: It's terribly important to have a physical space, a room, a house, a stand on the street whatever...My experience with a lot of collectors is that they like to see how we live with art without it being institutionalised. People need to interact with the pieces even if it's just for one second: They have to get this physical moment...</p>\n<p>J.P.: Alex, what do you think of our project TAS?</p>\n<p>A.A.: I think Internet is certainly one of the keys for the next years and if the people of TAS can put their individuality forward as well as good object it has a good chance of success.</p>\n<img data-import-file=\"photo 5.jpg\">\n<img data-import-file=\"photo1.jpg\">",
+      "bodyImages": [
+        {
+          "file": "photo 1.jpg",
+          "local": "media/pres-conru-tas/photo 1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/bd7610e2-ff70-42cd-a5ab-0a49121e1330/1/1/photo+1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 1-1.jpg",
+          "local": "media/pres-conru-tas/photo 1-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/36531943-d184-4c5a-93df-1054fa7c9a40/1/1/photo+1-1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 3.jpg",
+          "local": "media/pres-conru-tas/photo 3.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/c8345697-c6d1-4619-ac15-5e228155d197/1/1/photo+3.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 2-1.jpg",
+          "local": "media/pres-conru-tas/photo 2-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/7ebe8b5e-2958-4de9-a44c-ed840013af57/1/1/photo+2-1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 2.jpg",
+          "local": "media/pres-conru-tas/photo 2.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/c3a801d1-0d10-453e-bab2-8321c84c4617/1/1/photo+2.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 4-1.jpg",
+          "local": "media/pres-conru-tas/photo 4-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/d8533ed1-7792-4278-b29b-400817321d48/1/1/photo+4-1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 5-1.jpg",
+          "local": "media/pres-conru-tas/photo 5-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/ad00a80e-0c3a-4539-a343-341e65f502e7/1/1/photo+5-1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 3-1.jpg",
+          "local": "media/pres-conru-tas/photo 3-1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/d53feb55-3f6c-45a8-93fb-6191d3e72762/1/1/photo+3-1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo 5.jpg",
+          "local": "media/pres-conru-tas/photo 5.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/3e7f8ab6-6603-43a7-9728-891c41752b0c/1/1/photo+5.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        },
+        {
+          "file": "photo1.jpg",
+          "local": "media/pres-conru-tas/photo1.jpg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1536,2048,1600,2048/0-0-0/7e60b23d-241f-4781-b3ca-0f9f3fc3d560/1/1/photo1.jpg?fjkss=exp=2096269432~hmac=432a6c8490b315088dd2869122426038f63bfa68c52f36d6b8fe8236bb139436"
+        }
+      ]
+    },
+    {
+      "action": "create",
+      "slug": "tam-autumn-2013",
+      "sortOrder": 12,
+      "outlet": "Tribal Art Magazine",
+      "title": "Tribal Art Magazine — Autumn 2013",
+      "subtitle": "Tribal Art Magazine · Autumn 2013",
+      "year": 2013,
+      "cover": {
+        "local": "media/press-covers/Numériser 148.jpeg",
+        "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1256,1730,400,1730/0-0-0/f5c7e65a-cb13-48fb-a1a9-c6102ca39584/1/1/Nume%CC%81riser+148.jpeg?fjkss=exp=2096211196~hmac=58f907577f20726f344f88533155cf5de273a29c111b841f798b4c91a370ef46",
+        "file": "numériser 148.jpeg"
+      },
+      "gallery": [
+        {
+          "file": "numériser 149.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 149.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1238,1738,1600,1738/0-0-0/bc614780-1db5-4a07-9ff1-9cc183ce7ebe/1/1/Nume%CC%81riser+149.jpeg?fjkss=exp=2096269432~hmac=6f240b3a6750c67094b090f2ea22532d676011dc2422179a8278bb043bf305be",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 150.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 150.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1242,1744,1600,1744/0-0-0/eeb47c43-2137-428b-b05c-afc08effea82/1/1/Nume%CC%81riser+150.jpeg?fjkss=exp=2096269432~hmac=156fb5635a83b0ea6f4363d113dff435a10e6187f1a34a23106a9cd21983f38d",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 151.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 151.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1234,1730,1600,1730/0-0-0/b3d8eff3-2acc-41b4-a64f-fbea1fdc81ef/1/1/Nume%CC%81riser+151.jpeg?fjkss=exp=2096269432~hmac=44cc0443f8d46f7f12c959601cb3b67a55ee96982d64e1ac319176f2a7ebe723",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 152.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 152.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1238,1726,1600,1726/0-0-0/e6b99494-3842-4bf7-a4e7-c24e9de42507/1/1/Nume%CC%81riser+152.jpeg?fjkss=exp=2096269432~hmac=228693bded2e61c41edcba6678a2d07dab706d81aa0ccf63ed87ceb195685944",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 153.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 153.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1222,1730,1600,1730/0-0-0/fc7d3fd2-97c3-40ad-a715-d836c423a67e/1/1/Nume%CC%81riser+153.jpeg?fjkss=exp=2096269432~hmac=da6c03e26bc810240289077211af0aa0c0e143ab5744c07e4ea54f9a4fc390cc",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 154.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 154.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1248,1730,1600,1730/0-0-0/bfee68ba-2fdd-4f1b-a1f4-b6875acdbcf4/1/1/Nume%CC%81riser+154.jpeg?fjkss=exp=2096269432~hmac=ea785f431c40d70d4988560e3063a52eb22f643053c4418000aaa9ba8b65e3c1",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 155.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 155.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1220,1730,1600,1730/0-0-0/deca6fe5-6388-4e6c-905a-69b1957fac28/1/1/Nume%CC%81riser+155.jpeg?fjkss=exp=2096269432~hmac=85debf7e88cfbaa96faeb7cb87031e74265658e582973c9b28719deaf0d2da98",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 156.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 156.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1252,1730,1600,1730/0-0-0/91faf644-4e0a-40c6-9fed-f0beb61c19d3/1/1/Nume%CC%81riser+156.jpeg?fjkss=exp=2096269432~hmac=cbe3417a725c00df194728cf3b74b2798bc55d3c3e26d8d7473c230044bfb272",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 157.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 157.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1200,1730,1600,1730/0-0-0/b628aaf6-9a37-4a27-8bca-6a54eb3ca205/1/1/Nume%CC%81riser+157.jpeg?fjkss=exp=2096269432~hmac=2b4de6ebcb0c9905bc71972ee409c389cb3c9e5b0000c8f4466852a5b8cee4a6",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 158.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 158.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1212,1730,1600,1730/0-0-0/d9c6bd40-5348-4a67-84e6-3e53573b30a7/1/1/Nume%CC%81riser+158.jpeg?fjkss=exp=2096269432~hmac=6103838728c5ff2d78c5cfc607190d5e2b84638989eb46a34240468c5f699394",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 159.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 159.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1226,1730,1600,1730/0-0-0/7b0edb83-958a-4a1b-ae27-a846bfe6c20b/1/1/Nume%CC%81riser+159.jpeg?fjkss=exp=2096269432~hmac=7b8dc563b82da966ae328b1bde9f0690325102bc31550a9f66e001ba85f134d6",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 160.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 160.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1244,1730,1600,1730/0-0-0/a68c71af-7174-4a08-aa4f-17034417f2ac/1/1/Nume%CC%81riser+160.jpeg?fjkss=exp=2096269433~hmac=bfb3c10402e581fab1a9e7e64a2e2f9abfb4c52064b82cbb1fd6af112bbe3d2d",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 161.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 161.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1190,1730,1600,1730/0-0-0/e64b5d63-75d2-4eb8-aa41-5f00801e9971/1/1/Nume%CC%81riser+161.jpeg?fjkss=exp=2096269433~hmac=0c59f3e5a74b02fd9a42704d652a8d6333e7d32f59362386fa6e949ddab2cf34",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 162.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 162.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1248,1704,1600,1704/0-0-0/7b6c1165-4f35-459d-9e80-770a53b40286/1/1/Nume%CC%81riser+162.jpeg?fjkss=exp=2096269433~hmac=79a2cd2ae4748a698444841ef7ede6ddfcfc16a19bc07894381dc39cbaa2f14d",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 163.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 163.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1226,1730,1600,1730/0-0-0/e51a6e26-fc56-4275-8f79-fa4d80b82494/1/1/Nume%CC%81riser+163.jpeg?fjkss=exp=2096269433~hmac=7361ba4021863509cf4ec9f1c7de42c634cbf35fb13b44929caeeaa58f4ce471",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 164.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 164.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1260,1730,1600,1730/0-0-0/b93ef771-2b6e-4a4c-9cc3-0470d6f07e1b/1/1/Nume%CC%81riser+164.jpeg?fjkss=exp=2096269433~hmac=fdeca35a086de462c6cf75a897769385e779b931f7843737ba58332f5c6ccd9c",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 165.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 165.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1248,1730,1600,1730/0-0-0/c786a9cb-b111-4814-b615-a54ea2caaba4/1/1/Nume%CC%81riser+165.jpeg?fjkss=exp=2096269433~hmac=193a41f9788fee2cba77183ab40da4cd320c4d6c69c50d232679ed7312bb365b",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 166.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 166.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1248,1730,1600,1730/0-0-0/c631685f-e859-488f-8f33-051a7e913f21/1/1/Nume%CC%81riser+166.jpeg?fjkss=exp=2096269433~hmac=193a41f9788fee2cba77183ab40da4cd320c4d6c69c50d232679ed7312bb365b",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 167.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 167.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1248,1730,1600,1730/0-0-0/4eda3dc9-0868-41ab-9597-331e7936be55/1/1/Nume%CC%81riser+167.jpeg?fjkss=exp=2096269433~hmac=193a41f9788fee2cba77183ab40da4cd320c4d6c69c50d232679ed7312bb365b",
+          "title": null,
+          "caption": null
+        },
+        {
+          "file": "numériser 168.jpeg",
+          "local": "media/press-tribal-art-magazine-autumn-2013/Numériser 168.jpeg",
+          "cdn": "https://format.creatorcdn.com/5b948d76-dd9c-4ba0-89ee-188eb7d1b98a/0/0/0/0,0,1248,1730,1600,1730/0-0-0/7b0e2abe-7eda-4f9f-9b4b-c22b592800d1/1/1/Nume%CC%81riser+168.jpeg?fjkss=exp=2096269433~hmac=193a41f9788fee2cba77183ab40da4cd320c4d6c69c50d232679ed7312bb365b",
+          "title": null,
+          "caption": null
+        }
+      ],
+      "galleryLayout": "List"
+    }
+  ]
+}
