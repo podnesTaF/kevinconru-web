@@ -92,9 +92,22 @@ export function ReorderList({
   items: { id: string; content: React.ReactNode }[];
   action: (ids: string[]) => Promise<void>;
 }) {
-  const [order, setOrder] = useState(items.map((i) => i.id));
+  const ids = items.map((i) => i.id);
+  const membershipKey = [...ids].sort().join("|");
+  const [order, setOrder] = useState(ids);
+  const [syncedKey, setSyncedKey] = useState(membershipKey);
   const [pending, start] = useTransition();
   const router = useRouter();
+
+  // Reconcile local order when items change (e.g. after delete) so stale ids
+  // don't render as empty rows.
+  if (membershipKey !== syncedKey) {
+    setOrder((prev) => [
+      ...prev.filter((id) => ids.includes(id)),
+      ...ids.filter((id) => !prev.includes(id)),
+    ]);
+    setSyncedKey(membershipKey);
+  }
 
   const byId = new Map(items.map((i) => [i.id, i.content]));
 

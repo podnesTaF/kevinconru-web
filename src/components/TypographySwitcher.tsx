@@ -14,9 +14,9 @@ const PAIRINGS: { id: TypePair; label: string }[] = [
 const STORAGE_KEY = "typepair";
 
 export default function TypographySwitcher() {
-  // SSR renders the default ("modern"); the no-flash script in the root layout
-  // applies any saved choice before paint, and we sync to it on mount.
-  const [pair, setPair] = useState<TypePair>("modern");
+  // SSR renders the default ("editorial"); the no-flash script in the root
+  // layout applies any saved choice before paint, and we sync to it on mount.
+  const [pair, setPair] = useState<TypePair>("editorial");
 
   useEffect(() => {
     const current = document.documentElement.dataset.typepair as TypePair | undefined;

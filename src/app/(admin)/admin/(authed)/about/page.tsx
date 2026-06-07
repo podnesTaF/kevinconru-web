@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { adminGetSettings } from "@/lib/queries/admin";
-import type { HeroStat, Marquee } from "@/lib/queries/content";
 import { PageHeader } from "@/components/admin/ui";
 import AboutForm from "@/components/admin/AboutForm";
 
@@ -11,7 +10,7 @@ export default async function AboutAdminPage() {
     <div>
       <PageHeader
         title="About"
-        description="Biography, hero stats and the home marquee."
+        description="Biography shown on the About page."
         action={
           <div className="flex gap-2 text-sm">
             <Link href="/admin/about/chronology" className="rounded-md border border-rule px-3 py-2 hover:bg-bg-alt">
@@ -23,13 +22,7 @@ export default async function AboutAdminPage() {
           </div>
         }
       />
-      <AboutForm
-        defaults={{
-          bio: settings?.bio ?? "",
-          heroStats: (settings?.heroStats as HeroStat[] | undefined) ?? [],
-          marquee: (settings?.marquee as Marquee | undefined) ?? [],
-        }}
-      />
+      <AboutForm defaults={{ bio: settings?.bio ?? "" }} />
     </div>
   );
 }

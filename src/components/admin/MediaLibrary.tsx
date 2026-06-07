@@ -47,7 +47,10 @@ function MediaCard({ media, onDeleted }: { media: MediaView; onDeleted: (id: str
         <button
           type="button"
           onClick={() => {
-            navigator.clipboard?.writeText(media.url);
+            const url = media.url.startsWith("http")
+              ? media.url
+              : `${window.location.origin}${media.url.startsWith("/") ? "" : "/"}${media.url}`;
+            navigator.clipboard?.writeText(url);
             setCopied(true);
             setTimeout(() => setCopied(false), 1200);
           }}

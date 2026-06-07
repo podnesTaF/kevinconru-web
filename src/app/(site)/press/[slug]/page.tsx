@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPressItemBySlug, getPressSlugs } from "@/lib/queries/content";
 import { ArrowRight } from "@/components/icons";
@@ -48,6 +47,8 @@ export default async function PressDetailPage({
     title: g.title,
     caption: g.caption,
     imageUrl: g.media.url,
+    width: g.media.width,
+    height: g.media.height,
   }));
 
   const hasBody = stripHtml(item.body).length > 0;
@@ -59,13 +60,12 @@ export default async function PressDetailPage({
           ← Press
         </Link>
 
-        {/* Press covers are portrait (magazine covers/scans) — show them at
-            their natural ratio beside the header instead of cropping them
-            into a landscape banner. */}
-        <div className={item.coverImage ? "press-hero" : undefined}>
-          {item.coverImage && (
+        {/* Press covers are portrait (magazine covers/scans) — shown at their
+            natural ratio beside the header, same hero as publications. */}
+        {item.coverImage ? (
+          <section className="pd-hero">
             <div
-              className="press-cover"
+              className="pd-cover"
               style={{
                 aspectRatio:
                   item.coverImage.width && item.coverImage.height
@@ -73,60 +73,60 @@ export default async function PressDetailPage({
                     : "3 / 4",
               }}
             >
-              <Image
-                src={item.coverImage.url}
-                alt={item.coverImage.alt ?? item.title}
-                fill
-                sizes="(max-width: 900px) 100vw, 380px"
-                className="press-cover-img"
+              <div
+                className="pc-image"
+                style={{ backgroundImage: `url('${item.coverImage.url}')` }}
               />
             </div>
-          )}
-          <header style={item.coverImage ? undefined : { maxWidth: 820, marginBottom: 48 }}>
+            <div>
+              <span className="eyebrow">
+                {item.outlet} · {item.year}
+              </span>
+              <h1 className="pd-title" style={{ marginTop: 14 }}>
+                {item.title}
+              </h1>
+              {item.subtitle && <p className="pd-sub">{item.subtitle}</p>}
+            </div>
+          </section>
+        ) : (
+          <header style={{ maxWidth: 820, marginBottom: "clamp(32px, 6vw, 48px)" }}>
             <span className="eyebrow">
               {item.outlet} · {item.year}
             </span>
-            <h1 className="pd-title" style={{ marginTop: 16 }}>
+            <h1 className="pd-title" style={{ marginTop: 14 }}>
               {item.title}
             </h1>
-            {item.subtitle && (
-              <p className="serif-italic" style={{ fontSize: "clamp(18px, 4.5vw, 22px)", color: "var(--fg-soft)", margin: "-4px 0 0" }}>
-                {item.subtitle}
-              </p>
-            )}
+            {item.subtitle && <p className="pd-sub">{item.subtitle}</p>}
           </header>
+        )}
+
+        {/* Body text keeps a reading measure; page scans and the document sit
+            in a wider, left-aligned column so they stay readable. */}
+        <div className="measure">
+          {hasBody && <RichText html={item.body} className="pd-body" />}
+
+          {item.externalUrl && (
+            <div style={{ marginTop: hasBody ? 28 : 0 }}>
+              <a className="link-arrow" href={item.externalUrl} target="_blank" rel="noopener noreferrer">
+                Read the original ↗ <ArrowRight />
+              </a>
+            </div>
+          )}
         </div>
 
-        {hasBody && <RichText html={item.body} className="press-body" />}
+        <div className="measure-wide">
+          {gallery.length > 0 && (
+            <section style={{ marginTop: hasBody || item.externalUrl ? "clamp(40px, 7vw, 64px)" : 0 }}>
+              <Gallery items={gallery} layout={item.galleryLayout === "List" ? "list" : "grid"} />
+            </section>
+          )}
 
-        {item.externalUrl && (
-          <div style={{ marginTop: 32 }}>
-            <a className="link-arrow" href={item.externalUrl} target="_blank" rel="noopener noreferrer">
-              Read the original ↗ <ArrowRight />
-            </a>
-          </div>
-        )}
-
-        {/* Gallery flows as part of the body — page scans read like the article. */}
-        {gallery.length > 0 && (
-          <section style={{ marginTop: hasBody || item.coverImage ? "clamp(32px, 6vw, 56px)" : 0 }}>
-            <Gallery items={gallery} layout={item.galleryLayout === "List" ? "list" : "grid"} />
-          </section>
-        )}
-
-        {item.pdf && (
-          <section style={{ marginTop: "clamp(48px, 9vw, 80px)" }}>
-            <div className="section-head" style={{ marginBottom: 40 }}>
-              <div>
-                <span className="eyebrow">Document</span>
-                <h2 className="display" style={{ fontSize: "clamp(28px,3.5vw,44px)", marginTop: 12 }}>
-                  Read the article
-                </h2>
-              </div>
-            </div>
-            <PdfEmbed url={item.pdf.url} title={item.title} bytes={item.pdf.bytes} />
-          </section>
-        )}
+          {item.pdf && (
+            <section style={{ marginTop: "clamp(40px, 7vw, 64px)" }}>
+              <PdfEmbed url={item.pdf.url} title={item.title} bytes={item.pdf.bytes} />
+            </section>
+          )}
+        </div>
       </div>
     </main>
   );

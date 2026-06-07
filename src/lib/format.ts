@@ -19,6 +19,18 @@ export const KIND_LABEL: Record<PublicationKind, string> = {
 export const regionLabel = (r: Region) => REGION_LABEL[r];
 export const kindLabel = (k: PublicationKind) => KIND_LABEL[k];
 
+/**
+ * URL slug derived from a title (films have no stored slug — their detail
+ * routes resolve by slugified title, see getFilmBySlug).
+ */
+export const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 // Region filter pills shown on the Publications index.
 export const REGION_FILTERS = ["All", "Oceania", "Polynesia", "Melanesia", "Africa"] as const;
 export type RegionFilterValue = (typeof REGION_FILTERS)[number];

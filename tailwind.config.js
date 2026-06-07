@@ -3,9 +3,9 @@ module.exports = {
   content: ['./src/**/*.{html,js,jsx,ts,tsx,mdx}'],
   theme: {
     extend: {
-      // Colors map to the palette CSS variables defined in globals.css
-      // (`[data-palette]` on <html>). This keeps Tailwind utilities
-      // (`bg-bg`, `text-fg`, `border-rule`…) palette-aware automatically.
+      // Colors map to the design-token CSS variables defined in globals.css,
+      // so Tailwind utilities (`bg-bg`, `text-fg`, `border-rule`…) stay in
+      // sync with the site theme.
       colors: {
         bg: 'var(--bg)',
         'bg-alt': 'var(--bg-alt)',
@@ -18,7 +18,6 @@ module.exports = {
         'sage-deep': 'var(--sage-deep)',
         terra: 'var(--terra)',
         'terra-deep': 'var(--terra-deep)',
-        plate: 'var(--plate)',
       },
 
       fontFamily: {

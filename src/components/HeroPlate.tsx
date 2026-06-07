@@ -3,18 +3,16 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// Dark hero plate that slowly cross-fades a selection of object photos every 7s,
-// with the plate-info caption. Honors prefers-reduced-motion (holds frame 1).
+// Hero image that slowly cross-fades a selection of object photos every 7s.
+// Honors prefers-reduced-motion (holds frame 1).
 const OBJECTS = [
-  "/objects/object-1.jpeg",
   "/objects/object-2.jpeg",
   "/objects/object-3.jpeg",
   "/objects/object-4.jpeg",
   "/objects/object-5.jpeg",
   "/objects/object-6.jpeg",
+  "/objects/object-1.jpeg",
 ];
-
-const pad = (n: number) => String(n).padStart(2, "0");
 
 export default function HeroPlate() {
   const [active, setActive] = useState(0);
@@ -26,7 +24,7 @@ export default function HeroPlate() {
   }, []);
 
   return (
-    <div className="hero-photo">
+    <div className="hero-photo plate-in">
       {OBJECTS.map((url, i) => (
         <Image
           key={url}
@@ -41,10 +39,6 @@ export default function HeroPlate() {
           }}
         />
       ))}
-      <div className="plate-info">
-        <span>Selected work № {pad(active + 1)}</span>
-        <span>African &amp; Oceanic art</span>
-      </div>
     </div>
   );
 }

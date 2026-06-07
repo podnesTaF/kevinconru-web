@@ -58,7 +58,6 @@ export default async function PublicationDetailPage({
   const coverStyle = {
     "--cover-bg": pub.coverBg ?? undefined,
     "--cover-fg": pub.coverFg ?? undefined,
-    background: pub.coverBg ?? undefined,
   } as CSSProperties;
 
   const gallery: GalleryView[] = pub.gallery.map((g) => ({
@@ -66,9 +65,18 @@ export default async function PublicationDetailPage({
     title: g.title,
     caption: g.caption,
     imageUrl: g.media.url,
+    width: g.media.width,
+    height: g.media.height,
   }));
 
   const enquireHref = `mailto:${CONTACT.email}?subject=${encodeURIComponent(`Enquiry — ${pub.title}`)}`;
+
+  const facts: { lab: string; val: string }[] = [
+    { lab: "Year", val: String(pub.year) },
+    ...(pub.pages ? [{ lab: "Pages", val: String(pub.pages) }] : []),
+    ...(pub.publisher ? [{ lab: "Publisher", val: pub.publisher }] : []),
+    { lab: "Region", val: regionLabel(pub.region) },
+  ];
 
   return (
     <main className="page">
@@ -77,12 +85,13 @@ export default async function PublicationDetailPage({
           ← Publications
         </Link>
 
+        {/* Compact hero: cover + header/facts. The body text lives BELOW this
+            row so a long text never scrolls beside an empty cover column. */}
         <section className="pd-hero">
           {pub.coverImage ? (
-            /* Real cover: shown bare at its natural ratio — no plate frame,
-               no gradient letterboxing, nothing cropped. */
+            /* Real cover: shown bare at its natural ratio — nothing cropped. */
             <div
-              className="pd-cover pd-cover--bare"
+              className="pd-cover"
               style={{
                 aspectRatio:
                   pub.coverImage.width && pub.coverImage.height
@@ -97,7 +106,7 @@ export default async function PublicationDetailPage({
             </div>
           ) : (
             /* Typographic plate is the fallback when no cover exists. */
-            <div className="pd-cover" style={coverStyle}>
+            <div className="pd-cover pd-cover--plate" style={coverStyle}>
               <div className="pc-content" style={{ color: pub.coverFg ?? undefined }}>
                 <div className="pc-mini">
                   {regionLabel(pub.region)} · {kindLabel(pub.kind)}
@@ -118,38 +127,19 @@ export default async function PublicationDetailPage({
             <span className="eyebrow">
               {kindLabel(pub.kind)} · {pub.year}
             </span>
-            <h1 className="pd-title" style={{ marginTop: 16 }}>
+            <h1 className="pd-title" style={{ marginTop: 14 }}>
               {pub.title}
             </h1>
-            {pub.subtitle && (
-              <p className="serif-italic" style={{ fontSize: "clamp(19px, 5vw, 24px)", color: "var(--fg-soft)", margin: "-8px 0 24px" }}>
-                {pub.subtitle}
-              </p>
-            )}
-            <RichText html={pub.body} className="pd-lead" />
-            <div className="pd-specs">
-              <div className="pd-spec">
-                <span className="lab">Year</span>
-                <span className="val">{pub.year}</span>
-              </div>
-              <div className="pd-spec">
-                <span className="lab">Pages</span>
-                <span className="val">{pub.pages ?? "—"}</span>
-              </div>
-              <div className="pd-spec">
-                <span className="lab">Publisher</span>
-                <span className="val" style={{ fontSize: 16 }}>
-                  {pub.publisher ?? "—"}
-                </span>
-              </div>
-              <div className="pd-spec">
-                <span className="lab">Region</span>
-                <span className="val" style={{ fontSize: 16 }}>
-                  {regionLabel(pub.region)}
-                </span>
-              </div>
+            {pub.subtitle && <p className="pd-sub">{pub.subtitle}</p>}
+            <div className="pd-facts">
+              {facts.map((f) => (
+                <div className="pd-fact" key={f.lab}>
+                  <span className="lab">{f.lab}</span>
+                  <span className="val">{f.val}</span>
+                </div>
+              ))}
             </div>
-            <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: "20px 32px" }}>
+            <div className="pd-actions">
               {pub.externalUrl && (
                 <a className="link-arrow" href={pub.externalUrl} target="_blank" rel="noopener noreferrer">
                   Visit ↗ <ArrowRight />
@@ -162,26 +152,25 @@ export default async function PublicationDetailPage({
           </div>
         </section>
 
-        {/* Gallery flows as part of the body — no separate section chrome. */}
-        {gallery.length > 0 && (
-          <section style={{ marginTop: "clamp(32px, 6vw, 56px)" }}>
-            <Gallery items={gallery} layout={pub.galleryLayout === "List" ? "list" : "grid"} />
-          </section>
-        )}
+        {/* Body text keeps a reading measure; the gallery and document sit in
+            a wider, left-aligned column so page scans stay readable. */}
+        <div className="measure">
+          <RichText html={pub.body} className="pd-body" />
+        </div>
 
-        {pub.pdf && (
-          <section style={{ marginTop: gallery.length ? "clamp(48px, 9vw, 80px)" : 0 }}>
-            <div className="section-head" style={{ marginBottom: 40 }}>
-              <div>
-                <span className="eyebrow">Document</span>
-                <h2 className="display" style={{ fontSize: "clamp(28px,3.5vw,44px)", marginTop: 12 }}>
-                  Read the publication
-                </h2>
-              </div>
-            </div>
-            <PdfEmbed url={pub.pdf.url} title={pub.title} bytes={pub.pdf.bytes} />
-          </section>
-        )}
+        <div className="measure-wide">
+          {gallery.length > 0 && (
+            <section style={{ marginTop: "clamp(40px, 7vw, 64px)" }}>
+              <Gallery items={gallery} layout={pub.galleryLayout === "List" ? "list" : "grid"} />
+            </section>
+          )}
+
+          {pub.pdf && (
+            <section style={{ marginTop: "clamp(40px, 7vw, 64px)" }}>
+              <PdfEmbed url={pub.pdf.url} title={pub.title} bytes={pub.pdf.bytes} />
+            </section>
+          )}
+        </div>
 
         {next && (
           <section style={{ marginTop: "clamp(56px, 11vw, 100px)", paddingTop: 40, borderTop: "1px solid var(--rule)" }}>
@@ -197,7 +186,7 @@ export default async function PublicationDetailPage({
               <div>
                 <span className="eyebrow">Next title</span>
                 <Link href={`/publications/${next.slug}`} style={{ display: "block", marginTop: 12 }}>
-                  <span className="display" style={{ fontSize: "clamp(32px,5vw,64px)", lineHeight: 1 }}>
+                  <span className="display" style={{ fontSize: "clamp(28px,4vw,48px)", lineHeight: 1 }}>
                     {next.title}
                   </span>
                 </Link>

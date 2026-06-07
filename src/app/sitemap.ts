@@ -1,11 +1,14 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { getPublications } from "@/lib/queries/publications";
+import { getFilms } from "@/lib/queries/content";
+import { slugify } from "@/lib/format";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let publications: { slug: string; updatedAt: Date }[] = [];
+  let films: { title: string; youtubeId: string | null }[] = [];
   try {
-    publications = await getPublications();
+    [publications, films] = await Promise.all([getPublications(), getFilms()]);
   } catch {
     // DB unreachable at build — emit the static routes only.
   }
@@ -25,5 +28,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...pubRoutes];
+  const filmRoutes: MetadataRoute.Sitemap = films
+    .filter((f) => f.youtubeId)
+    .map((f) => ({
+      url: `${SITE_URL}/films/${slugify(f.title)}`,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    }));
+
+  return [...staticRoutes, ...pubRoutes, ...filmRoutes];
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getFilms } from "@/lib/queries/content";
-import FilmEmbed from "@/components/FilmEmbed";
+import { slugify } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Films",
@@ -24,19 +25,32 @@ export default async function FilmsPage() {
 
         {films.length > 0 ? (
           <div className="films-grid">
-            {films.map((f) => (
-              <FilmEmbed
-                key={f.id}
-                film={{
-                  id: f.id,
-                  title: f.title,
-                  year: f.year,
-                  youtubeId: f.youtubeId,
-                  startSeconds: f.startSeconds,
-                  intro: f.intro,
-                }}
-              />
-            ))}
+            {films.map((f) =>
+              f.youtubeId ? (
+                <Link key={f.id} className="film-card" href={`/films/${slugify(f.title)}`}>
+                  <div className="film-still">
+                    <div
+                      className="film-thumb"
+                      style={{
+                        backgroundImage: `url('https://img.youtube.com/vi/${f.youtubeId}/maxresdefault.jpg')`,
+                      }}
+                    />
+                  </div>
+                  <div className="film-card-meta">
+                    <h3>{f.title}</h3>
+                    <span className="cap">{f.year}</span>
+                  </div>
+                </Link>
+              ) : (
+                <div key={f.id} className="film-card">
+                  <div className="film-still film-still--soon">Coming soon</div>
+                  <div className="film-card-meta">
+                    <h3>{f.title}</h3>
+                    <span className="cap">{f.year}</span>
+                  </div>
+                </div>
+              ),
+            )}
           </div>
         ) : (
           <p className="intro">No films published yet.</p>

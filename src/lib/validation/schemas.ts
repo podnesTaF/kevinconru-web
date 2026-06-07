@@ -80,12 +80,8 @@ export const affiliationSchema = z.object({
 });
 export type AffiliationInput = z.infer<typeof affiliationSchema>;
 
-const heroStat = z.object({ num: z.string().min(1), label: z.string().min(1) });
-
 export const aboutSchema = z.object({
   bio: z.string().min(1, "Bio is required"),
-  heroStats: z.array(heroStat),
-  marquee: z.array(z.string().min(1)),
 });
 export type AboutInput = z.infer<typeof aboutSchema>;
 

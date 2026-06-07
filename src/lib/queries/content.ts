@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { db } from "@/lib/db";
+import { slugify } from "@/lib/format";
 
 // Read layer for the remaining public content (films, press, chronology,
 // affiliations, site settings). Published-only where the model has the flag.
@@ -8,6 +9,12 @@ import { db } from "@/lib/db";
 export const getFilms = cache(async () =>
   db.film.findMany({ where: { published: true }, orderBy: { sortOrder: "asc" } }),
 );
+
+/** Resolve a film by its slugified title (films store no slug column). */
+export const getFilmBySlug = cache(async (slug: string) => {
+  const films = await getFilms();
+  return films.find((f) => slugify(f.title) === slug) ?? null;
+});
 
 export const getPressItems = cache(async () =>
   db.pressItem.findMany({
@@ -48,7 +55,3 @@ export const getAffiliations = cache(async () =>
 export const getSiteSettings = cache(async () =>
   db.siteSettings.findUnique({ where: { id: "singleton" } }),
 );
-
-// Typed shapes for the JSON columns on SiteSettings.
-export type HeroStat = { num: string; label: string };
-export type Marquee = string[];

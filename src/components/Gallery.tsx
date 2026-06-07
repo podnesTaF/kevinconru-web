@@ -2,28 +2,32 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 
 export type GalleryView = {
   id: string;
   title: string | null;
   caption: string | null;
   imageUrl: string;
+  width?: number | null;
+  height?: number | null;
 };
 
-const pad = (n: number) => String(n).padStart(2, "0");
-
-// Gallery + full-screen lightbox in one client island. Two layouts:
-// - "grid": thumbnail grid (object plates) — the default.
-// - "list": full-width page-by-page flow, like the old site — for journal /
-//   article scans where reading line by line beats an embedded PDF viewer.
-// Both open the same lightbox (arrows, swipe, Esc / ← / → keys).
+// Gallery + full-screen lightbox in one client island. Three layouts:
+// - "grid": two-column tiles at each image's natural ratio — bare, frameless.
+// - "list": full-width page-by-page flow — for journal / article scans where
+//   reading line by line beats an embedded PDF viewer.
+// - "covers": uniform 3:4 cover cards, identical to the publications index
+//   (cover-cropped photo, bottom scrim label) so the row aligns perfectly.
+// All open the same minimal lightbox (arrows, swipe, Esc / ← / → keys).
+// `reveal` tags tiles for the ScrollReveal island (staggered rise-in).
 export default function Gallery({
   items,
   layout = "grid",
+  reveal = false,
 }: {
   items: GalleryView[];
-  layout?: "grid" | "list";
+  layout?: "grid" | "list" | "covers";
+  reveal?: boolean;
 }) {
   const [index, setIndex] = useState<number | null>(null);
   const open = index !== null;
@@ -63,81 +67,97 @@ export default function Gallery({
 
   const item = open ? items[index] : null;
 
+  // Staggered scroll-reveal attributes (capped so late tiles never lag).
+  const revealProps = (i: number) =>
+    reveal
+      ? {
+          "data-reveal": "zoom",
+          style: { "--rv-delay": `${Math.min(i, 5) * 70}ms` } as React.CSSProperties,
+        }
+      : {};
+
+  const figure = (it: GalleryView, i: number, className: string) => (
+    <figure key={it.id} className={className} {...revealProps(i)}>
+      <button type="button" onClick={() => setIndex(i)} aria-label={`Open image ${i + 1} of ${items.length}`}>
+        {/* width/height (when known) reserve the space before load, so the
+            layout never jumps; grid plates contain the image uncropped. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={it.imageUrl}
+          alt={it.title ?? ""}
+          width={it.width ?? undefined}
+          height={it.height ?? undefined}
+          loading={i > 1 ? "lazy" : undefined}
+        />
+      </button>
+      {(it.title || it.caption) && (
+        <figcaption>
+          {it.title && <strong>{it.title}</strong>}
+          {it.caption && <span>{it.caption}</span>}
+        </figcaption>
+      )}
+    </figure>
+  );
+
   return (
     <>
       {layout === "list" ? (
-        <div className="gallery-list">
+        <div className="gallery-list">{items.map((it, i) => figure(it, i, "gallery-page"))}</div>
+      ) : layout === "covers" ? (
+        <div className="pubs-grid">
           {items.map((it, i) => (
-            <figure key={it.id} className="gallery-page">
-              <button type="button" onClick={() => setIndex(i)} aria-label={`Open image ${i + 1} of ${items.length}`}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={it.imageUrl} alt={it.title ?? ""} loading={i > 1 ? "lazy" : undefined} />
-              </button>
-              {(it.title || it.caption) && (
-                <figcaption>
-                  {it.title && <strong>{it.title}</strong>}
-                  {it.caption && <span>{it.caption}</span>}
-                </figcaption>
-              )}
-            </figure>
-          ))}
-        </div>
-      ) : (
-        <div className="pd-plates">
-          {items.map((it, i) => (
-            <button key={it.id} type="button" className="plate-card" onClick={() => setIndex(i)}>
-              <div className="plate">
-                <span className="plate-num">№ {pad(i + 1)}</span>
-                <Image src={it.imageUrl} alt={it.title ?? ""} fill sizes="(max-width: 720px) 100vw, 50vw" />
-              </div>
-              {(it.title || it.caption) && (
-                <div className="plate-cap">
-                  <span className="num">№ {pad(i + 1)}</span>
-                  <div className="body">
-                    {it.title && <h4>{it.title}</h4>}
-                    {it.caption && <p>{it.caption}</p>}
-                  </div>
+            <button
+              key={it.id}
+              type="button"
+              className="pub-card"
+              onClick={() => setIndex(i)}
+              aria-label={`Open image ${i + 1} of ${items.length}`}
+              {...revealProps(i)}
+            >
+              <div className="pub-cover pub-cover--photo">
+                <div className="pc-photo" style={{ backgroundImage: `url('${it.imageUrl}')` }} />
+                <div className="pc-overlay">
+                  {it.title && <span className="pc-title">{it.title}</span>}
                 </div>
-              )}
+              </div>
             </button>
           ))}
         </div>
+      ) : (
+        <div className="gallery-grid">{items.map((it, i) => figure(it, i, "gallery-item"))}</div>
       )}
 
       {open &&
         createPortal(
-          <div className="lb is-open" role="dialog" aria-modal="true" aria-label="Image viewer">
+          <div className="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
             {item && (
               <>
-                <div className="lb-hd">
-                  <span>
-                    № {pad(index! + 1)} / {pad(items.length)}
-                  </span>
-                  <button className="lb-x" onClick={close} aria-label="Close">
-                    ×
-                  </button>
-                </div>
-                <div className="lb-stage">
-                  <div className="lb-img" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={item.imageUrl} alt={item.title ?? ""} />
-                    {items.length > 1 && (
-                      <>
-                        <button className="lb-nav lb-prev" onClick={() => nav(-1)} aria-label="Previous image">
-                          ←
-                        </button>
-                        <button className="lb-nav lb-next" onClick={() => nav(1)} aria-label="Next image">
-                          →
-                        </button>
-                      </>
-                    )}
-                  </div>
-                  {(item.title || item.caption) && (
-                    <div className="lb-side">
-                      {item.title && <h4 className="display">{item.title}</h4>}
-                      {item.caption && <p>{item.caption}</p>}
-                    </div>
+                <button className="lb-x" onClick={close} aria-label="Close">
+                  ×
+                </button>
+                <div className="lb-stage" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.imageUrl} alt={item.title ?? ""} />
+                  {items.length > 1 && (
+                    <>
+                      <button className="lb-nav lb-prev" onClick={() => nav(-1)} aria-label="Previous image">
+                        ←
+                      </button>
+                      <button className="lb-nav lb-next" onClick={() => nav(1)} aria-label="Next image">
+                        →
+                      </button>
+                    </>
                   )}
+                </div>
+                <div className="lb-cap">
+                  {items.length > 1 && (
+                    <span className="lb-count">
+                      {index! + 1} / {items.length}
+                    </span>
+                  )}
+                  {item.title && <strong>{item.title}</strong>}
+                  {item.title && item.caption && " — "}
+                  {item.caption}
                 </div>
               </>
             )}

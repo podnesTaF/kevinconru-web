@@ -1,8 +1,9 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 // Shared editorial chrome for the public site. Pages render inside the shell
-// between the sticky Nav and the Footer (which carries the palette switcher).
+// between the sticky Nav and the dark Footer band.
 export default function SiteLayout({
   children,
 }: Readonly<{
@@ -16,6 +17,7 @@ export default function SiteLayout({
       <Nav />
       <div id="main-content">{children}</div>
       <Footer />
+      <ScrollReveal />
     </div>
   );
 }

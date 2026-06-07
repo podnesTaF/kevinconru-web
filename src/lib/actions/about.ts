@@ -17,22 +17,11 @@ const revalidateAbout = () => {
   revalidatePath("/");
 };
 
-function parseJsonArray(raw: string): unknown {
-  try {
-    const v = JSON.parse(raw || "[]");
-    return Array.isArray(v) ? v : [];
-  } catch {
-    return [];
-  }
-}
-
-// ── About body (bio / roleLine / heroStats / marquee on SiteSettings) ──────
+// ── About body (bio on SiteSettings) ───────────────────────────────────────
 export async function updateAbout(_prev: ActionState, formData: FormData): Promise<ActionState> {
   await requireAdmin();
   const parsed = aboutSchema.safeParse({
     bio: sanitizeHtml(str(formData.get("bio"))),
-    heroStats: parseJsonArray(str(formData.get("heroStats"))),
-    marquee: parseJsonArray(str(formData.get("marquee"))),
   });
   if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
 
@@ -43,6 +32,8 @@ export async function updateAbout(_prev: ActionState, formData: FormData): Promi
       id: "singleton",
       ...parsed.data,
       roleLine: "",
+      heroStats: [],
+      marquee: [],
       tel: "",
       telHref: "",
       email: "",

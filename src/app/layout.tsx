@@ -4,10 +4,9 @@ import { Geist, Instrument_Serif, JetBrains_Mono, Newsreader } from "next/font/g
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-// Fonts for all three switchable type pairings (see globals.css
-// `html[data-typepair]`): editorial = Instrument Serif, modern = Geist,
-// literary = Newsreader. Geist is also the body font; JetBrains Mono is for
-// metadata/eyebrows. Each is exposed as a CSS variable.
+// Type system: Instrument Serif is the default display face ("editorial"
+// pairing), Geist the body, JetBrains Mono the metadata/eyebrows. Newsreader
+// backs the switchable "literary" pairing. Each is exposed as a CSS variable.
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
@@ -20,17 +19,16 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-// Non-default display fonts — not preloaded; they fetch on first switch to
-// the editorial / literary pairing (Geist + JetBrains Mono cover the default).
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
   display: "swap",
-  preload: false,
 });
 
+// Non-default display font — not preloaded; it fetches on first switch to
+// the literary pairing.
 const newsreader = Newsreader({
   variable: "--font-newsreader",
   subsets: ["latin"],
@@ -66,7 +64,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-palette="bone"
-      data-typepair="modern"
+      data-typepair="editorial"
       className={`${geist.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} ${newsreader.variable}`}
     >
       <body>
