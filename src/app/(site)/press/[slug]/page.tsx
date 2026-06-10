@@ -42,6 +42,10 @@ export default async function PressDetailPage({
   const item = await getPressItemBySlug(slug);
   if (!item) notFound();
 
+  const slugs = await getPressSlugs();
+  const idx = slugs.findIndex((s) => s.slug === item.slug);
+  const next = slugs.length > 1 ? slugs[(idx + 1) % slugs.length] : null;
+
   const gallery: GalleryView[] = item.gallery.map((g) => ({
     id: g.id,
     title: g.title,
@@ -127,6 +131,32 @@ export default async function PressDetailPage({
             </section>
           )}
         </div>
+
+        {next && (
+          <section style={{ marginTop: "clamp(56px, 11vw, 100px)", paddingTop: 40, borderTop: "1px solid var(--rule)" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-end",
+                flexWrap: "wrap",
+                gap: 20,
+              }}
+            >
+              <div>
+                <span className="eyebrow">Next title</span>
+                <Link href={`/press/${next.slug}`} style={{ display: "block", marginTop: 12 }}>
+                  <span className="display" style={{ fontSize: "clamp(28px,4vw,48px)", lineHeight: 1 }}>
+                    {next.title}
+                  </span>
+                </Link>
+              </div>
+              <Link className="link-arrow" href={`/press/${next.slug}`}>
+                Continue <ArrowRight />
+              </Link>
+            </div>
+          </section>
+        )}
       </div>
     </main>
   );
