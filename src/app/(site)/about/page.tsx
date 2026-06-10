@@ -17,6 +17,42 @@ const FALLBACK_BIO =
 
 const stripHtml = (html: string) => html.replace(/<[^>]+>/g, '').trim();
 
+type Affiliation = { id: string; role: string; name: string; url: string | null };
+
+// Relationship labels + the order their groups appear in. Roles are stored as
+// short freeform strings in the DB ("Member", "Advisor", …); these turn them
+// into the editorial headings shown on the page. Unknown roles fall back to the
+// raw role and sort to the end.
+const ROLE_LABELS: Record<string, string> = {
+  Member: 'Member of',
+  Advisor: 'Advisor of',
+  Friend: 'Friends',
+};
+const ROLE_ORDER = ['Member', 'Friend', 'Advisor'];
+
+// Roles stored on the About page but not shown in the Links section (e.g. the
+// academic credential, which already lives in the biography copy).
+const HIDDEN_ROLES = new Set(['MA']);
+
+// Collapse the flat affiliation list into ordered groups keyed by role, keeping
+// each role's original sortOrder within its group.
+const groupAffiliations = (items: Affiliation[]) => {
+  const groups = new Map<string, Affiliation[]>();
+  for (const a of items) {
+    if (HIDDEN_ROLES.has(a.role)) continue;
+    const bucket = groups.get(a.role);
+    if (bucket) bucket.push(a);
+    else groups.set(a.role, [a]);
+  }
+  const rank = (role: string) => {
+    const i = ROLE_ORDER.indexOf(role);
+    return i === -1 ? ROLE_ORDER.length : i;
+  };
+  return [...groups.entries()]
+    .map(([role, members]) => ({ role, members }))
+    .sort((a, b) => rank(a.role) - rank(b.role));
+};
+
 // Background sequence down the page: tonal frontispiece → paper biography →
 // dark band (chronology + affiliations) → paper contact strip → dark footer.
 export default async function AboutPage() {
@@ -81,76 +117,81 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Archive — chronology + affiliations on the dark ink band */}
-      {(timeline.length > 0 || affiliations.length > 0) && (
+      {/* Chronology — dark ink band */}
+      {timeline.length > 0 && (
         <section className="section band-dark ab-archive">
           <div className="wrap">
-            {timeline.length > 0 && (
-              <section className="ab-cv">
-                <h3 className="display" data-reveal="up">
-                  Selected
-                  <br />
-                  chronology
-                </h3>
-                <div>
-                  {timeline.map((t, i) => (
-                    <div
-                      key={t.id}
-                      className="cv-row"
-                      data-reveal="up"
-                      style={{ '--rv-delay': `${Math.min(i, 6) * 60}ms` } as CSSProperties}
-                    >
-                      <span className="yr">{t.year}</span>
-                      <span className="ev">
-                        <em>{t.event}</em>
-                        <span className="desc">{stripHtml(t.description)}</span>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+            <section className="ab-cv">
+              <h3 className="display" data-reveal="up">
+                Selected
+                <br />
+                chronology
+              </h3>
+              <div>
+                {timeline.map((t, i) => (
+                  <div
+                    key={t.id}
+                    className="cv-row"
+                    data-reveal="up"
+                    style={{ '--rv-delay': `${Math.min(i, 6) * 60}ms` } as CSSProperties}
+                  >
+                    <span className="yr">{t.year}</span>
+                    <span className="ev">
+                      <em>{t.event}</em>
+                      <span className="desc">{stripHtml(t.description)}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </section>
+      )}
 
-            {affiliations.length > 0 && (
-              <section className="ab-cv" style={{ marginTop: 'clamp(40px, 8vw, 60px)' }}>
-                <h3 className="display" data-reveal="up">
-                  Affiliations
-                </h3>
-                <div>
-                  {affiliations.map((a, i) => (
-                    <div
-                      key={a.id}
-                      className="cv-row"
-                      data-reveal="up"
-                      style={{ '--rv-delay': `${Math.min(i, 6) * 60}ms` } as CSSProperties}
-                    >
-                      <span className="yr">{a.role}</span>
-                      <span className="ev">
-                        <em>{a.name}</em>
-                        {a.url && (
-                          <span className="desc">
+      {/* Links — affiliations & friends, back on the paper ground */}
+      {affiliations.length > 0 && (
+        <section className="section">
+          <div className="wrap">
+            <section className="ab-cv ab-aff">
+              <h3 className="display" data-reveal="up">
+                Links
+              </h3>
+              <div className="aff-groups">
+                {groupAffiliations(affiliations).map((g, gi) => (
+                  <div
+                    key={g.role}
+                    className="aff-group"
+                    data-reveal="up"
+                    style={{ '--rv-delay': `${gi * 80}ms` } as CSSProperties}
+                  >
+                    <span className="aff-role">{ROLE_LABELS[g.role] ?? g.role}</span>
+                    <ul className="aff-list">
+                      {g.members.map((a) => (
+                        <li key={a.id} className="aff-item">
+                          <span className="aff-name">{a.name}</span>
+                          {a.url && (
                             <a
+                              className="aff-link"
                               href={a.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              style={{ borderBottom: '1px solid var(--ink-rule)' }}
                             >
                               {a.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
                             </a>
-                          </span>
-                        )}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         </section>
       )}
 
       {/* Contact — paper strip before the dark footer */}
-      <section className="section" style={{ paddingBottom: 0 }}>
+      <section className="section" style={{ paddingBottom: 0,paddingTop: 0 }}>
         <div className="wrap">
           <div className="ab-contact" id="contact">
             <div className="cell" data-reveal="up">

@@ -286,10 +286,11 @@ const TIMELINE = [
 ] as const;
 
 const AFFILIATIONS = [
-  { role: "Member", name: "Pacific Arts Association", url: null },
-  { role: "Member", name: "Oceanic Art Society", url: null },
+  { role: "Member", name: "Pacific Arts Association", url: "http://www.pacificarts.org/" },
+  { role: "Member", name: "Oceanic Art Society", url: "https://www.oceanicartsociety.org.au/" },
   { role: "Advisor", name: "Wyvern Research Institute, London", url: "https://wyvernresearch.org/" },
   { role: "MA", name: "Arts Policy, The City University, London", url: null },
+  { role: "Friend", name: "Vasco & Co Books", url: "https://vascobooks.net/en/" },
 ] as const;
 
 const BIO_HTML = [

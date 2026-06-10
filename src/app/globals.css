@@ -1583,6 +1583,71 @@ html.anim-ready [data-reveal].is-inview {
   font-size: 13.5px;
   margin-top: 2px;
 }
+/* Links — affiliations & friends grouped by relationship on the paper ground.
+   Each group is a labelled card-less column: a mono role heading over a list of
+   organisations set in the display serif, mirroring the chronology rhythm. */
+/* No top rule on the Links section — it reads as its own clean block. */
+.ab-aff {
+  border-top: 0;
+  padding-top: 0;
+}
+.ab-aff .aff-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 44px) clamp(40px, 5vw, 72px);
+}
+@media (max-width: 600px) {
+  .ab-aff .aff-groups {
+    grid-template-columns: 1fr;
+  }
+}
+.aff-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.aff-role {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terra);
+}
+.aff-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.aff-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.aff-name {
+  font-family: var(--f-display);
+  font-size: clamp(19px, 1.9vw, 23px);
+  line-height: 1.25;
+  color: var(--fg);
+}
+.aff-link {
+  align-self: flex-start;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--fg-soft);
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.aff-link:hover {
+  color: var(--terra);
+  border-color: var(--terra);
+}
 .ab-contact {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
