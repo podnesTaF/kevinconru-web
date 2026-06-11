@@ -100,18 +100,27 @@ export default function MediaPicker({
                 />
               </div>
 
-              <div className="grid min-h-0 flex-1 grid-cols-3 gap-3 overflow-y-auto p-4 sm:grid-cols-4">
+              <div className="grid min-h-0 flex-1 grid-cols-3 gap-4 overflow-y-auto p-4 sm:grid-cols-4">
                 {items.map((m) => (
                   <button
                     key={m.id}
                     type="button"
                     onClick={() => choose(m)}
-                    className="relative aspect-square overflow-hidden rounded border border-rule bg-bg-alt hover:ring-2 hover:ring-terra"
+                    className="block overflow-hidden rounded border border-rule bg-bg-alt hover:ring-2 hover:ring-terra"
                   >
                     {m.mimeType.startsWith("image/") ? (
-                      <Image src={m.url} alt={m.alt ?? ""} fill className="object-contain" sizes="120px" />
+                      // Plain <img> with the aspect ratio on the replaced element
+                      // itself, so each cell keeps a definite height — a `fill`
+                      // image in an `aspect-square` box can collapse to zero in
+                      // some engines, stacking every thumbnail on top of each other.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={m.url}
+                        alt={m.alt ?? ""}
+                        className="aspect-square w-full bg-bg-alt object-contain"
+                      />
                     ) : (
-                      <span className="flex h-full items-center justify-center px-1 text-center text-[10px] uppercase text-muted">
+                      <span className="flex aspect-square w-full items-center justify-center px-1 text-center text-[10px] uppercase text-muted">
                         {m.mimeType.split("/").pop()}
                       </span>
                     )}

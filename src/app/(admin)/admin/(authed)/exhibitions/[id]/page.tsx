@@ -21,42 +21,41 @@ export default async function EditExhibitionPage({ params }: { params: Promise<{
   }));
 
   return (
-    <div className="space-y-10">
-      <div>
-        <PageHeader title="Edit exhibition" description={item.title} />
-        <WorkForm
-          variant="exhibition"
-          action={updateExhibition}
-          mode="edit"
-          library={library}
-          defaults={{
-            id: item.id,
-            slug: item.slug,
-            venue: item.venue,
-            year: item.year,
-            title: item.title,
-            subtitle: item.subtitle,
-            body: item.body,
-            externalUrl: item.externalUrl,
-            published: item.published,
-            coverImage: item.coverImage ? toMediaView(item.coverImage) : null,
-            pdf: item.pdf ? toMediaView(item.pdf) : null,
-            galleryLayout: item.galleryLayout,
-          }}
-        />
-      </div>
-
-      <section className="max-w-3xl rounded-lg border border-rule bg-bg-alt p-4">
-        <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Gallery</h2>
-        <p className="mt-1 mb-3 text-xs text-muted">
-          Shown after the body — as a grid with lightbox, or page by page (set the layout in Details).
-        </p>
-        <GalleryManager
-          owner={{ publicationId: null, pressItemId: null, exhibitionId: item.id }}
-          items={gallery}
-          library={library}
-        />
-      </section>
+    <div>
+      <PageHeader title="Edit exhibition" description={item.title} />
+      <WorkForm
+        variant="exhibition"
+        action={updateExhibition}
+        mode="edit"
+        library={library}
+        defaults={{
+          id: item.id,
+          slug: item.slug,
+          venue: item.venue,
+          year: item.year,
+          title: item.title,
+          subtitle: item.subtitle,
+          body: item.body,
+          externalUrl: item.externalUrl,
+          published: item.published,
+          coverImage: item.coverImage ? toMediaView(item.coverImage) : null,
+          pdf: item.pdf ? toMediaView(item.pdf) : null,
+          galleryLayout: item.galleryLayout,
+        }}
+        belowBody={
+          <section className="rounded-lg border border-rule bg-bg-alt p-4">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Gallery</h2>
+            <p className="mt-1 mb-3 text-xs text-muted">
+              Shown after the body — as a grid with lightbox, or page by page (set the layout in Details).
+            </p>
+            <GalleryManager
+              owner={{ publicationId: null, pressItemId: null, exhibitionId: item.id }}
+              items={gallery}
+              library={library}
+            />
+          </section>
+        }
+      />
     </div>
   );
 }

@@ -41,23 +41,28 @@ export default async function EditPublicationPage({ params }: { params: Promise<
   }));
 
   return (
-    <div className="space-y-10">
-      <div>
-        <PageHeader title="Edit publication" description={pub.title} />
-        <WorkForm variant="publication" action={updatePublication} defaults={defaults} library={library} mode="edit" />
-      </div>
-
-      <section className="max-w-3xl rounded-lg border border-rule bg-bg-alt p-4">
-        <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Gallery</h2>
-        <p className="mt-1 mb-3 text-xs text-muted">
-          A grid gallery shown below the body, with a lightbox (title + caption per image).
-        </p>
-        <GalleryManager
-          owner={{ publicationId: pub.id, pressItemId: null, exhibitionId: null }}
-          items={gallery}
-          library={library}
-        />
-      </section>
+    <div>
+      <PageHeader title="Edit publication" description={pub.title} />
+      <WorkForm
+        variant="publication"
+        action={updatePublication}
+        defaults={defaults}
+        library={library}
+        mode="edit"
+        belowBody={
+          <section className="rounded-lg border border-rule bg-bg-alt p-4">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Gallery</h2>
+            <p className="mt-1 mb-3 text-xs text-muted">
+              A grid gallery shown below the body, with a lightbox (title + caption per image).
+            </p>
+            <GalleryManager
+              owner={{ publicationId: pub.id, pressItemId: null, exhibitionId: null }}
+              items={gallery}
+              library={library}
+            />
+          </section>
+        }
+      />
     </div>
   );
 }

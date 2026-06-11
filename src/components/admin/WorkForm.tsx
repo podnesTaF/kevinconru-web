@@ -74,12 +74,16 @@ export default function WorkForm({
   defaults = {},
   library,
   mode,
+  belowBody,
 }: {
   variant: WorkVariant;
   action: (prev: ActionState, formData: FormData) => Promise<ActionState>;
   defaults?: WorkDefaults;
   library: MediaView[];
   mode: "create" | "edit";
+  // Rendered in the main column directly under the body (e.g. the gallery).
+  // Kept outside the <form> element so its own forms aren't illegally nested.
+  belowBody?: React.ReactNode;
 }) {
   const [state, formAction] = useActionState(action, initialActionState);
   const [title, setTitle] = useState(defaults.title ?? "");
@@ -100,7 +104,10 @@ export default function WorkForm({
   const noun = cfg.nounSingular;
 
   return (
-    <form action={formAction} className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+      {/* `contents` lets the form's two columns drop into the parent grid, so
+          `belowBody` can sit in the main column without nesting inside <form>. */}
+      <form action={formAction} className="contents">
       {mode === "edit" && defaults.id && <input type="hidden" name="id" value={defaults.id} />}
 
       {/* ── Main column ─────────────────────────────────────────── */}
@@ -177,12 +184,25 @@ export default function WorkForm({
             </label>
           )}
           <FormMessage state={state} />
-          <div className="flex items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <SubmitButton>{mode === "create" ? `Create ${noun}` : "Save changes"}</SubmitButton>
+            {mode === "edit" && defaults.id && (
+              <a
+                href={`/preview/${variant}/${defaults.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-fg-soft underline hover:text-terra"
+              >
+                Preview ↗
+              </a>
+            )}
             <Link href={base} className="text-sm text-muted hover:underline">
               Cancel
             </Link>
           </div>
+          {mode === "edit" && (
+            <p className="text-xs text-muted">Preview opens the last saved version in a new tab.</p>
+          )}
         </Card>
 
         <Card title="Details">
@@ -347,7 +367,11 @@ export default function WorkForm({
           </div>
         </Card>
       </div>
-    </form>
+      </form>
+
+      {/* ── Below the body, aligned with the main column ────────── */}
+      {belowBody && <div className="min-w-0 lg:col-start-1 lg:row-start-2">{belowBody}</div>}
+    </div>
   );
 }
 
