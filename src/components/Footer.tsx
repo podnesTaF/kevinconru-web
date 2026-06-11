@@ -1,7 +1,5 @@
 import { CONTACT } from "@/lib/site";
 import { getSiteSettings } from "@/lib/queries/content";
-import PaletteSwitcher from "@/components/PaletteSwitcher";
-import TypographySwitcher from "@/components/TypographySwitcher";
 
 export default async function Footer() {
   // Contact/social come from the SiteSettings singleton (editable in admin).
@@ -64,10 +62,6 @@ export default async function Footer() {
 
         <div className="foot-bot">
           <span>© 2026 Kevin Conru</span>
-          <div className="foot-controls">
-            <PaletteSwitcher />
-            <TypographySwitcher />
-          </div>
           <span>Brussels</span>
         </div>
       </div>

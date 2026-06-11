@@ -85,7 +85,8 @@ export default function WorkForm({
   // Kept outside the <form> element so its own forms aren't illegally nested.
   belowBody?: React.ReactNode;
 }) {
-  const [state, formAction] = useActionState(action, initialActionState);
+  const [state, formAction, pending] = useActionState(action, initialActionState);
+  const FORM_ID = "work-form";
   const [title, setTitle] = useState(defaults.title ?? "");
   const [slug, setSlug] = useState(defaults.slug ?? "");
   const [slugEdited, setSlugEdited] = useState(Boolean(defaults.slug));
@@ -104,14 +105,12 @@ export default function WorkForm({
   const noun = cfg.nounSingular;
 
   return (
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-      {/* `contents` lets the form's two columns drop into the parent grid, so
-          `belowBody` can sit in the main column without nesting inside <form>. */}
-      <form action={formAction} className="contents">
-      {mode === "edit" && defaults.id && <input type="hidden" name="id" value={defaults.id} />}
-
-      {/* ── Main column ─────────────────────────────────────────── */}
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+      {/* Left column: main fields + gallery (gallery stays outside <form> to
+          avoid nesting GalleryItemForm's own <form> elements). */}
       <div className="min-w-0 space-y-5">
+        <form id={FORM_ID} action={formAction} className="space-y-5">
+      {mode === "edit" && defaults.id && <input type="hidden" name="id" value={defaults.id} />}
         <div>
           <input
             name="title"
@@ -168,24 +167,28 @@ export default function WorkForm({
           <RichTextEditor name="body" label="Body — text and images, in any order" defaultValue={defaults.body ?? ""} />
           <FieldError errors={fe?.body} />
         </div>
+        </form>
+        {belowBody}
       </div>
 
-      {/* ── Sidebar ─────────────────────────────────────────────── */}
+      {/* ── Sidebar (fields associate with the main form via form=) ─ */}
       <div className="space-y-4 lg:sticky lg:top-6 lg:self-start">
         <Card title="Publish">
           <label className="flex items-center gap-2 text-sm">
-            <input type="checkbox" name="published" defaultChecked={defaults.published ?? true} />
+            <input type="checkbox" name="published" form={FORM_ID} defaultChecked={defaults.published ?? true} />
             Published
           </label>
           {isPub && (
             <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" name="featured" defaultChecked={defaults.featured ?? false} />
+              <input type="checkbox" name="featured" form={FORM_ID} defaultChecked={defaults.featured ?? false} />
               Featured on home
             </label>
           )}
           <FormMessage state={state} />
           <div className="flex flex-wrap items-center gap-3 pt-1">
-            <SubmitButton>{mode === "create" ? `Create ${noun}` : "Save changes"}</SubmitButton>
+            <SubmitButton form={FORM_ID} pending={pending}>
+              {mode === "create" ? `Create ${noun}` : "Save changes"}
+            </SubmitButton>
             {mode === "edit" && defaults.id && (
               <a
                 href={`/preview/${variant}/${defaults.id}`}
@@ -211,22 +214,22 @@ export default function WorkForm({
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className={labelCls}>Year</label>
-                  <input name="year" type="number" defaultValue={defaults.year ?? ""} className={inputCls} />
+                  <input name="year" type="number" form={FORM_ID} defaultValue={defaults.year ?? ""} className={inputCls} />
                   <FieldError errors={fe?.year} />
                 </div>
                 <div>
                   <label className={labelCls}>Pages</label>
-                  <input name="pages" type="number" defaultValue={defaults.pages ?? ""} className={inputCls} />
+                  <input name="pages" type="number" form={FORM_ID} defaultValue={defaults.pages ?? ""} className={inputCls} />
                   <FieldError errors={fe?.pages} />
                 </div>
               </div>
               <div>
                 <label className={labelCls}>Publisher</label>
-                <input name="publisher" defaultValue={defaults.publisher ?? ""} className={inputCls} />
+                <input name="publisher" form={FORM_ID} defaultValue={defaults.publisher ?? ""} className={inputCls} />
               </div>
               <div>
                 <label className={labelCls}>Kind</label>
-                <select name="kind" defaultValue={defaults.kind ?? "Monograph"} className={inputCls}>
+                <select name="kind" form={FORM_ID} defaultValue={defaults.kind ?? "Monograph"} className={inputCls}>
                   {KINDS.map((k) => (
                     <option key={k} value={k}>
                       {KIND_LABEL[k]}
@@ -241,6 +244,7 @@ export default function WorkForm({
                 <label className={labelCls}>{isPress ? "Outlet" : "Venue"}</label>
                 <input
                   name={isPress ? "outlet" : "venue"}
+                  form={FORM_ID}
                   defaultValue={(isPress ? defaults.outlet : defaults.venue) ?? ""}
                   placeholder={isPress ? "" : "Wereldmuseum Rotterdam"}
                   className={inputCls}
@@ -249,14 +253,14 @@ export default function WorkForm({
               </div>
               <div>
                 <label className={labelCls}>Year</label>
-                <input name="year" type="number" defaultValue={defaults.year ?? ""} className={inputCls} />
+                <input name="year" type="number" form={FORM_ID} defaultValue={defaults.year ?? ""} className={inputCls} />
                 <FieldError errors={fe?.year} />
               </div>
             </>
           )}
           <div>
             <label className={labelCls}>Gallery layout</label>
-            <select name="galleryLayout" defaultValue={defaults.galleryLayout ?? "Grid"} className={inputCls}>
+            <select name="galleryLayout" form={FORM_ID} defaultValue={defaults.galleryLayout ?? "Grid"} className={inputCls}>
               <option value="Grid">Grid — object plates with lightbox</option>
               <option value="List">Page by page — journal / article scans</option>
             </select>
@@ -271,6 +275,7 @@ export default function WorkForm({
           <CoverPreview coverImage={coverImage} bg={coverBg} fg={coverFg} title={title} isPub={isPub} />
           <MediaPicker
             name="coverImageId"
+            form={FORM_ID}
             defaultMedia={coverImage}
             library={library}
             onChange={setCoverImage}
@@ -341,8 +346,8 @@ export default function WorkForm({
                   />
                 </div>
               )}
-              <input type="hidden" name="coverBg" value={coverBg} />
-              <input type="hidden" name="coverFg" value={coverFg} />
+              <input type="hidden" name="coverBg" form={FORM_ID} value={coverBg} />
+              <input type="hidden" name="coverFg" form={FORM_ID} value={coverFg} />
             </>
           )}
         </Card>
@@ -350,6 +355,7 @@ export default function WorkForm({
         <Card title="Attachments" hint="Optional PDF and an external link.">
           <MediaPicker
             name="pdfId"
+            form={FORM_ID}
             label={isPub ? "Book / scans PDF" : isPress ? "Article PDF" : "Catalogue / scans PDF"}
             defaultMedia={defaults.pdf ?? null}
             library={library}
@@ -359,6 +365,7 @@ export default function WorkForm({
             <label className={labelCls}>External link</label>
             <input
               name="externalUrl"
+              form={FORM_ID}
               defaultValue={defaults.externalUrl ?? ""}
               placeholder="https://…"
               className={inputCls}
@@ -367,10 +374,6 @@ export default function WorkForm({
           </div>
         </Card>
       </div>
-      </form>
-
-      {/* ── Below the body, aligned with the main column ────────── */}
-      {belowBody && <div className="min-w-0 lg:col-start-1 lg:row-start-2">{belowBody}</div>}
     </div>
   );
 }

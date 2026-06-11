@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { Geist, Instrument_Serif, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-// Type system: Instrument Serif is the default display face ("editorial"
-// pairing), Geist the body, JetBrains Mono the metadata/eyebrows. Newsreader
-// backs the switchable "literary" pairing. Each is exposed as a CSS variable.
+// Type system: Instrument Serif display, Geist body, JetBrains Mono metadata.
+// Each is exposed as a CSS variable on <html>.
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
@@ -25,17 +23,6 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
   display: "swap",
-});
-
-// Non-default display font — not preloaded; it fetches on first switch to
-// the literary pairing.
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  display: "swap",
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -63,19 +50,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-palette="bone"
-      data-typepair="editorial"
-      className={`${geist.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} ${newsreader.variable}`}
+      className={`${geist.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable}`}
     >
-      <body>
-        {/* Restores the saved palette/type pairing before hydration (see
-            public/theme-restore.js). Must be src-based: the App Router injects
-            beforeInteractive scripts via React preinit(), which doesn't support
-            inline scripts — an inline one renders as a raw <script> that
-            React 19 warns about. */}
-        <Script src="/theme-restore.js" strategy="beforeInteractive" />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

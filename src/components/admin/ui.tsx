@@ -16,14 +16,21 @@ export function FieldError({ errors }: { errors?: string[] }) {
 export function SubmitButton({
   children = "Save",
   className,
+  form,
+  pending: pendingOverride,
 }: {
   children?: React.ReactNode;
   className?: string;
+  form?: string;
+  /** When the button sits outside the <form>, pass pending from useActionState. */
+  pending?: boolean;
 }) {
-  const { pending } = useFormStatus();
+  const { pending: formPending } = useFormStatus();
+  const pending = pendingOverride ?? formPending;
   return (
     <button
       type="submit"
+      form={form}
       disabled={pending}
       className={cn(
         "rounded-md bg-fg px-4 py-2 text-sm font-medium text-bg hover:bg-terra disabled:opacity-60",

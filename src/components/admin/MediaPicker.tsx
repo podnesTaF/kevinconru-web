@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { labelCls } from "@/components/admin/ui";
 import MediaUploader, { type MediaView } from "@/components/admin/MediaUploader";
+import { listMediaForPicker } from "@/lib/actions/media";
 
 // Image/file picker backed by a hidden input (`name`) holding the mediaId.
 // Lists the existing library or uploads a new asset.
@@ -15,6 +16,7 @@ export default function MediaPicker({
   library,
   accept = "image/*",
   onChange,
+  form,
 }: {
   name: string;
   label?: string;
@@ -22,10 +24,34 @@ export default function MediaPicker({
   library: MediaView[];
   accept?: string;
   onChange?: (media: MediaView | null) => void;
+  form?: string;
 }) {
   const [items, setItems] = useState<MediaView[]>(library);
   const [selected, setSelected] = useState<MediaView | null>(defaultMedia ?? null);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // Keep in sync when the parent re-renders with a fresh server library.
+  useEffect(() => {
+    setItems(library);
+  }, [library]);
+
+  // Reload the full library whenever the modal opens (uploads elsewhere, imports, etc.).
+  useEffect(() => {
+    if (!open) return;
+    let cancelled = false;
+    setLoading(true);
+    listMediaForPicker()
+      .then((rows) => {
+        if (!cancelled) setItems(rows);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [open]);
 
   const select = (m: MediaView | null) => {
     setSelected(m);
@@ -39,7 +65,7 @@ export default function MediaPicker({
   return (
     <div>
       {label && <label className={labelCls}>{label}</label>}
-      <input type="hidden" name={name} value={selected?.id ?? ""} />
+      <input type="hidden" name={name} form={form} value={selected?.id ?? ""} />
 
       <div className="flex items-center gap-3">
         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded border border-rule bg-bg-alt">
@@ -80,54 +106,62 @@ export default function MediaPicker({
             onClick={() => setOpen(false)}
           >
             <div
-              className="flex max-h-[80vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg bg-bg-alt shadow-xl"
+              className="flex max-h-[80dvh] w-full max-w-2xl flex-col overflow-hidden rounded-lg bg-bg-alt shadow-xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between border-b border-rule px-4 py-3">
+              <div className="flex shrink-0 items-center justify-between border-b border-rule px-4 py-3">
                 <h2 className="text-sm font-semibold">Select media</h2>
                 <button type="button" onClick={() => setOpen(false)} className="text-muted hover:text-fg">
                   ✕
                 </button>
               </div>
 
-              <div className="border-b border-rule px-4 py-3">
+              <div className="shrink-0 border-b border-rule px-4 py-3">
                 <MediaUploader
                   accept={accept}
                   onUploaded={(m) => {
-                    setItems((prev) => [m, ...prev]);
+                    setItems((prev) => [m, ...prev.filter((x) => x.id !== m.id)]);
                     choose(m);
                   }}
                 />
               </div>
 
-              <div className="grid min-h-0 flex-1 grid-cols-3 gap-4 overflow-y-auto p-4 sm:grid-cols-4">
-                {items.map((m) => (
-                  <button
-                    key={m.id}
-                    type="button"
-                    onClick={() => choose(m)}
-                    className="block overflow-hidden rounded border border-rule bg-bg-alt hover:ring-2 hover:ring-terra"
-                  >
-                    {m.mimeType.startsWith("image/") ? (
-                      // Plain <img> with the aspect ratio on the replaced element
-                      // itself, so each cell keeps a definite height — a `fill`
-                      // image in an `aspect-square` box can collapse to zero in
-                      // some engines, stacking every thumbnail on top of each other.
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={m.url}
-                        alt={m.alt ?? ""}
-                        className="aspect-square w-full bg-bg-alt object-contain"
-                      />
-                    ) : (
-                      <span className="flex aspect-square w-full items-center justify-center px-1 text-center text-[10px] uppercase text-muted">
-                        {m.mimeType.split("/").pop()}
-                      </span>
+              <div className="min-h-0 flex-1 overflow-y-auto p-4">
+                {loading && items.length === 0 ? (
+                  <p className="py-6 text-center text-sm text-muted">Loading…</p>
+                ) : (
+                  <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+                    {items.map((m) => (
+                      <button
+                        key={m.id}
+                        type="button"
+                        onClick={() => choose(m)}
+                        className="block overflow-hidden rounded border border-rule bg-bg-alt hover:ring-2 hover:ring-terra"
+                      >
+                        {m.mimeType.startsWith("image/") ? (
+                          // Plain <img> with the aspect ratio on the replaced element
+                          // itself, so each cell keeps a definite height — a `fill`
+                          // image in an `aspect-square` box can collapse to zero in
+                          // some engines, stacking every thumbnail on top of each other.
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={m.url}
+                            alt={m.alt ?? ""}
+                            className="aspect-square w-full bg-bg-alt object-contain"
+                          />
+                        ) : (
+                          <span className="flex aspect-square w-full items-center justify-center px-1 text-center text-[10px] uppercase text-muted">
+                            {m.mimeType.split("/").pop()}
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                    {!loading && items.length === 0 && (
+                      <p className="col-span-full py-6 text-center text-sm text-muted">
+                        No media yet — upload one above.
+                      </p>
                     )}
-                  </button>
-                ))}
-                {items.length === 0 && (
-                  <p className="col-span-full py-6 text-center text-sm text-muted">No media yet — upload one above.</p>
+                  </div>
                 )}
               </div>
             </div>

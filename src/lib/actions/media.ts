@@ -3,8 +3,16 @@
 import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
 import { createSignedUploadUrl, deleteObject } from "@/lib/gcs";
+import { toMediaViews } from "@/lib/media-view";
 import { mediaSchema, uploadUrlSchema, type MediaInput } from "@/lib/validation/schemas";
 import { requireAdmin } from "@/lib/actions/_shared";
+
+/** Full media library for the admin picker modal (refreshed on each open). */
+export async function listMediaForPicker() {
+  await requireAdmin();
+  const rows = await db.media.findMany({ orderBy: { createdAt: "desc" } });
+  return toMediaViews(rows);
+}
 
 /** Mint a V4 signed upload URL (admin only). */
 export async function getUploadUrl(input: { contentType: string; ext: string; folder?: string }) {
