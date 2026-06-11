@@ -44,10 +44,14 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
+        <Link className="hero-scroll" href="#biography" aria-label="Scroll to biography">
+          <span className="hero-scroll-line" />
+          <span className="hero-scroll-label">Scroll</span>
+        </Link>
       </section>
 
       {/* BIOGRAPHY — portrait + text, as on About */}
-      <section className="section">
+      <section className="section" id="biography">
         <div className="wrap">
           <div className="ab-body ab-body--portrait">
             <div className="ab-portrait plate-in" data-reveal="up">

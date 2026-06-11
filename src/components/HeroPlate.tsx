@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-const HERO_IMAGE = "/seed/object-headdress.jpg";
+const HERO_IMAGE = '/objects/object-7.jpg';
 
 // Full-bleed hero background — one static photo under a dark wash so the
 // hero type stays legible.
