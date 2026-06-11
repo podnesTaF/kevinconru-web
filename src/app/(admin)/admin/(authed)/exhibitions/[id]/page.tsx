@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
-import { adminGetPress, adminListMedia } from "@/lib/queries/admin";
-import { updatePress } from "@/lib/actions/press";
+import { adminGetExhibition, adminListMedia } from "@/lib/queries/admin";
+import { updateExhibition } from "@/lib/actions/exhibitions";
 import { toMediaView, toMediaViews } from "@/lib/media-view";
 import { PageHeader } from "@/components/admin/ui";
 import WorkForm from "@/components/admin/WorkForm";
 import GalleryManager from "@/components/admin/GalleryManager";
 
-export default async function EditPressPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function EditExhibitionPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const [item, media] = await Promise.all([adminGetPress(id), adminListMedia()]);
+  const [item, media] = await Promise.all([adminGetExhibition(id), adminListMedia()]);
   if (!item) notFound();
 
   const library = toMediaViews(media);
@@ -23,16 +23,16 @@ export default async function EditPressPage({ params }: { params: Promise<{ id: 
   return (
     <div className="space-y-10">
       <div>
-        <PageHeader title="Edit press item" description={item.title} />
+        <PageHeader title="Edit exhibition" description={item.title} />
         <WorkForm
-          variant="press"
-          action={updatePress}
+          variant="exhibition"
+          action={updateExhibition}
           mode="edit"
           library={library}
           defaults={{
             id: item.id,
             slug: item.slug,
-            outlet: item.outlet,
+            venue: item.venue,
             year: item.year,
             title: item.title,
             subtitle: item.subtitle,
@@ -52,7 +52,7 @@ export default async function EditPressPage({ params }: { params: Promise<{ id: 
           Shown after the body — as a grid with lightbox, or page by page (set the layout in Details).
         </p>
         <GalleryManager
-          owner={{ publicationId: null, pressItemId: item.id, exhibitionId: null }}
+          owner={{ publicationId: null, pressItemId: null, exhibitionId: item.id }}
           items={gallery}
           library={library}
         />

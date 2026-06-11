@@ -4,14 +4,15 @@ import { useActionState, useState } from "react";
 import Link from "next/link";
 import type { ActionState } from "@/lib/actions/types";
 import { initialActionState } from "@/lib/actions/types";
-import { REGIONS, KINDS } from "@/lib/validation/schemas";
-import { REGION_LABEL, KIND_LABEL } from "@/lib/format";
+import { KINDS } from "@/lib/validation/schemas";
+import { KIND_LABEL } from "@/lib/format";
+import { WORKS } from "@/lib/works/config";
 import { inputCls, labelCls, FieldError, FormMessage, SubmitButton } from "@/components/admin/ui";
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaPicker from "@/components/admin/MediaPicker";
 import type { MediaView } from "@/components/admin/MediaUploader";
 
-export type WorkVariant = "publication" | "press";
+export type WorkVariant = "publication" | "press" | "exhibition";
 
 export type WorkDefaults = {
   id?: string;
@@ -23,13 +24,14 @@ export type WorkDefaults = {
   // publication-only
   pages?: number | null;
   publisher?: string | null;
-  region?: string;
   kind?: string;
   coverBg?: string | null;
   coverFg?: string | null;
   featured?: boolean;
   // press-only
   outlet?: string;
+  // exhibition-only
+  venue?: string;
   // shared
   externalUrl?: string | null;
   published?: boolean;
@@ -91,9 +93,11 @@ export default function WorkForm({
   const fe = state.fieldErrors;
 
   const isPub = variant === "publication";
-  const base = isPub ? "/admin/publications" : "/admin/press";
-  const publicBase = isPub ? "/publications" : "/press";
-  const noun = isPub ? "publication" : "press item";
+  const isPress = variant === "press";
+  const cfg = WORKS[variant];
+  const base = cfg.adminBase;
+  const publicBase = cfg.publicBase;
+  const noun = cfg.nounSingular;
 
   return (
     <form action={formAction} className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -144,11 +148,11 @@ export default function WorkForm({
         </div>
 
         <div>
-          <label className={labelCls}>{isPub ? "Subtitle" : "Source line / citation"}</label>
+          <label className={labelCls}>{isPress ? "Source line / citation" : "Subtitle"}</label>
           <input
             name="subtitle"
             defaultValue={defaults.subtitle ?? ""}
-            placeholder={isPub ? "" : "Art & Antiques · Apr 2009, Vol. 32"}
+            placeholder={isPress ? "Art & Antiques · Apr 2009, Vol. 32" : ""}
             className={inputCls}
           />
         </div>
@@ -200,35 +204,28 @@ export default function WorkForm({
                 <label className={labelCls}>Publisher</label>
                 <input name="publisher" defaultValue={defaults.publisher ?? ""} className={inputCls} />
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className={labelCls}>Region</label>
-                  <select name="region" defaultValue={defaults.region ?? "Oceania"} className={inputCls}>
-                    {REGIONS.map((r) => (
-                      <option key={r} value={r}>
-                        {REGION_LABEL[r]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className={labelCls}>Kind</label>
-                  <select name="kind" defaultValue={defaults.kind ?? "Monograph"} className={inputCls}>
-                    {KINDS.map((k) => (
-                      <option key={k} value={k}>
-                        {KIND_LABEL[k]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div>
+                <label className={labelCls}>Kind</label>
+                <select name="kind" defaultValue={defaults.kind ?? "Monograph"} className={inputCls}>
+                  {KINDS.map((k) => (
+                    <option key={k} value={k}>
+                      {KIND_LABEL[k]}
+                    </option>
+                  ))}
+                </select>
               </div>
             </>
           ) : (
             <>
               <div>
-                <label className={labelCls}>Outlet</label>
-                <input name="outlet" defaultValue={defaults.outlet ?? ""} className={inputCls} />
-                <FieldError errors={fe?.outlet} />
+                <label className={labelCls}>{isPress ? "Outlet" : "Venue"}</label>
+                <input
+                  name={isPress ? "outlet" : "venue"}
+                  defaultValue={(isPress ? defaults.outlet : defaults.venue) ?? ""}
+                  placeholder={isPress ? "" : "Wereldmuseum Rotterdam"}
+                  className={inputCls}
+                />
+                <FieldError errors={isPress ? fe?.outlet : fe?.venue} />
               </div>
               <div>
                 <label className={labelCls}>Year</label>
@@ -333,7 +330,7 @@ export default function WorkForm({
         <Card title="Attachments" hint="Optional PDF and an external link.">
           <MediaPicker
             name="pdfId"
-            label={isPub ? "Book / scans PDF" : "Article PDF"}
+            label={isPub ? "Book / scans PDF" : isPress ? "Article PDF" : "Catalogue / scans PDF"}
             defaultMedia={defaults.pdf ?? null}
             library={library}
             accept="application/pdf"

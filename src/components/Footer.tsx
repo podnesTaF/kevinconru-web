@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { CONTACT, WYVERN_URL } from "@/lib/site";
+import { CONTACT } from "@/lib/site";
 import { getSiteSettings } from "@/lib/queries/content";
 import PaletteSwitcher from "@/components/PaletteSwitcher";
 import TypographySwitcher from "@/components/TypographySwitcher";
@@ -27,27 +26,6 @@ export default async function Footer() {
           <div className="foot-col">
             <div className="foot-brand">CONRU</div>
             <div className="foot-tag">Southern African art and the arts of Oceania. Brussels.</div>
-          </div>
-
-          <div className="foot-col">
-            <h6>Navigate</h6>
-            <ul>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/publications">Publications</Link>
-              </li>
-              <li>
-                <Link href="/films">Films</Link>
-              </li>
-              <li>
-                <Link href="/press">Press</Link>
-              </li>
-              <li>
-                <Link href="/about">About</Link>
-              </li>
-            </ul>
           </div>
 
           <div className="foot-col">
@@ -80,11 +58,6 @@ export default async function Footer() {
                   </a>
                 </li>
               )}
-              <li>
-                <a href={WYVERN_URL} target="_blank" rel="noopener noreferrer">
-                  Wyvern Research ↗
-                </a>
-              </li>
             </ul>
           </div>
         </div>

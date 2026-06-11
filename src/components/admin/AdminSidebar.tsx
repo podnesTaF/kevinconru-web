@@ -11,6 +11,7 @@ const LINKS = [
   { href: "/admin/publications", label: "Publications" },
   { href: "/admin/films", label: "Films" },
   { href: "/admin/press", label: "Press" },
+  { href: "/admin/exhibitions", label: "Exhibitions" },
   { href: "/admin/about", label: "About" },
   { href: "/admin/about/chronology", label: "Chronology" },
   { href: "/admin/about/affiliations", label: "Affiliations" },

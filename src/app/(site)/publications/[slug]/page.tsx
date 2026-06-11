@@ -6,7 +6,7 @@ import {
   getPublicationBySlug,
   getPublicationSlugs,
 } from "@/lib/queries/publications";
-import { kindLabel, regionLabel } from "@/lib/format";
+import { kindLabel } from "@/lib/format";
 import { CONTACT } from "@/lib/site";
 import { ArrowRight } from "@/components/icons";
 import RichText from "@/components/RichText";
@@ -49,12 +49,6 @@ export default async function PublicationDetailPage({
   const pub = await getPublicationBySlug(slug);
   if (!pub) notFound();
 
-  // Next-title cycle across the published list (skip when this is the only one
-  // so "Next title" never links back to the current publication).
-  const slugs = await getPublicationSlugs();
-  const idx = slugs.findIndex((s) => s.slug === pub.slug);
-  const next = slugs.length > 1 ? slugs[(idx + 1) % slugs.length] : null;
-
   const coverStyle = {
     "--cover-bg": pub.coverBg ?? undefined,
     "--cover-fg": pub.coverFg ?? undefined,
@@ -75,7 +69,6 @@ export default async function PublicationDetailPage({
     { lab: "Year", val: String(pub.year) },
     ...(pub.pages ? [{ lab: "Pages", val: String(pub.pages) }] : []),
     ...(pub.publisher ? [{ lab: "Publisher", val: pub.publisher }] : []),
-    { lab: "Region", val: regionLabel(pub.region) },
   ];
 
   return (
@@ -109,7 +102,7 @@ export default async function PublicationDetailPage({
             <div className="pd-cover pd-cover--plate" style={coverStyle}>
               <div className="pc-content" style={{ color: pub.coverFg ?? undefined }}>
                 <div className="pc-mini">
-                  {regionLabel(pub.region)} · {kindLabel(pub.kind)}
+                  {kindLabel(pub.kind)} · {pub.year}
                 </div>
                 <div>
                   {pub.publisher && (
@@ -171,32 +164,6 @@ export default async function PublicationDetailPage({
             </section>
           )}
         </div>
-
-        {next && (
-          <section style={{ marginTop: "clamp(56px, 11vw, 100px)", paddingTop: 40, borderTop: "1px solid var(--rule)" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-end",
-                flexWrap: "wrap",
-                gap: 20,
-              }}
-            >
-              <div>
-                <span className="eyebrow">Next title</span>
-                <Link href={`/publications/${next.slug}`} style={{ display: "block", marginTop: 12 }}>
-                  <span className="display" style={{ fontSize: "clamp(28px,4vw,48px)", lineHeight: 1 }}>
-                    {next.title}
-                  </span>
-                </Link>
-              </div>
-              <Link className="link-arrow" href={`/publications/${next.slug}`}>
-                Continue <ArrowRight />
-              </Link>
-            </div>
-          </section>
-        )}
       </div>
     </main>
   );

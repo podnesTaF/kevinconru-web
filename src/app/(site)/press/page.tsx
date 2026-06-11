@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getPressItems } from "@/lib/queries/content";
-import PressCard from "@/components/PressCard";
+import WorkIndex from "@/components/WorkIndex";
+import WorkCard from "@/components/WorkCard";
 
 export const metadata: Metadata = {
   title: "Press",
@@ -12,26 +13,31 @@ export default async function PressPage() {
   const press = await getPressItems();
 
   return (
-    <main className="page">
-      <div className="wrap">
-        <header className="pubs-head">
-          <h1 className="display">Press</h1>
-          <p className="intro">
-            Features, exhibition coverage and inserts accompanying the publications and curatorial
-            projects.
-          </p>
-        </header>
-
-        {press.length > 0 ? (
-          <div className="press-grid">
-            {press.map((p, i) => (
-              <PressCard key={p.id} item={p} index={i} />
-            ))}
-          </div>
-        ) : (
-          <p className="intro">No press items published yet.</p>
-        )}
-      </div>
-    </main>
+    <WorkIndex
+      title="Press"
+      intro="Features, exhibition coverage and inserts accompanying the publications and curatorial projects."
+    >
+      {press.length > 0 ? (
+        <div className="press-grid">
+          {press.map((p, i) => (
+            <WorkCard
+              key={p.id}
+              publicBase="/press"
+              index={i}
+              item={{
+                slug: p.slug,
+                title: p.title,
+                subtitle: p.subtitle,
+                coverImage: p.coverImage,
+                meta: p.outlet,
+                year: p.year,
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="intro">No press items published yet.</p>
+      )}
+    </WorkIndex>
   );
 }

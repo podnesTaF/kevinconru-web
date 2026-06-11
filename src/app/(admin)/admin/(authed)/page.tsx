@@ -5,7 +5,8 @@ import { PageHeader } from "@/components/admin/ui";
 const CARDS = [
   { key: "publications", label: "Publications", href: "/admin/publications", live: "/publications" },
   { key: "films", label: "Films", href: "/admin/films", live: "/about#contact" },
-  { key: "press", label: "Press", href: "/admin/press", live: "/about" },
+  { key: "press", label: "Press", href: "/admin/press", live: "/press" },
+  { key: "exhibitions", label: "Exhibitions", href: "/admin/exhibitions", live: "/exhibitions" },
   { key: "timeline", label: "Chronology", href: "/admin/about/chronology", live: "/about" },
   { key: "affiliations", label: "Affiliations", href: "/admin/about/affiliations", live: "/about" },
   { key: "media", label: "Media", href: "/admin/media", live: null },
@@ -48,6 +49,9 @@ export default async function AdminDashboard() {
           </Link>
           <Link href="/admin/press/new" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
             + New press item
+          </Link>
+          <Link href="/admin/exhibitions/new" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
+            + New exhibition
           </Link>
           <Link href="/admin/about" className="rounded-md border border-rule px-3 py-1.5 hover:bg-bg-alt">
             Edit bio

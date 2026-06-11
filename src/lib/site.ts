@@ -15,10 +15,10 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/publications", label: "Publications" },
-  { href: "/films", label: "Films" },
-  { href: "/press", label: "Press" },
   { href: "/about", label: "About" },
+  { href: "/publications", label: "Publications" },
+  { href: "/press", label: "Press" },
+  { href: "/exhibitions", label: "Exhibitions" },
 ] as const;
 
 export const WYVERN_URL = "https://wyvernresearch.org/";

@@ -21,7 +21,6 @@ export default async function EditPublicationPage({ params }: { params: Promise<
     year: pub.year,
     pages: pub.pages,
     publisher: pub.publisher,
-    region: pub.region,
     kind: pub.kind,
     body: pub.body,
     coverBg: pub.coverBg,
@@ -53,7 +52,11 @@ export default async function EditPublicationPage({ params }: { params: Promise<
         <p className="mt-1 mb-3 text-xs text-muted">
           A grid gallery shown below the body, with a lightbox (title + caption per image).
         </p>
-        <GalleryManager owner={{ publicationId: pub.id, pressItemId: null }} items={gallery} library={library} />
+        <GalleryManager
+          owner={{ publicationId: pub.id, pressItemId: null, exhibitionId: null }}
+          items={gallery}
+          library={library}
+        />
       </section>
     </div>
   );

@@ -15,15 +15,6 @@ datasource db {
 }
 
 // ─────────────────────────── Enums ───────────────────────────
-enum Region {
-  Africa
-  Oceania
-  Polynesia
-  Melanesia
-  AfricaAndOceania
-  SoutheastAsia
-}
-
 enum PublicationKind {
   Archive
   Monograph
@@ -58,6 +49,8 @@ model Media {
   publicationPdfs   Publication[]  @relation("PublicationPdf")
   pressCovers       PressItem[]    @relation("PressCover")
   pressPdfs         PressItem[]    @relation("PressPdf")
+  exhibitionCovers  Exhibition[]   @relation("ExhibitionCover")
+  exhibitionPdfs    Exhibition[]   @relation("ExhibitionPdf")
   galleryImages     GalleryImage[]
 }
 
@@ -69,7 +62,6 @@ model Publication {
   year         Int
   pages        Int?
   publisher    String?
-  region       Region
   kind         PublicationKind
   body         String // rich-text HTML (supports inline images, in any sequence)
   coverBg      String? // CSS gradient (fallback typographic cover)
@@ -98,6 +90,8 @@ model GalleryImage {
   publicationId String?
   pressItem     PressItem?   @relation(fields: [pressItemId], references: [id], onDelete: Cascade)
   pressItemId   String?
+  exhibition    Exhibition?  @relation(fields: [exhibitionId], references: [id], onDelete: Cascade)
+  exhibitionId  String?
   media         Media        @relation(fields: [mediaId], references: [id])
   mediaId       String
   title         String?
@@ -106,6 +100,7 @@ model GalleryImage {
 
   @@index([publicationId, sortOrder])
   @@index([pressItemId, sortOrder])
+  @@index([exhibitionId, sortOrder])
 }
 
 model Film {
@@ -136,6 +131,31 @@ model PressItem {
   sortOrder     Int            @default(0)
   galleryLayout GalleryLayout  @default(Grid)
   gallery       GalleryImage[]
+}
+
+// Mirrors PressItem (image cover + body + gallery), with `venue` as the
+// distinguishing meta line (e.g. "Wereldmuseum Rotterdam").
+model Exhibition {
+  id           String         @id @default(cuid())
+  slug         String         @unique
+  venue        String
+  title        String
+  subtitle     String?
+  year         Int
+  body         String         @default("") // rich-text HTML (inline images, any sequence)
+  coverImage   Media?         @relation("ExhibitionCover", fields: [coverImageId], references: [id])
+  coverImageId String?
+  pdf          Media?         @relation("ExhibitionPdf", fields: [pdfId], references: [id])
+  pdfId        String?
+  externalUrl  String? // exhibition hosted elsewhere
+  published     Boolean        @default(true)
+  sortOrder     Int            @default(0)
+  galleryLayout GalleryLayout  @default(Grid)
+  gallery       GalleryImage[]
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([published, sortOrder])
 }
 
 model TimelineEntry {

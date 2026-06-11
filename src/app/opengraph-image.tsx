@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Kevin Conru — African & Oceanic Art";
+export const alt = "Kevin Conru";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -25,13 +25,12 @@ export default function Image() {
           BRUSSELS
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 104, lineHeight: 1.0 }}>
-          <div style={{ display: "flex", gap: 24 }}>
-            <span>African &amp;</span>
-            <span style={{ color: "#b35a30", fontStyle: "italic" }}>Oceanic</span>
-          </div>
-          <div style={{ display: "flex" }}>art.</div>
+          Kevin Conru
         </div>
-        <div style={{ display: "flex", fontSize: 30, letterSpacing: "0.26em" }}>KEVIN CONRU</div>
+        <div style={{ display: "flex", fontSize: 28, color: "#7a7466", maxWidth: 720, lineHeight: 1.35 }}>
+          Publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of
+          Oceania.
+        </div>
       </div>
     ),
     { ...size },

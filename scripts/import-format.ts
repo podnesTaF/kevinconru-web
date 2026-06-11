@@ -55,7 +55,7 @@ type Cover = { local: string | null; cdn: string | null; file: string };
 type PubItem = {
   action: "create" | "enrich"; slug: string; sortOrder: number;
   cover: Cover; gallery: GalleryEntry[]; bodyImages?: BodyImage[];
-  title?: string; year?: number; kind?: string; region?: string; publisher?: string; body?: string;
+  title?: string; year?: number; kind?: string; publisher?: string; body?: string;
   galleryLayout?: "Grid" | "List";
 };
 type PressItem = {
@@ -168,12 +168,12 @@ async function main() {
         where: { slug: item.slug },
         update: {
           ...common,
-          year: item.year!, kind: item.kind as never, region: item.region as never,
+          year: item.year!, kind: item.kind as never,
           publisher: item.publisher ?? null,
         },
         create: {
           slug: item.slug, title: item.title!, year: item.year!,
-          kind: item.kind as never, region: item.region as never,
+          kind: item.kind as never,
           publisher: item.publisher ?? null, body: body ?? "",
           coverImageId: coverId, published: true,
         },

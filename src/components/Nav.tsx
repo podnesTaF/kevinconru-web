@@ -12,21 +12,44 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(href + "/");
 }
 
+const SCROLL_ON = 72;
+const SCROLL_OFF = 24;
+
 export default function Nav() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      setScrolled((prev) => {
+        if (!prev && y >= SCROLL_ON) return true;
+        if (prev && y <= SCROLL_OFF) return false;
+        return prev;
+      });
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const overlay = isHome && !scrolled;
+
   return (
     <>
-      <nav className={cn("nav", scrolled && "is-scrolled")}>
+      <nav className={cn("nav", overlay && "nav--overlay", scrolled && "is-scrolled")}>
         <Link className="nav-brand" href="/">
           <span className="mark" aria-hidden="true" />
           <span>CONRU</span>

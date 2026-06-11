@@ -3,7 +3,6 @@ import { z } from "zod";
 // Single source of truth for entity shapes — used by Server Actions (and
 // available to client forms). Inputs are pre-coerced from FormData in actions.
 
-export const REGIONS = ["Africa", "Oceania", "Polynesia", "Melanesia", "AfricaAndOceania", "SoutheastAsia"] as const;
 export const KINDS = ["Archive", "Monograph", "ExhibitionCatalogue"] as const;
 export const GALLERY_LAYOUTS = ["Grid", "List"] as const;
 
@@ -19,7 +18,6 @@ export const publicationSchema = z.object({
   year: z.number().int().min(0).max(3000),
   pages: z.number().int().positive().nullable(),
   publisher: z.string().nullable(),
-  region: z.enum(REGIONS),
   kind: z.enum(KINDS),
   body: z.string().min(1, "Body is required"),
   coverBg: z.string().nullable(),
@@ -65,6 +63,22 @@ export const pressSchema = z.object({
   galleryLayout: z.enum(GALLERY_LAYOUTS),
 });
 export type PressInput = z.infer<typeof pressSchema>;
+
+// Exhibitions mirror press, with `venue` as the distinguishing meta line.
+export const exhibitionSchema = z.object({
+  slug,
+  venue: z.string().min(1, "Venue is required"),
+  title: z.string().min(1, "Title is required"),
+  subtitle: z.string().nullable(),
+  year: z.number().int().min(0).max(3000),
+  body: z.string(), // may be empty (an exhibition can be just scans / a PDF / a link)
+  coverImageId: z.string().nullable(),
+  pdfId: z.string().nullable(),
+  externalUrl: z.union([z.string().url("Must be a valid URL"), z.null()]),
+  published: z.boolean(),
+  galleryLayout: z.enum(GALLERY_LAYOUTS),
+});
+export type ExhibitionInput = z.infer<typeof exhibitionSchema>;
 
 export const timelineSchema = z.object({
   year: z.string().min(1, "Year is required"),

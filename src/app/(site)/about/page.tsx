@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
-import { getSiteSettings } from '@/lib/queries/content';
-import { getTimeline, getAffiliations } from '@/lib/queries/content';
+import { getSiteSettings, getAffiliations } from '@/lib/queries/content';
 import { CONTACT } from '@/lib/site';
 import RichText from '@/components/RichText';
 
@@ -14,8 +13,6 @@ export const metadata: Metadata = {
 
 const FALLBACK_BIO =
   '<p>Kevin Conru is known for his publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of Oceania.</p>';
-
-const stripHtml = (html: string) => html.replace(/<[^>]+>/g, '').trim();
 
 type Affiliation = { id: string; role: string; name: string; url: string | null };
 
@@ -54,13 +51,9 @@ const groupAffiliations = (items: Affiliation[]) => {
 };
 
 // Background sequence down the page: tonal frontispiece → paper biography →
-// dark band (chronology + affiliations) → paper contact strip → dark footer.
+// affiliations → paper contact strip → dark footer.
 export default async function AboutPage() {
-  const [settings, timeline, affiliations] = await Promise.all([
-    getSiteSettings(),
-    getTimeline(),
-    getAffiliations(),
-  ]);
+  const [settings, affiliations] = await Promise.all([getSiteSettings(), getAffiliations()]);
 
   const bio = settings?.bio ?? FALLBACK_BIO;
   const tel = settings?.tel ?? CONTACT.tel;
@@ -117,38 +110,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Chronology — dark ink band */}
-      {timeline.length > 0 && (
-        <section className="section band-dark ab-archive">
-          <div className="wrap">
-            <section className="ab-cv">
-              <h3 className="display" data-reveal="up">
-                Selected
-                <br />
-                chronology
-              </h3>
-              <div>
-                {timeline.map((t, i) => (
-                  <div
-                    key={t.id}
-                    className="cv-row"
-                    data-reveal="up"
-                    style={{ '--rv-delay': `${Math.min(i, 6) * 60}ms` } as CSSProperties}
-                  >
-                    <span className="yr">{t.year}</span>
-                    <span className="ev">
-                      <em>{t.event}</em>
-                      <span className="desc">{stripHtml(t.description)}</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        </section>
-      )}
-
-      {/* Links — affiliations & friends, back on the paper ground */}
+      {/* Links — affiliations & friends */}
       {affiliations.length > 0 && (
         <section className="section">
           <div className="wrap">

@@ -11,15 +11,20 @@ import {
   optStr,
 } from "@/lib/actions/_shared";
 
-// Gallery images are polymorphic — they belong to either a Publication or a
-// PressItem. These actions are shared by both admin editors.
+// Gallery images are polymorphic — they belong to a Publication, a PressItem or
+// an Exhibition. These actions are shared by all three admin editors.
 
-export type GalleryOwner = { publicationId: string | null; pressItemId: string | null };
+export type GalleryOwner = {
+  publicationId: string | null;
+  pressItemId: string | null;
+  exhibitionId: string | null;
+};
 
 function readOwner(formData: FormData): GalleryOwner {
   return {
     publicationId: optStr(formData.get("publicationId")),
     pressItemId: optStr(formData.get("pressItemId")),
+    exhibitionId: optStr(formData.get("exhibitionId")),
   };
 }
 
@@ -39,6 +44,13 @@ async function revalidateOwner(owner: GalleryOwner) {
     });
     revalidatePath("/press");
     if (pr) revalidatePath(`/press/${pr.slug}`);
+  } else if (owner.exhibitionId) {
+    const ex = await db.exhibition.findUnique({
+      where: { id: owner.exhibitionId },
+      select: { slug: true },
+    });
+    revalidatePath("/exhibitions");
+    if (ex) revalidatePath(`/exhibitions/${ex.slug}`);
   }
 }
 
@@ -53,13 +65,19 @@ function readGalleryImage(formData: FormData) {
 export async function addGalleryImage(_prev: ActionState, formData: FormData): Promise<ActionState> {
   await requireAdmin();
   const owner = readOwner(formData);
-  if (!owner.publicationId && !owner.pressItemId) return { ok: false, error: "Missing owner" };
+  if (!owner.publicationId && !owner.pressItemId && !owner.exhibitionId)
+    return { ok: false, error: "Missing owner" };
 
   const parsed = galleryImageSchema.safeParse(readGalleryImage(formData));
   if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
 
+  const ownerWhere = owner.publicationId
+    ? { publicationId: owner.publicationId }
+    : owner.pressItemId
+      ? { pressItemId: owner.pressItemId }
+      : { exhibitionId: owner.exhibitionId };
   const last = await db.galleryImage.findFirst({
-    where: owner.publicationId ? { publicationId: owner.publicationId } : { pressItemId: owner.pressItemId },
+    where: ownerWhere,
     orderBy: { sortOrder: "desc" },
     select: { sortOrder: true },
   });
@@ -81,7 +99,7 @@ export async function updateGalleryImage(_prev: ActionState, formData: FormData)
   const img = await db.galleryImage.update({
     where: { id },
     data: parsed.data,
-    select: { publicationId: true, pressItemId: true },
+    select: { publicationId: true, pressItemId: true, exhibitionId: true },
   });
   await revalidateOwner(img);
   return { ok: true };
@@ -91,7 +109,7 @@ export async function deleteGalleryImage(id: string) {
   await requireAdmin();
   const img = await db.galleryImage.delete({
     where: { id },
-    select: { publicationId: true, pressItemId: true },
+    select: { publicationId: true, pressItemId: true, exhibitionId: true },
   });
   await revalidateOwner(img);
 }

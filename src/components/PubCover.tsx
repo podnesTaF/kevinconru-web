@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Media, Publication } from "@/generated/prisma/client";
-import { regionLabel } from "@/lib/format";
+import { kindLabel } from "@/lib/format";
 
 type PubWithCover = Publication & { coverImage: Media | null };
 
@@ -22,7 +22,7 @@ export default function PubCover({ pub }: { pub: PubWithCover }) {
       )}
       <div className="pc-overlay">
         <span className="pc-eyebrow">
-          {regionLabel(pub.region)} · {pub.year}
+          {kindLabel(pub.kind)} · {pub.year}
         </span>
         <span className="pc-title">{pub.title}</span>
       </div>

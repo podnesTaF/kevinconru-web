@@ -24,6 +24,14 @@ export const adminGetPress = (id: string) =>
     include: { coverImage: true, pdf: true, gallery: { orderBy: { sortOrder: "asc" }, include: { media: true } } },
   });
 
+export const adminListExhibitions = () =>
+  db.exhibition.findMany({ orderBy: { sortOrder: "asc" }, include: { coverImage: true } });
+export const adminGetExhibition = (id: string) =>
+  db.exhibition.findUnique({
+    where: { id },
+    include: { coverImage: true, pdf: true, gallery: { orderBy: { sortOrder: "asc" }, include: { media: true } } },
+  });
+
 export const adminListTimeline = () => db.timelineEntry.findMany({ orderBy: { sortOrder: "asc" } });
 export const adminListAffiliations = () => db.affiliation.findMany({ orderBy: { sortOrder: "asc" } });
 
@@ -32,13 +40,14 @@ export const adminGetSettings = () => db.siteSettings.findUnique({ where: { id: 
 export const adminListMedia = () => db.media.findMany({ orderBy: { createdAt: "desc" } });
 
 export async function adminDashboardCounts() {
-  const [publications, films, press, timeline, affiliations, media] = await Promise.all([
+  const [publications, films, press, exhibitions, timeline, affiliations, media] = await Promise.all([
     db.publication.count(),
     db.film.count(),
     db.pressItem.count(),
+    db.exhibition.count(),
     db.timelineEntry.count(),
     db.affiliation.count(),
     db.media.count(),
   ]);
-  return { publications, films, press, timeline, affiliations, media };
+  return { publications, films, press, exhibitions, timeline, affiliations, media };
 }

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getPublicationBySlug } from "@/lib/queries/publications";
-import { kindLabel, regionLabel } from "@/lib/format";
+import { kindLabel } from "@/lib/format";
 
 export const alt = "Publication — Kevin Conru";
 export const size = { width: 1200, height: 630 };
@@ -14,7 +14,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const bg = pub?.coverBg ?? "linear-gradient(160deg, #2a2620, #18171a)";
   const fg = pub?.coverFg ?? "#efe9d8";
   const title = pub?.title ?? "Kevin Conru";
-  const eyebrow = pub ? `${regionLabel(pub.region)} · ${kindLabel(pub.kind)} · ${pub.year}` : "";
+  const eyebrow = pub ? `${kindLabel(pub.kind)} · ${pub.year}` : "";
 
   // Satori (next/og) renders gradients via `backgroundImage`, not the
   // `background` shorthand — split so a gradient cover doesn't come out flat.

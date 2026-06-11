@@ -1,26 +1,11 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { publicationSchema } from "@/lib/validation/schemas";
-import {
-  type ActionState,
-  requireAdmin,
-  fieldErrorsFrom,
-  str,
-  optStr,
-  optInt,
-  reqInt,
-  bool,
-} from "@/lib/actions/_shared";
-
-function revalidatePublic(slug?: string) {
-  revalidatePath("/");
-  revalidatePath("/publications");
-  if (slug) revalidatePath(`/publications/${slug}`);
-}
+import { type ActionState, str, optStr, optInt, reqInt, bool } from "@/lib/actions/_shared";
+import { makeWorkActions, type WorkDelegate } from "@/lib/works/actions";
+import { WORKS } from "@/lib/works/config";
 
 function readPublication(formData: FormData) {
   return {
@@ -30,7 +15,6 @@ function readPublication(formData: FormData) {
     year: reqInt(formData.get("year")),
     pages: optInt(formData.get("pages")),
     publisher: optStr(formData.get("publisher")),
-    region: str(formData.get("region")),
     kind: str(formData.get("kind")),
     coverBg: optStr(formData.get("coverBg")),
     coverFg: optStr(formData.get("coverFg")),
@@ -44,83 +28,28 @@ function readPublication(formData: FormData) {
   };
 }
 
-export async function createPublication(
-  _prev: ActionState,
-  formData: FormData,
-): Promise<ActionState> {
-  await requireAdmin();
-  const parsed = publicationSchema.safeParse(readPublication(formData));
-  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
+const actions = makeWorkActions({
+  config: WORKS.publication,
+  model: db.publication as unknown as WorkDelegate,
+  schema: publicationSchema,
+  readForm: readPublication,
+});
 
-  const last = await db.publication.findFirst({ orderBy: { sortOrder: "desc" }, select: { sortOrder: true } });
-  let created: { id: string };
-  try {
-    created = await db.publication.create({
-      data: { ...parsed.data, sortOrder: (last?.sortOrder ?? -1) + 1 },
-      select: { id: true },
-    });
-  } catch (e) {
-    if (isUniqueSlug(e)) return { ok: false, fieldErrors: { slug: ["Slug already in use"] } };
-    throw e;
-  }
-  revalidatePublic(parsed.data.slug);
-  // Land on the edit screen so the gallery can be added straight away.
-  redirect(`/admin/publications/${created.id}`);
+export async function createPublication(prev: ActionState, formData: FormData) {
+  return actions.create(prev, formData);
 }
-
-export async function updatePublication(
-  _prev: ActionState,
-  formData: FormData,
-): Promise<ActionState> {
-  await requireAdmin();
-  const id = str(formData.get("id"));
-  if (!id) return { ok: false, error: "Missing id" };
-
-  const parsed = publicationSchema.safeParse(readPublication(formData));
-  if (!parsed.success) return { ok: false, fieldErrors: fieldErrorsFrom(parsed.error) };
-
-  const before = await db.publication.findUnique({ where: { id }, select: { slug: true } });
-  try {
-    await db.publication.update({ where: { id }, data: parsed.data });
-  } catch (e) {
-    if (isUniqueSlug(e)) return { ok: false, fieldErrors: { slug: ["Slug already in use"] } };
-    throw e;
-  }
-  revalidatePublic(parsed.data.slug);
-  if (before && before.slug !== parsed.data.slug) revalidatePath(`/publications/${before.slug}`);
-  return { ok: true };
+export async function updatePublication(prev: ActionState, formData: FormData) {
+  return actions.update(prev, formData);
 }
-
 export async function deletePublication(id: string) {
-  await requireAdmin();
-  const pub = await db.publication.delete({ where: { id }, select: { slug: true } });
-  revalidatePublic(pub.slug);
-  redirect("/admin/publications");
+  return actions.remove(id);
 }
-
 export async function setPublished(id: string, value: boolean) {
-  await requireAdmin();
-  const pub = await db.publication.update({ where: { id }, data: { published: value }, select: { slug: true } });
-  revalidatePublic(pub.slug);
+  return actions.setPublished(id, value);
 }
-
 export async function setFeatured(id: string, value: boolean) {
-  await requireAdmin();
-  await db.publication.update({ where: { id }, data: { featured: value } });
-  revalidatePublic();
+  return actions.setFeatured(id, value);
 }
-
 export async function reorderPublications(ids: string[]) {
-  await requireAdmin();
-  await db.$transaction(ids.map((id, i) => db.publication.update({ where: { id }, data: { sortOrder: i } })));
-  revalidatePublic();
-}
-
-function isUniqueSlug(e: unknown): boolean {
-  return (
-    typeof e === "object" &&
-    e !== null &&
-    "code" in e &&
-    (e as { code?: string }).code === "P2002"
-  );
+  return actions.reorder(ids);
 }

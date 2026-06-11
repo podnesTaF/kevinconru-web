@@ -2,15 +2,15 @@
 
 import { db } from "@/lib/db";
 import { sanitizeHtml } from "@/lib/sanitize";
-import { pressSchema } from "@/lib/validation/schemas";
+import { exhibitionSchema } from "@/lib/validation/schemas";
 import { type ActionState, str, optStr, reqInt, bool } from "@/lib/actions/_shared";
 import { makeWorkActions, type WorkDelegate } from "@/lib/works/actions";
 import { WORKS } from "@/lib/works/config";
 
-function readPress(formData: FormData) {
+function readExhibition(formData: FormData) {
   return {
     slug: str(formData.get("slug")),
-    outlet: str(formData.get("outlet")),
+    venue: str(formData.get("venue")),
     title: str(formData.get("title")),
     subtitle: optStr(formData.get("subtitle")),
     year: reqInt(formData.get("year")),
@@ -24,24 +24,24 @@ function readPress(formData: FormData) {
 }
 
 const actions = makeWorkActions({
-  config: WORKS.press,
-  model: db.pressItem as unknown as WorkDelegate,
-  schema: pressSchema,
-  readForm: readPress,
+  config: WORKS.exhibition,
+  model: db.exhibition as unknown as WorkDelegate,
+  schema: exhibitionSchema,
+  readForm: readExhibition,
 });
 
-export async function createPress(prev: ActionState, formData: FormData) {
+export async function createExhibition(prev: ActionState, formData: FormData) {
   return actions.create(prev, formData);
 }
-export async function updatePress(prev: ActionState, formData: FormData) {
+export async function updateExhibition(prev: ActionState, formData: FormData) {
   return actions.update(prev, formData);
 }
-export async function deletePress(id: string) {
+export async function deleteExhibition(id: string) {
   return actions.remove(id);
 }
-export async function setPressPublished(id: string, value: boolean) {
+export async function setExhibitionPublished(id: string, value: boolean) {
   return actions.setPublished(id, value);
 }
-export async function reorderPress(ids: string[]) {
+export async function reorderExhibitions(ids: string[]) {
   return actions.reorder(ids);
 }

@@ -41,7 +41,7 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Kevin Conru — African & Oceanic Art",
+    default: "Kevin Conru",
     template: "%s — Kevin Conru",
   },
   description:

@@ -1,44 +1,14 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// Hero image that slowly cross-fades a selection of object photos every 7s.
-// Honors prefers-reduced-motion (holds frame 1).
-const OBJECTS = [
-  "/objects/object-2.jpeg",
-  "/objects/object-3.jpeg",
-  "/objects/object-4.jpeg",
-  "/objects/object-5.jpeg",
-  "/objects/object-6.jpeg",
-  "/objects/object-1.jpeg",
-];
+const HERO_IMAGE = "/seed/object-headdress.jpg";
 
+// Full-bleed hero background — one static photo under a dark wash so the
+// hero type stays legible.
 export default function HeroPlate() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setActive((i) => (i + 1) % OBJECTS.length), 7000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
-    <div className="hero-photo plate-in">
-      {OBJECTS.map((url, i) => (
-        <Image
-          key={url}
-          src={url}
-          alt=""
-          fill
-          priority={i === 0}
-          sizes="(max-width: 900px) 100vw, 45vw"
-          style={{
-            opacity: i === active ? 1 : 0,
-            transition: "opacity 1.6s cubic-bezier(.2,.7,.2,1)",
-          }}
-        />
-      ))}
+    <div className="hero-bg" aria-hidden="true">
+      <Image src={HERO_IMAGE} alt="" fill priority sizes="100vw" />
+      <div className="hero-bg-veil" />
     </div>
   );
 }

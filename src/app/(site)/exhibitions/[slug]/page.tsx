@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPressItemBySlug, getPressSlugs } from "@/lib/queries/content";
+import { getExhibitionBySlug, getExhibitionSlugs } from "@/lib/queries/exhibitions";
 import WorkDetail, { type WorkDetailView } from "@/components/WorkDetail";
 
 export async function generateStaticParams() {
   try {
-    const slugs = await getPressSlugs();
+    const slugs = await getExhibitionSlugs();
     return slugs.map((s) => ({ slug: s.slug }));
   } catch {
     return [];
@@ -22,26 +22,26 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const item = await getPressItemBySlug(slug);
+  const item = await getExhibitionBySlug(slug);
   if (!item) return {};
   const description =
-    item.subtitle ?? (stripHtml(item.body).slice(0, 160) || `${item.outlet}, ${item.year}`);
+    item.subtitle ?? (stripHtml(item.body).slice(0, 160) || `${item.venue}, ${item.year}`);
   return { title: item.title, description };
 }
 
-export default async function PressDetailPage({
+export default async function ExhibitionDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = await getPressItemBySlug(slug);
+  const item = await getExhibitionBySlug(slug);
   if (!item) notFound();
 
   const view: WorkDetailView = {
-    publicBase: "/press",
-    crumbLabel: "Press",
-    eyebrow: `${item.outlet} · ${item.year}`,
+    publicBase: "/exhibitions",
+    crumbLabel: "Exhibitions",
+    eyebrow: `${item.venue} · ${item.year}`,
     title: item.title,
     subtitle: item.subtitle,
     body: item.body,
@@ -49,7 +49,7 @@ export default async function PressDetailPage({
       ? { url: item.coverImage.url, width: item.coverImage.width, height: item.coverImage.height }
       : null,
     externalUrl: item.externalUrl,
-    externalLabel: "Read the original ↗",
+    externalLabel: "Visit ↗",
     gallery: item.gallery.map((g) => ({
       id: g.id,
       title: g.title,

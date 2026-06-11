@@ -1,15 +1,30 @@
 import Link from "next/link";
-import type { Media, PressItem } from "@/generated/prisma/client";
 
-type PressWithCover = PressItem & { coverImage: Media | null };
+// Index grid card for the image-cover work entities (Press + Exhibitions).
+// Uniform portrait frame (shared .press-card* styles); `meta` is the outlet
+// or venue line.
+export type WorkCardItem = {
+  slug: string;
+  title: string;
+  subtitle: string | null;
+  coverImage: { url: string } | null;
+  meta: string;
+  year: number;
+};
 
-// Press index card — uniform portrait frame (3:4) so the grid rows align;
-// covers are top-anchored and crop at most ~10% (never into a landscape band).
-export default function PressCard({ item, index = 0 }: { item: PressWithCover; index?: number }) {
+export default function WorkCard({
+  item,
+  publicBase,
+  index = 0,
+}: {
+  item: WorkCardItem;
+  publicBase: string;
+  index?: number;
+}) {
   const cover = item.coverImage;
   return (
     <Link
-      href={`/press/${item.slug}`}
+      href={`${publicBase}/${item.slug}`}
       className="press-card fade-up"
       style={{ animationDelay: `${index * 60}ms` }}
     >
@@ -18,14 +33,14 @@ export default function PressCard({ item, index = 0 }: { item: PressWithCover; i
           <div className="press-card-photo" style={{ backgroundImage: `url('${cover.url}')` }} />
         ) : (
           <div className="press-card-fallback">
-            <span className="eyebrow">{item.outlet}</span>
+            <span className="eyebrow">{item.meta}</span>
             <span className="display">{item.title}</span>
           </div>
         )}
       </div>
       <div className="press-card-meta">
         <span className="eyebrow">
-          {item.outlet} · {item.year}
+          {item.meta} · {item.year}
         </span>
         <h3>{item.title}</h3>
         {item.subtitle && <span className="press-card-sub">{item.subtitle}</span>}
