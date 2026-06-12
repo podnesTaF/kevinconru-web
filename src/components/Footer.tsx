@@ -1,4 +1,4 @@
-import { CONTACT } from "@/lib/site";
+import { CONTACT, TAGLINE } from "@/lib/site";
 import { getSiteSettings } from "@/lib/queries/content";
 
 export default async function Footer() {
@@ -23,7 +23,7 @@ export default async function Footer() {
         <div className="foot-grid">
           <div className="foot-col">
             <div className="foot-brand">CONRU</div>
-            <div className="foot-tag">Southern African art and the arts of Oceania. Brussels.</div>
+            <div className="foot-tag">{TAGLINE}</div>
           </div>
 
           <div className="foot-col">

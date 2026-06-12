@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { getSiteSettings, getAffiliations } from '@/lib/queries/content';
-import { CONTACT } from '@/lib/site';
+import { CONTACT, FALLBACK_BIO } from '@/lib/site';
 import RichText from '@/components/RichText';
 
 export const metadata: Metadata = {
@@ -10,9 +10,6 @@ export const metadata: Metadata = {
   description:
     'Kevin Conru — known for his publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of Oceania. Brussels.',
 };
-
-const FALLBACK_BIO =
-  '<p>Kevin Conru is known for his publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of Oceania.</p>';
 
 type Affiliation = { id: string; role: string; name: string; url: string | null };
 

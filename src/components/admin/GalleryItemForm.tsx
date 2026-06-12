@@ -42,6 +42,7 @@ export default function GalleryItemForm({
       {defaults.id && <input type="hidden" name="id" value={defaults.id} />}
       {owner.publicationId && <input type="hidden" name="publicationId" value={owner.publicationId} />}
       {owner.pressItemId && <input type="hidden" name="pressItemId" value={owner.pressItemId} />}
+      {owner.exhibitionId && <input type="hidden" name="exhibitionId" value={owner.exhibitionId} />}
 
       <MediaPicker name="mediaId" label="Image" defaultMedia={defaults.image ?? null} library={library} />
       <FieldError errors={fe?.mediaId} />

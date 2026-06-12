@@ -4,9 +4,7 @@ import Link from 'next/link';
 import { getSiteSettings } from '@/lib/queries/content';
 import HeroPlate from '@/components/HeroPlate';
 import RichText from '@/components/RichText';
-
-const FALLBACK_BIO =
-  '<p>Kevin Conru is known for his publications on Southern African art, the photographs of Hugo Bernatzik, and the arts of Oceania.</p>';
+import { FALLBACK_BIO, TAGLINE } from '@/lib/site';
 
 export default async function HomePage() {
   const settings = await getSiteSettings();
@@ -19,27 +17,33 @@ export default async function HomePage() {
         <HeroPlate />
         <div className="wrap">
           <div className="hero-type">
-            <h1 className="display hero-title rise">
-              Kevin
-              <br />
-              Conru
+            <p className="eyebrow hero-eyebrow rise">
+              Brussels · {TAGLINE}
+            </p>
+            <h1 className="display hero-title rise" style={{ '--rise-delay': '0.08s' } as CSSProperties}>
+              Kevin <span className="it">Conru</span>
             </h1>
             <p className="hero-sub rise" style={{ '--rise-delay': '0.14s' } as CSSProperties}>
-              Kevin Conru is known for his publications on Southern African art, the photographs of
-              Hugo Bernatzik, and the arts of Oceania.
+              Over the past four decades, Kevin Conru has undertaken a sustained study of these{' '}
+              <span className="hl">artistic traditions</span> and the{' '}
+              <span className="hl">cultures</span> from which they emerge. Through extensive
+              research, publication, and curatorial practice, he has contributed significantly to the
+              understanding and appreciation of these works, presenting his findings in numerous{' '}
+              <span className="hl">exhibitions</span> and scholarly{' '}
+              <span className="hl">publications</span>.
             </p>
             <div
               className="hero-ctas rise"
               style={{ '--rise-delay': '0.26s' } as CSSProperties}
             >
-              <Link className="hero-cta hero-cta--primary" href="/about#contact">
-                Contact
-              </Link>
-              <Link className="hero-cta" href="/about">
-                About
+              <Link className="hero-cta hero-cta--primary" href="/about">
+                About Kevin
               </Link>
               <Link className="hero-cta" href="/publications">
                 Publications
+              </Link>
+              <Link className="hero-cta" href="/exhibitions">
+                Exhibitions
               </Link>
             </div>
           </div>
