@@ -24,13 +24,11 @@ export default async function HomePage() {
               Kevin <span className="it">Conru</span>
             </h1>
             <p className="hero-sub rise" style={{ '--rise-delay': '0.14s' } as CSSProperties}>
-              Over the past four decades, Kevin Conru has undertaken a sustained study of these{' '}
-              <span className="hl">artistic traditions</span> and the{' '}
-              <span className="hl">cultures</span> from which they emerge. Through extensive
+              Over the past four decades, Kevin Conru has undertaken a sustained study of these
+              artistic traditions and the cultures from which they emerge. Through extensive
               research, publication, and curatorial practice, he has contributed significantly to the
-              understanding and appreciation of these works, presenting his findings in numerous{' '}
-              <span className="hl">exhibitions</span> and scholarly{' '}
-              <span className="hl">publications</span>.
+              understanding and appreciation of these works, presenting his findings in numerous
+              exhibitions and scholarly publications.
             </p>
             <div
               className="hero-ctas rise"

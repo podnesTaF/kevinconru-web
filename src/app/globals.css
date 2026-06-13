@@ -855,9 +855,6 @@ html.anim-ready [data-reveal].is-inview {
   line-height: 1.62;
   text-shadow: 0 1px 18px rgba(14, 12, 10, 0.45);
 }
-.hero--cover .hero-sub .hl {
-  color: var(--terra-on-ink);
-}
 @media (max-height: 760px) {
   .hero--cover .hero-title {
     font-size: clamp(40px, 7vw, 80px);
