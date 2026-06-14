@@ -855,7 +855,78 @@ html.anim-ready [data-reveal].is-inview {
   line-height: 1.62;
   text-shadow: 0 1px 18px rgba(14, 12, 10, 0.45);
 }
-@media (max-height: 760px) {
+@media (max-width: 899px) {
+  /* Let the portrait plate breathe — figures in the upper half, copy in a compact foot. */
+  .hero-bg img {
+    object-position: center 8%;
+    animation: none;
+    transform: scale(1.02);
+  }
+  .hero-bg-veil {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(14, 12, 10, 0.12) 0%,
+        rgba(14, 12, 10, 0.08) 38%,
+        rgba(14, 12, 10, 0.5) 68%,
+        rgba(14, 12, 10, 0.94) 100%
+      );
+  }
+  .hero--cover .wrap {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
+  .hero--cover .hero-type {
+    gap: 10px;
+    max-width: none;
+  }
+  .hero--cover .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    max-width: none;
+  }
+  .hero--cover .hero-title {
+    font-size: clamp(44px, 13vw, 64px);
+  }
+  .hero--cover .hero-sub {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .hero--cover .hero-ctas {
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .hero--cover .hero-cta {
+    padding: 10px 16px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  .hero--cover .hero-cta--primary .hero-cta-label--long {
+    display: none;
+  }
+}
+@media (max-width: 899px) and (max-height: 700px) {
+  .hero--cover .hero-title {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+  .hero--cover .hero-type {
+    gap: 8px;
+  }
+  .hero--cover .hero-sub {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .hero--cover .wrap {
+    padding-bottom: 16px;
+  }
+}
+@media (min-width: 900px) {
+  .hero--cover .hero-cta-label--short {
+    display: none;
+  }
+}
+@media (min-width: 900px) and (max-height: 760px) {
   .hero--cover .hero-title {
     font-size: clamp(40px, 7vw, 80px);
   }

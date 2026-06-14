@@ -26,8 +26,8 @@ export default async function HomePage() {
             <p className="hero-sub rise" style={{ '--rise-delay': '0.14s' } as CSSProperties}>
               Over the past four decades, Kevin Conru has undertaken a sustained study of these
               artistic traditions and the cultures from which they emerge. Through extensive
-              research, publication, and curatorial practice, he has contributed significantly to the
-              understanding and appreciation of these works, presenting his findings in numerous
+              research, publication, and curatorial practice, he has contributed significantly to
+              the understanding and appreciation of these works, presenting his findings in numerous
               exhibitions and scholarly publications.
             </p>
             <div
@@ -35,7 +35,8 @@ export default async function HomePage() {
               style={{ '--rise-delay': '0.26s' } as CSSProperties}
             >
               <Link className="hero-cta hero-cta--primary" href="/about">
-                About Kevin
+                <span className="hero-cta-label--long">About Kevin</span>
+                <span className="hero-cta-label--short">About</span>
               </Link>
               <Link className="hero-cta" href="/publications">
                 Publications
