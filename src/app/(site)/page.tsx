@@ -17,7 +17,6 @@ export default async function HomePage() {
         <HeroPlate />
         <div className="wrap">
           <div className="hero-type">
-            <div className="hero-type-scrim" aria-hidden="true" />
             <p className="eyebrow hero-eyebrow rise">
               Brussels · {TAGLINE}
             </p>

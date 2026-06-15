@@ -798,22 +798,22 @@ html.anim-ready [data-reveal].is-inview {
     background:
       linear-gradient(
         90deg,
-        rgba(14, 12, 10, 0.88) 0%,
-        rgba(14, 12, 10, 0.68) 42%,
-        rgba(14, 12, 10, 0.28) 62%,
-        rgba(14, 12, 10, 0.42) 100%
+        rgba(14, 12, 10, 0.58) 0%,
+        rgba(14, 12, 10, 0.4) 42%,
+        rgba(14, 12, 10, 0.14) 62%,
+        rgba(14, 12, 10, 0.24) 100%
       ),
       radial-gradient(
         130% 90% at 50% 8%,
-        transparent 42%,
-        rgba(14, 12, 10, 0.45) 100%
+        transparent 48%,
+        rgba(14, 12, 10, 0.3) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(14, 12, 10, 0.42) 0%,
-        rgba(14, 12, 10, 0.28) 34%,
-        rgba(14, 12, 10, 0.52) 72%,
-        rgba(14, 12, 10, 0.78) 100%
+        rgba(14, 12, 10, 0.26) 0%,
+        rgba(14, 12, 10, 0.16) 34%,
+        rgba(14, 12, 10, 0.34) 72%,
+        rgba(14, 12, 10, 0.55) 100%
       );
   }
 }
@@ -827,21 +827,8 @@ html.anim-ready [data-reveal].is-inview {
   margin-bottom: clamp(56px, 12vh, 128px);
 }
 .hero--cover .hero-type {
-  position: relative;
   padding-bottom: 0;
   gap: clamp(14px, 2.2vh, 22px);
-}
-.hero--cover .hero-type-scrim {
-  position: absolute;
-  z-index: 0;
-  inset: -18px -20px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  pointer-events: none;
-}
-.hero--cover .hero-type > :not(.hero-type-scrim) {
-  position: relative;
-  z-index: 1;
 }
 @media (min-width: 900px) {
   .hero--cover .hero-type {
@@ -881,8 +868,8 @@ html.anim-ready [data-reveal].is-inview {
         180deg,
         rgba(14, 12, 10, 0.12) 0%,
         rgba(14, 12, 10, 0.08) 38%,
-        rgba(14, 12, 10, 0.32) 68%,
-        rgba(14, 12, 10, 0.72) 100%
+        rgba(14, 12, 10, 0.5) 68%,
+        rgba(14, 12, 10, 0.94) 100%
       );
   }
   .hero--cover .wrap {
@@ -892,13 +879,6 @@ html.anim-ready [data-reveal].is-inview {
   .hero--cover .hero-type {
     gap: 10px;
     max-width: none;
-  }
-  .hero--cover .hero-type-scrim {
-    inset: -14px -22px;
-    left: -22px;
-    right: -22px;
-    width: auto;
-    border-radius: 0;
   }
   .hero--cover .hero-eyebrow {
     font-size: 10px;
