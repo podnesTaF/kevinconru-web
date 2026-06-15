@@ -866,10 +866,11 @@ html.anim-ready [data-reveal].is-inview {
     background:
       linear-gradient(
         180deg,
-        rgba(14, 12, 10, 0.12) 0%,
-        rgba(14, 12, 10, 0.08) 38%,
-        rgba(14, 12, 10, 0.5) 68%,
-        rgba(14, 12, 10, 0.94) 100%
+        rgba(14, 12, 10, 0.14) 0%,
+        rgba(14, 12, 10, 0.05) 30%,
+        rgba(14, 12, 10, 0.42) 52%,
+        rgba(14, 12, 10, 0.88) 78%,
+        rgba(14, 12, 10, 0.97) 100%
       );
   }
   .hero--cover .wrap {
@@ -877,21 +878,50 @@ html.anim-ready [data-reveal].is-inview {
     margin-bottom: 0;
   }
   .hero--cover .hero-type {
+    position: relative;
+    isolation: isolate;
     gap: 10px;
     max-width: none;
+    padding-top: clamp(16px, 4vh, 28px);
+  }
+  /* Tall copy can reach into the light veil — a local scrim tracks the text block. */
+  .hero--cover .hero-type::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    top: 0;
+    bottom: -20px;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(14, 12, 10, 0) 0%,
+      rgba(14, 12, 10, 0.68) 20%,
+      rgba(14, 12, 10, 0.92) 100%
+    );
   }
   .hero--cover .hero-eyebrow {
+    color: var(--ink-fg);
     font-size: 10px;
     letter-spacing: 0.1em;
     line-height: 1.4;
     max-width: none;
+    text-shadow: 0 1px 10px rgba(14, 12, 10, 0.55);
   }
   .hero--cover .hero-title {
     font-size: clamp(44px, 13vw, 64px);
+    text-shadow:
+      0 1px 2px rgba(14, 12, 10, 0.7),
+      0 4px 28px rgba(14, 12, 10, 0.45);
   }
   .hero--cover .hero-sub {
     font-size: 15px;
     line-height: 1.55;
+    text-shadow:
+      0 1px 3px rgba(14, 12, 10, 0.65),
+      0 4px 22px rgba(14, 12, 10, 0.5);
   }
   .hero--cover .hero-ctas {
     gap: 8px;
@@ -901,6 +931,8 @@ html.anim-ready [data-reveal].is-inview {
     padding: 10px 16px;
     font-size: 10px;
     letter-spacing: 0.1em;
+    border-color: rgba(239, 233, 216, 0.62);
+    text-shadow: 0 1px 8px rgba(14, 12, 10, 0.4);
   }
   .hero--cover .hero-cta--primary .hero-cta-label--long {
     display: none;
