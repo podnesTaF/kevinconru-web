@@ -827,8 +827,19 @@ html.anim-ready [data-reveal].is-inview {
   margin-bottom: clamp(56px, 12vh, 128px);
 }
 .hero--cover .hero-type {
+  position: relative;
+  isolation: isolate;
   padding-bottom: 0;
   gap: clamp(14px, 2.2vh, 22px);
+}
+.hero--cover .hero-type::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -18px -20px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  pointer-events: none;
 }
 @media (min-width: 900px) {
   .hero--cover .hero-type {
