@@ -40,14 +40,12 @@ export const adminGetSettings = () => db.siteSettings.findUnique({ where: { id: 
 export const adminListMedia = () => db.media.findMany({ orderBy: { createdAt: "desc" } });
 
 export async function adminDashboardCounts() {
-  const [publications, films, press, exhibitions, timeline, affiliations, media] = await Promise.all([
-    db.publication.count(),
-    db.film.count(),
-    db.pressItem.count(),
-    db.exhibition.count(),
-    db.timelineEntry.count(),
-    db.affiliation.count(),
-    db.media.count(),
-  ]);
+  const publications = await db.publication.count();
+  const films = await db.film.count();
+  const press = await db.pressItem.count();
+  const exhibitions = await db.exhibition.count();
+  const timeline = await db.timelineEntry.count();
+  const affiliations = await db.affiliation.count();
+  const media = await db.media.count();
   return { publications, films, press, exhibitions, timeline, affiliations, media };
 }

@@ -42,8 +42,8 @@ function isTransient(e: unknown): boolean {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-// Backoff covers Neon's wake-up (~1–3s): attempt, +1s, +2s.
-const RETRY_DELAYS_MS = [1000, 2000];
+// Backoff covers Neon's wake-up (~1–6s): attempt, +1s, +2s, +3s.
+const RETRY_DELAYS_MS = [1000, 2000, 3000];
 
 function makeClient() {
   return new PrismaClient({ adapter }).$extends({

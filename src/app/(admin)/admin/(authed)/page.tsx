@@ -13,7 +13,22 @@ const CARDS = [
 ] as const;
 
 export default async function AdminDashboard() {
-  const counts = await adminDashboardCounts();
+  let counts: Awaited<ReturnType<typeof adminDashboardCounts>> | null = null;
+  try {
+    counts = await adminDashboardCounts();
+  } catch {
+    counts = null;
+  }
+  if (!counts) {
+    return (
+      <div className="mx-auto max-w-md py-16 text-center">
+        <h1 className="text-xl font-semibold">Database is waking up</h1>
+        <p className="mt-3 text-sm text-muted">
+          Neon may have been idle. Wait a few seconds and refresh the page.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>
